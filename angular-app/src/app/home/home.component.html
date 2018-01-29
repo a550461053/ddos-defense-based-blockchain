@@ -1,0 +1,335 @@
+
+
+<div class="container">
+  <div class="row">
+      <!--h1 class="heading">decentralized energy </h1-->
+     <h1 class="heading">Welcome to IoT-DDoS Defense using Hyperledger</h1>
+  </div>
+
+  <div class="row">
+    <br>
+  </div>
+
+  <div class="row bodytext">
+      <!--h3>Welcome to Decentralized Energy using Hyperledger Composer!</h3-->
+      <div class="col-md-12">
+        <p class="">  </p>
+     <!--   <p class=""> Find more detail <a [routerLink]="['/About']" > about the application. </a> </p>-->
+
+      </div>
+    </div>
+
+  <div class="row">
+    <br>
+  </div>
+
+  <div class="row">
+    <h4> Step1 - Create and Update Participants </h4>
+  </div>
+    <!-- div class="col-md-9" -->
+    <div class="row">
+    <!-- /div -->
+    <div class="participant col-md-4">
+      <p> <strong>Residents</strong> own three assets: AbnormalConn, Coins and Cash.</p>
+      <a [routerLink]="['/Resident']" class=participantButton>Residents</a>
+    </div>
+
+    <div class="participant col-md-4">
+      <p> <strong>Banks</strong> on the network own two assets: Cash and Coins. </p>
+      <a [routerLink]="['/Bank']" class="participantButton">Banks</a>
+    </div>
+
+    <div class="participant col-md-4">
+      <p> <strong>Target Companies</strong> own two assets: AbnormalConn and Coins. </p>
+      <a [routerLink]="['/Utility']" class="participantButton">Target Companies</a>
+    </div>
+
+  </div>
+</div>
+
+  <!-- <div class="row">
+    <h4> Step2 - Execute Transactions </h4>
+  </div>
+
+  <div class="row">
+
+    <div class="participant col-md-4">
+      <p> Execute a transaction between Residents by exchanging Coins for Energy </p>
+      <a [routerLink]="['/TransactionRR']" class=participantButton>Resident to Resident</a>
+    </div>
+
+    <div class="participant col-md-4">
+      <p> Execute a transaction between a Resident and a Bank by exchanging Coins for Cash </p>
+      <a [routerLink]="['/TransactionRB']" class="participantButton">Resident to Bank</a>
+    </div>
+
+    <div class="participant col-md-4">
+      <p> Execute a transaction between a Resident and a Utility Company by exchanging Coins for Energy </p>
+      <a [routerLink]="['/TransactionRU']" class="participantButton">Resident to Utility</a>
+    </div>
+
+  </div> -->
+
+  <!-- <div class="row">
+    <br>
+  </div>
+  <div class="row">
+    <br>
+  </div> -->
+
+
+
+
+<!-- for Transactions -->
+    <!-- <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+  		<strong>Error:</strong> {{errorMessage}}
+  	</div>
+
+    <div class="row">
+        <h2> 交易信息 </h2>
+    </div> -->
+
+    <!-- <div class="row">
+      <br>
+    </div>
+
+    <div *ngIf="performedTransactions.length == 0 && systemTransactions.length == 0" class="row">
+        <h4>No transactions</h4>
+    </div> -->
+
+    <!-- <div *ngIf="performedTransactions.length > 0" class="row" >
+      <h4>Performed Transactions</h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th> Transaction Type </th>
+            <th> Transaction ID </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of performedTransactions; let i=index;">
+            <td *ngIf="i >= (performedTransactions.length - 5)">
+              {{transaction.transactionType}}
+            </td>
+            <td *ngIf="i >= (performedTransactions.length - 5)">
+              {{transaction.transactionId}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="row">
+      <br>
+      <br>
+    </div>
+
+    <div *ngIf="systemTransactions.length > 0" class="row">
+      <h4>System Transactions</h4>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th> Transaction Type </th>
+            <th> Transaction ID </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of systemTransactions; let i=index;">
+            <td *ngIf="i >= (systemTransactions.length - 5)">
+              {{transaction.transactionType}}
+            </td>
+            <td *ngIf="i >= (systemTransactions.length - 5)">
+              {{transaction.transactionId}}
+            </td>
+
+
+          </tr>
+        </tbody>
+      </table>
+
+      p *ngFor="let transaction of allTransactions">{{transaction.transactionId}}</p
+    </div> -->
+
+    <!-- <div class="row">
+      <br>
+      <br>
+    </div> -->
+
+
+<!-- for Energy -->
+
+<div class="modal fade" id="addAssetModal" tabindex="-1" role="dialog" aria-labelledby="addAssetModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="false">&times;</span></button>
+        <h4 class="modal-title" id="addAssetModalLabel">Add Asset</h4>
+      </div>
+      <form [formGroup]="myForm">
+        <div class="modal-body">
+
+            <div class="form-group text-left">
+              <label for="energyID">energyID</label>
+                <input formControlName="energyID" type="text" class="form-control">
+            </div>
+
+            <div class="form-group text-left">
+              <label for="units">units</label>
+                <input formControlName="units" type="text" class="form-control">
+            </div>
+
+            <div class="form-group text-left">
+              <label for="value">value</label>
+                <input formControlName="value" type="number" step='any' class="form-control">
+            </div>
+
+            <div class="form-group text-left">
+              <label for="ownerID">ownerID</label>
+                <input formControlName="ownerID" type="text" class="form-control">
+            </div>
+
+            <div class="form-group text-left">
+              <label for="ownerEntity">ownerEntity</label>
+                  <textarea formControlName="ownerEntity" class="form-control" rows="3"></textarea>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button (click)="addAsset(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+
+
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="modal-footer">
+  <button (click)="addDDoS(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div> -->
+
+
+<div class="modal fade" id="updateAssetModal" tabindex="-1" role="dialog" aria-labelledby="updateAssetModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="false">&times;</span></button>
+        <h4 class="modal-title" id="updateAssetModalLabel">Update Asset</h4>
+      </div>
+      <form [formGroup]="myForm">
+        <div class="modal-body">
+
+            <div class="form-group text-left">
+              <label for="energyID">energyID</label>
+                <input [ngModel]="energyID"formControlName="energyID" type="text" class="form-control">
+            </div>
+
+            <div class="form-group text-left">
+              <label for="units">units</label>
+                <input [ngModel]="units"formControlName="units" type="text" class="form-control">
+            </div>
+
+            <div class="form-group text-left">
+              <label for="value">value</label>
+                <input [ngModel]="value" formControlName="value" type="number" step='any' class="form-control">
+            </div>
+
+            <div class="form-group text-left">
+              <label for="ownerID">ownerID</label>
+                <input [ngModel]="ownerID"formControlName="ownerID" type="text" class="form-control">
+            </div>
+
+            <div class="form-group text-left">
+              <label for="ownerEntity">ownerEntity</label>
+                  <textarea [ngModel]="ownerEntity" formControlName="ownerEntity" class="form-control" rows="3"></textarea>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button (click)="updateAsset(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="deleteAssetModal" tabindex="-1" role="dialog" aria-labelledby="deleteAssetModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="deleteAssetModalLabel">Delete Asset</h4>
+      </div>
+      <form [formGroup]="myForm" (ngSubmit)="deleteAsset()">
+        <div class="modal-body">
+          Are you sure you want to delete this asset?
+        </div>
+        <div class="modal-footer">
+          <button (click)="deleteAsset()" type="submit" class="btn btn-danger" data-dismiss="modal">Yes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        </div>
+
+        <div class="modal-footer">
+          <button (click)="deleteAsset()" type="submit" class="btn btn-danger" data-dismiss="modal">Yes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+	<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+		<strong>Error:</strong> {{errorMessage}}
+	</div>
+  <!-- <h1 id='assetName'>AbnormalConn Assets</h1> -->
+  <div class="row">
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered table-responsive table-hover">
+        <!-- <thead class="thead">
+          <tr class="thead-cols">
+
+                <th class="bc">AbnormalConn ID</th>
+
+                <th class="bc">Owner ID</th>
+
+                <th class="bc">Owner Entity</th>
+
+                <th class="bc">Object ID</th>
+
+                <th class="bc">Time Stamp</th>
+
+          </tr>
+        </thead> -->
+        <tbody>
+          <tr *ngFor="let asset of allAssets">
+
+                <!-- <td>{{asset.energyID}}</td>
+
+                <td>{{asset.ownerID}}</td>
+
+                <td>{{asset.ownerEntity}}</td>
+
+                <td>{{asset.units}}</td>
+
+                <td>{{asset.value}}</td> -->
+                {{asset.ownerID}} commit {{asset.energyID}}, object is:{{asset.units}}, time:{{asset.value}}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
