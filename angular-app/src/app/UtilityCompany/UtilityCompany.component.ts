@@ -20,23 +20,23 @@ export class UtilityCompanyComponent {
 
   private coins;
   private energy;
-  
+
       utilityID = new FormControl("", Validators.required);
       name = new FormControl("", Validators.required);
       coinsValue = new FormControl("", Validators.required);
       energyValue = new FormControl("", Validators.required);
       energyUnits = new FormControl("", Validators.required);
-      
+
   constructor(private serviceUtilityCompany:UtilityCompanyService, fb: FormBuilder) {
     this.myForm = fb.group({
-         
+
           utilityID:this.utilityID,
-          name:this.name,      
+          name:this.name,
 
           coinsValue:this.coinsValue,
           energyValue:this.energyValue,
           energyUnits:this.energyUnits,
-          
+
     });
   };
 
@@ -44,12 +44,12 @@ export class UtilityCompanyComponent {
     this.loadAll();
   }
 
-  
+
 
   resetForm(): void{
-    this.myForm.setValue({           
-          "utilityID":null, 
-          "name":null,                 
+    this.myForm.setValue({
+          "utilityID":null,
+          "name":null,
 
           "coinsValue":null,
           "energyValue":null,
@@ -59,11 +59,11 @@ export class UtilityCompanyComponent {
 
   //allow update name of Utility Company
   updateUtilityCompany(form: any): Promise<any> {
-    
+
     console.log("update check");
     this.utilityCompany = {
-      $class: "org.decentralized.energy.network.UtilityCompany",          
-            "name":this.name.value,                    
+      $class: "org.decentralized.energy.network.UtilityCompany",
+            "name":this.name.value,
 
              "coins": "resource:org.decentralized.energy.network.Coins#CO_" + form.get("utilityID").value,
              "energy": "resource:org.decentralized.energy.network.Energy#EN_" + form.get("utilityID").value
@@ -101,9 +101,9 @@ export class UtilityCompanyComponent {
           this.serviceUtilityCompany.deleteEnergy("EN_"+this.currentId)
           .toPromise()
           .then(() => {
-              console.log("Deleted")              
+              console.log("Deleted")
           });
-      });            
+      });
 		})
 		.catch((error) => {
             if(error == 'Server error'){
@@ -128,13 +128,13 @@ export class UtilityCompanyComponent {
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
-      let formObject = {        
-            "utilityID":null,          
-            "name":null,          
+      let formObject = {
+            "utilityID":null,
+            "name":null,
 
-            "coinsValue":null,          
-            "energyValue":null,          
-            "energyUnits":null                               
+            "coinsValue":null,
+            "energyValue":null,
+            "energyUnits":null
       };
 
         if(result.utilityID){
@@ -142,12 +142,12 @@ export class UtilityCompanyComponent {
         }else{
           formObject.utilityID = null;
         }
-      
+
         if(result.name){
           formObject.name = result.name;
         }else{
           formObject.name = null;
-        }      
+        }
 
       this.myForm.setValue(formObject);
 
@@ -191,9 +191,9 @@ export class UtilityCompanyComponent {
     });
   }
 
-  //load all Utility Companies and the coins and energy assets associated to it 
+  //load all Utility Companies and the coins and energy assets associated to it
   loadAll(): Promise<any>  {
-    
+
     //retrieve all utilityCompanys
     let utilityCompanyList = [];
     return this.serviceUtilityCompany.getAllUtilityCompanys()
@@ -202,7 +202,7 @@ export class UtilityCompanyComponent {
 			this.errorMessage = null;
       result.forEach(utilityCompany => {
         utilityCompanyList.push(utilityCompany);
-      });     
+      });
     })
     .then(() => {
 
@@ -210,7 +210,7 @@ export class UtilityCompanyComponent {
         console.log("in for loop")
         console.log(utilityCompany.coins)
 
-        var splitted_coinsID = utilityCompany.coins.split("#", 2); 
+        var splitted_coinsID = utilityCompany.coins.split("#", 2);
         var coinsID = String(splitted_coinsID[1]);
         this.serviceUtilityCompany.getCoins(coinsID)
         .toPromise()
@@ -221,21 +221,21 @@ export class UtilityCompanyComponent {
           }
         });
 
-        var splitted_energyID = utilityCompany.energy.split("#", 2); 
-        var energyID = String(splitted_energyID[1]);
-        console.log(energyID);
-        this.serviceUtilityCompany.getEnergy(energyID)
-        .toPromise()
-        .then((result) => {
-          this.errorMessage = null;
-          if(result.value){
-            utilityCompany.energyValue = result.value;
-          }
-          if(result.units){
-            utilityCompany.energyUnits = result.units;
-          }
-        });
-        
+        // var splitted_energyID = utilityCompany.energy.split("#", 2);
+        // var energyID = String(splitted_energyID[1]);
+        // console.log(energyID);
+        // this.serviceUtilityCompany.getEnergy(energyID)
+        // .toPromise()
+        // .then((result) => {
+        //   this.errorMessage = null;
+        //   if(result.value){
+        //     utilityCompany.energyValue = result.value;
+        //   }
+        //   if(result.units){
+        //     utilityCompany.energyUnits = result.units;
+        //   }
+        // });
+
       }
       this.allUtilityCompanys = utilityCompanyList;
     });
@@ -246,13 +246,13 @@ export class UtilityCompanyComponent {
   addUtilityCompany(form: any): Promise<any> {
 
     return this.createAssetsUtility()
-      .then(() => {           
+      .then(() => {
         this.errorMessage = null;
         this.myForm.setValue({
             "utilityID":null,
             "name":null,
             "coinsValue":null,
-            "energyValue":null,          
+            "energyValue":null,
             "energyUnits":null
         });
       })
@@ -279,16 +279,16 @@ export class UtilityCompanyComponent {
           "ownerID":this.utilityID.value,
           "ownerEntity":'UtilityCompany'
     };
-    
+
     this.energy = {
       $class: "org.decentralized.energy.network.Energy",
           "energyID":"EN_" + this.utilityID.value,
           "units":this.energyUnits.value,
           "value":this.energyValue.value,
           "ownerID":this.utilityID.value,
-          "ownerEntity":'UtilityCompany'        
+          "ownerEntity":'UtilityCompany'
     };
-    
+
     this.utilityCompany = {
       $class: "org.decentralized.energy.network.UtilityCompany",
           "utilityID":this.utilityID.value,
@@ -296,31 +296,26 @@ export class UtilityCompanyComponent {
 
           "coins":"CO_" + this.utilityID.value,
           "energy":"EN_" + this.utilityID.value,
-    };    
+    };
 
     return this.serviceUtilityCompany.addCoins(this.coins)
     .toPromise()
 		.then(() => {
-      console.log("create energy");
-			this.serviceUtilityCompany.addEnergy(this.energy)      
-      .toPromise()
-      .then(() => {
+      // console.log("create energy");
+			// this.serviceUtilityCompany.addEnergy(this.energy)
+      // .toPromise()
+      // .then(() => {
         console.log("create utilityCompanys");
         this.serviceUtilityCompany.addUtilityCompany(this.utilityCompany)
         .toPromise()
         .then(() => {
-          console.log("created assets");  
-          location.reload();                  
+          console.log("created assets");
+          location.reload();
         })
-		  })   
+		  // })
 		})
 
   }
 
- 
+
 }
-
-
-
-
-

@@ -249,20 +249,20 @@ export class ResidentComponent {
           }
         });
 
-        var splitted_energyID = resident.energy.split("#", 2);
-        var energyID = String(splitted_energyID[1]);
-        console.log(energyID);
-        this.serviceResident.getEnergy(energyID)
-        .toPromise()
-        .then((result) => {
-          this.errorMessage = null;
-          if(result.value){
-            resident.energyValue = result.value;
-          }
-          if(result.units){
-            resident.energyUnits = result.units;
-          }
-        });
+        // var splitted_energyID = resident.energy.split("#", 2);
+        // var energyID = String(splitted_energyID[1]);
+        // console.log(energyID);
+        // this.serviceResident.getEnergy(energyID)
+        // .toPromise()
+        // .then((result) => {
+        //   this.errorMessage = null;
+        //   if(result.value){
+        //     resident.energyValue = result.value;
+        //   }
+        //   if(result.units){
+        //     resident.energyUnits = result.units;
+        //   }
+        // });
 
         var splitted_cashID = resident.cash.split("#", 2);
         var cashID = String(splitted_cashID[1]);
@@ -359,10 +359,10 @@ export class ResidentComponent {
     return this.serviceResident.addCoins(this.coins)
     .toPromise()
 		.then(() => {
-      console.log("create energy");
-			this.serviceResident.addEnergy(this.energy)
-      .toPromise()
-		  .then(() => {
+      // console.log("create energy");
+			// this.serviceResident.addEnergy(this.energy)
+      // .toPromise()
+		  // .then(() => {
         console.log("create cash");
         this.serviceResident.addCash(this.cash)
         .toPromise()
@@ -375,7 +375,7 @@ export class ResidentComponent {
            location.reload();
             });
         });
-		  });
+		  // });
 		});
   }
 }
