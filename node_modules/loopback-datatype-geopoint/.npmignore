@@ -1,0 +1,11 @@
+.*tgz
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.swp
+*.swo
+*.iml
+node_modules

@@ -1,0 +1,6 @@
+namespace com.hyperledger.testing
+
+transaction ContainsBadRelationship  {
+    
+    --> String bad
+}
