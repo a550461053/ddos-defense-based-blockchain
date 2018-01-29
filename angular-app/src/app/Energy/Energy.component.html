@@ -1,3 +1,49 @@
+<div class="modal fade" id="addResidentModal" tabindex="-1" role="dialog" aria-labelledby="addResidentModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addResidentModalLabel">Add</h4>
+      </div>
+      <form [formGroup]="myForm">
+        <div class="modal-body">
+            <div class="form-group text-left">
+              <label for="residentID">ID</label>
+                <input formControlName="energyID" type="text" class="form-control">
+                </div>      
+            <div class="form-group text-left">
+              <label for="firstName">submitterID</label>  
+                <input formControlName="ownerID" type="text" class="form-control">          
+            </div>
+            <div class="form-group text-left">
+              <label for="ownerEntity">submitterEntity</label>
+                  <textarea formControlName="ownerEntity" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="form-group text-left">
+              <label for="lastName">TargetIP</label>  
+                <input formControlName="units" type="text" class="form-control">          
+            </div>
+
+            <div class="form-group text-left">
+              <label for="coinsValue">Time</label>  
+                <input formControlName="value" type="text" class="form-control">          
+            </div>
+
+                
+        </div>
+        <div class="modal-footer">
+          <button (click)="addAsset(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 <div class="modal fade" id="addAssetModal" tabindex="-1" role="dialog" aria-labelledby="addAssetModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -10,46 +56,40 @@
 
             <div class="form-group text-left">
               <label for="energyID">energyID</label>
-                <input formControlName="energyID" type="text" class="form-control">
+                <input formControlName="energyID" type="text" class="form-control">              
             </div>
-
+          
             <div class="form-group text-left">
               <label for="units">units</label>
-                <input formControlName="units" type="text" class="form-control">
+                <input formControlName="units" type="text" class="form-control">              
             </div>
-
+          
             <div class="form-group text-left">
               <label for="value">value</label>
-                <input formControlName="value" type="number" step='any' class="form-control">
+                <input formControlName="value" type="number" step='any' class="form-control">              
             </div>
-
+          
             <div class="form-group text-left">
               <label for="ownerID">ownerID</label>
-                <input formControlName="ownerID" type="text" class="form-control">
+                <input formControlName="ownerID" type="text" class="form-control">              
             </div>
-
+          
             <div class="form-group text-left">
               <label for="ownerEntity">ownerEntity</label>
                   <textarea formControlName="ownerEntity" class="form-control" rows="3"></textarea>
             </div>
-
+          
         </div>
         <div class="modal-footer">
           <button (click)="addAsset(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
-
-
-
       </form>
     </div>
   </div>
 </div>
 
-<div class="modal-footer">
-  <button (click)="addDDoS(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
-  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-</div>
+
 
 <div class="modal fade" id="updateAssetModal" tabindex="-1" role="dialog" aria-labelledby="updateAssetModalLabel">
   <div class="modal-dialog" role="document">
@@ -63,29 +103,29 @@
 
             <div class="form-group text-left">
               <label for="energyID">energyID</label>
-                <input [ngModel]="energyID"formControlName="energyID" type="text" class="form-control">
+                <input [ngModel]="energyID"formControlName="energyID" type="text" class="form-control">              
             </div>
-
+          
             <div class="form-group text-left">
               <label for="units">units</label>
-                <input [ngModel]="units"formControlName="units" type="text" class="form-control">
+                <input [ngModel]="units"formControlName="units" type="text" class="form-control">              
             </div>
-
+          
             <div class="form-group text-left">
               <label for="value">value</label>
-                <input [ngModel]="value" formControlName="value" type="number" step='any' class="form-control">
+                <input [ngModel]="value" formControlName="value" type="number" step='any' class="form-control">              
             </div>
-
+          
             <div class="form-group text-left">
               <label for="ownerID">ownerID</label>
-                <input [ngModel]="ownerID"formControlName="ownerID" type="text" class="form-control">
+                <input [ngModel]="ownerID"formControlName="ownerID" type="text" class="form-control">            
             </div>
-
+          
             <div class="form-group text-left">
               <label for="ownerEntity">ownerEntity</label>
-                  <textarea [ngModel]="ownerEntity" formControlName="ownerEntity" class="form-control" rows="3"></textarea>
+                  <textarea [ngModel]="ownerEntity" formControlName="ownerEntity" class="form-control" rows="3"></textarea>            
             </div>
-
+          
         </div>
         <div class="modal-footer">
           <button (click)="updateAsset(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
@@ -112,12 +152,6 @@
           <button (click)="deleteAsset()" type="submit" class="btn btn-danger" data-dismiss="modal">Yes</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
         </div>
-
-        <div class="modal-footer">
-          <button (click)="deleteAsset()" type="submit" class="btn btn-danger" data-dismiss="modal">Yes</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-        </div>
-
       </form>
     </div>
   </div>
@@ -128,8 +162,15 @@
 	<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
 		<strong>Error:</strong> {{errorMessage}}
 	</div>
-  <h1 id='assetName'>AbnormalConn</h1>
-  <div class="row">
+  <h1 id='assetName'></h1>
+  <div class="row">  
+  </div>
+  <br>
+
+ <div class="row">
+    <div class="col-md-12 text-right">
+      <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addResidentModal">Add</button>
+    </div>
   </div>
   <br>
   <div class="row">
@@ -137,32 +178,32 @@
       <table class="table table-bordered table-responsive table-hover">
         <thead class="thead">
           <tr class="thead-cols">
+            
+                <th class="bc">ID</th>
 
-                <th class="bc">AbnormalConn ID</th>
-
-                <th class="bc">Owner ID</th>
-
-                <th class="bc">Owner Entity</th>
-
-                <th class="bc">Target IP</th>
-
-                <th class="bc">Time Stamp</th>
+                <th class="bc">submitter ID</th>
+            
+              <!--  <th class="bc">Owner Entity</th> -->
+            
+                <th class="bc">TargetIP</th>
+            
+                <th class="bc">Time</th>
 
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let asset of allAssets">
-
+            
                 <td>{{asset.energyID}}</td>
 
                 <td>{{asset.ownerID}}</td>
-
-                <td>{{asset.ownerEntity}}</td>
-
+            
+           <!--     <td>{{asset.ownerEntity}}</td> -->
+            
                 <td>{{asset.units}}</td>
-
+            
                 <td>{{asset.value}}</td>
-
+                                    
           </tr>
         </tbody>
       </table>
