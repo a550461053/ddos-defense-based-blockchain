@@ -36,7 +36,7 @@ export class TransactionRRService {
     public getCoins(id: any): Observable<Coins> {
       return this.coinsService.getSingle(this.COINS, id);
     }
-   
+
     //create Energy to Coins transaction
     public energyToCoins(itemToAdd: any): Observable<EnergyToCoins> {
       return this.energyToCoinsService.add(this.ENERGY_TO_COINS, itemToAdd);

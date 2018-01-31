@@ -7,6 +7,7 @@ import { AboutComponent } from './about/about.component';
 import { CoinsComponent } from './Coins/Coins.component';
 import { EnergyComponent } from './Energy/Energy.component';
 import { CashComponent } from './Cash/Cash.component';
+import { DDoSComponent } from './DDoS/DDoS.component';
 
 import { ResidentComponent } from './Resident/Resident.component';
 import { BankComponent } from './Bank/Bank.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
 		{ path: 'Coins', component: CoinsComponent},
 		{ path: 'Energy', component: EnergyComponent},
 		{ path: 'Cash', component: CashComponent},
+    { path: 'DDoS', component: DDoSComponent},
 
     { path: 'Resident', component: ResidentComponent},
     { path: 'Bank', component: BankComponent},

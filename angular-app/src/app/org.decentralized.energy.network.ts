@@ -10,6 +10,7 @@ import {Event} from './org.hyperledger.composer.system';
       coins: Coins;
       cash: Cash;
       energy: Energy;
+      ddos: DDoS;
    }
    export class Bank extends Participant {
       bankID: string;
@@ -40,10 +41,18 @@ import {Event} from './org.hyperledger.composer.system';
       value: number;
       ownerID: string;
       ownerEntity: OwnerEntity;
+      description: string;
    }
    export class Cash extends Asset {
       cashID: string;
       currency: string;
+      value: number;
+      ownerID: string;
+      ownerEntity: OwnerEntity;
+   }
+   export class DDoS extends Asset {
+      ddosID: string;
+      units: string;
       value: number;
       ownerID: string;
       ownerEntity: OwnerEntity;
@@ -63,5 +72,13 @@ import {Event} from './org.hyperledger.composer.system';
       coinsDec: Coins;
       cashInc: Cash;
       cashDec: Cash;
-   }   
+   }
+   export class EnergyToDDoS extends Transaction {
+      energyRate: number;
+      energyValue: number;
+      ddosInc: DDoS;
+      ddosDec: DDoS;
+      energyInc: Energy;
+      energyDec: Energy;
+   }
 // }
