@@ -16,7 +16,7 @@ export class DDoSComponent implements OnInit {
   private asset;
   private currentId;
 	private errorMessage;
-
+  private energyToDDoSObj;
 
       ddosID = new FormControl("", Validators.required);
       units = new FormControl("", Validators.required);
@@ -34,6 +34,16 @@ export class DDoSComponent implements OnInit {
           ownerEntity:this.ownerEntity
 
     });
+		//transaction object
+		this.energyToDDoSObj = {
+				$class: "org.decentralized.energy.network.EnergyToDDoS",
+				"cashRate": 1,
+				"cashValue": 1,
+				"coinsInc": 1,
+				"coinsDec": 1,
+				"cashInc": 1,
+				"cashDec": 1
+		};
   };
 
   ngOnInit(): void {
@@ -67,7 +77,7 @@ export class DDoSComponent implements OnInit {
   addAsset(form: any): Promise<any> {
 
     this.asset = {
-      $class: "org.decentralized.ddos.network.DDoS",
+      $class: "org.decentralized.energy.network.DDoS",
           "ddosID":this.ddosID.value,
           "units":this.units.value,
           "value":this.value.value,
@@ -231,6 +241,30 @@ location.reload();
           "ownerID":null,
           "ownerEntity":null
       });
+  }
+
+	testDDoS(): void{
+    // this.myForm.setValue({
+    //       "ddosID":null,
+    //       "units":null,
+    //       "value":null,
+    //       "ownerID":null,
+    //       "ownerEntity":null
+    //   });
+
+			// this.serviceDDoS.getAsset(id)
+	    // .toPromise()
+	    // .then((result) => {
+			// 	this.errorMessage = null;
+	    //   let formObject = {
+	    //         "ddosID":null,
+	    //         "units":null,
+	    //         "value":null,
+	    //         "ownerID":null,
+	    //         "ownerEntity":null
+	    //   };
+
+			this.serviceDDoS.energyToDDoS(this.energyToDDoSObj);
   }
 
 }

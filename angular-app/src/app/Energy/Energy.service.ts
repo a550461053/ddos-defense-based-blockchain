@@ -8,9 +8,9 @@ import 'rxjs/Rx';
 @Injectable()
 export class EnergyService {
 
-	
+
 		private NAMESPACE: string = 'Energy';
-	
+
 
 
 

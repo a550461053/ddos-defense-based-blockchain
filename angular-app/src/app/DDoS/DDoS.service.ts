@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs/Observable';
+
 import { DDoS } from '../org.decentralized.energy.network';
+import { Energy } from '../org.decentralized.energy.network';
+import { EnergyToDDoS } from '../org.decentralized.energy.network';
+
 import 'rxjs/Rx';
 
 // Can be injected into a constructor
@@ -11,10 +15,10 @@ export class DDoSService {
 
 		private NAMESPACE: string = 'DDoS';
 
+    private ENERGY_TO_DDOS: string = 'EnergyToDDoS';
 
 
-
-    constructor(private dataService: DataService<DDoS>) {
+    constructor(private dataService: DataService<DDoS>, private energyToDDoSService: DataService<EnergyToDDoS>) {
     };
 
     public getAll(): Observable<DDoS[]> {
@@ -37,4 +41,8 @@ export class DDoSService {
       return this.dataService.delete(this.NAMESPACE, id);
     }
 
+		//create Energy to DDoS transaction
+    public energyToDDoS(itemToAdd: any): Observable<EnergyToDDoS> {
+      return this.energyToDDoSService.add(this.ENERGY_TO_DDOS, itemToAdd);
+    }
 }

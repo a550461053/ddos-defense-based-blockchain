@@ -66,6 +66,9 @@ export class ResidentComponent {
           "energyUnits":null,
           "cashValue":null,
           "cashCurrency":null
+					// ,
+					// "description":null
+
       });
   }
 
@@ -81,7 +84,7 @@ export class ResidentComponent {
              "coins": "resource:org.decentralized.energy.network.Coins#CO_" + form.get("residentID").value,
              "cash": "resource:org.decentralized.energy.network.Cash#CA_" + form.get("residentID").value,
              "energy": "resource:org.decentralized.energy.network.Energy#EN_" + form.get("residentID").value
-    };
+    };																												//EN_
     console.log(this.resident);
     return this.serviceResident.updateResident(form.get("residentID").value,this.resident)
 		.toPromise()
@@ -112,7 +115,7 @@ export class ResidentComponent {
       this.serviceResident.deleteCoins(coinsID)
       .toPromise()
       .then(() => {
-          this.serviceResident.deleteEnergy("EN_"+this.currentId)
+          this.serviceResident.deleteEnergy("EN_"+this.currentId) // EN_
           .toPromise()
           .then(() => {
               this.serviceResident.deleteCash("CA_"+this.currentId)
@@ -249,20 +252,22 @@ export class ResidentComponent {
           }
         });
 
-        // var splitted_energyID = resident.energy.split("#", 2);
-        // var energyID = String(splitted_energyID[1]);
-        // console.log(energyID);
-        // this.serviceResident.getEnergy(energyID)
-        // .toPromise()
-        // .then((result) => {
-        //   this.errorMessage = null;
-        //   if(result.value){
-        //     resident.energyValue = result.value;
-        //   }
-        //   if(result.units){
-        //     resident.energyUnits = result.units;
-        //   }
-        // });
+//注释
+        var splitted_energyID = resident.energy.split("#", 2);
+        var energyID = String(splitted_energyID[1]);
+        console.log(energyID);
+        this.serviceResident.getEnergy(energyID)
+        .toPromise()
+        .then((result) => {
+          this.errorMessage = null;
+          if(result.value){
+            resident.energyValue = result.value;
+          }
+          if(result.units){
+            resident.energyUnits = result.units;
+          }
+        });
+//注释
 
         var splitted_cashID = resident.cash.split("#", 2);
         var cashID = String(splitted_cashID[1]);
@@ -328,11 +333,13 @@ export class ResidentComponent {
 
     this.energy = {
       $class: "org.decentralized.energy.network.Energy",
-          "energyID":"EN_" + this.residentID.value,
+          "energyID":"EN_" + this.residentID.value, //EN_
           "units":this.energyUnits.value,
           "value":this.energyValue.value,
           "ownerID":this.residentID.value,
           "ownerEntity":'Resident'
+					// ,
+					// "description":"0" // 增加description表单完整性
     };
 
     this.cash = {
@@ -352,17 +359,17 @@ export class ResidentComponent {
 
           "coins":"CO_" + this.residentID.value,
           "cash":"CA_" + this.residentID.value,
-          "energy":"EN_" + this.residentID.value,
+          "energy":"EN_" + this.residentID.value, //EN_
 
       };
 
     return this.serviceResident.addCoins(this.coins)
     .toPromise()
 		.then(() => {
-      // console.log("create energy");
-			// this.serviceResident.addEnergy(this.energy)
-      // .toPromise()
-		  // .then(() => {
+      console.log("create energy");//
+			this.serviceResident.addEnergy(this.energy)
+      .toPromise()
+		  .then(() => {//
         console.log("create cash");
         this.serviceResident.addCash(this.cash)
         .toPromise()
@@ -375,7 +382,7 @@ export class ResidentComponent {
            location.reload();
             });
         });
-		  // });
+		  });
 		});
   }
 }

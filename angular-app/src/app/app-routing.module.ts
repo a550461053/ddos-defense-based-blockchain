@@ -16,6 +16,7 @@ import { UtilityCompanyComponent } from './UtilityCompany/UtilityCompany.compone
 import { TransactionRRComponent } from './TransactionRR/TransactionRR.component';
 import { TransactionRUComponent } from './TransactionRU/TransactionRU.component';
 import { TransactionRBComponent } from './TransactionRB/TransactionRB.component';
+import { TransactionDDOSComponent } from './TransactionDDOS/TransactionDDOS.component';
 
 import { AllTransactionsComponent } from './AllTransactions/AllTransactions.component';
 
@@ -37,6 +38,7 @@ const routes: Routes = [
     { path: 'TransactionRR', component: TransactionRRComponent },
     { path: 'TransactionRU', component: TransactionRUComponent },
     { path: 'TransactionRB', component: TransactionRBComponent },
+    { path: 'TransactionDDOS', component: TransactionDDOSComponent },
 
     { path: 'AllTransactions', component: AllTransactionsComponent },
 

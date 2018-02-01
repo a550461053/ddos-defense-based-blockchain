@@ -23,7 +23,7 @@ export class EnergyComponent implements OnInit {
       value = new FormControl("", Validators.required);
       ownerID = new FormControl("", Validators.required);
       ownerEntity = new FormControl("", Validators.required);
-      description = new FormControl("", Validators.required);
+      // description = new FormControl("", Validators.required);
 
 
   constructor(private serviceEnergy:EnergyService, fb: FormBuilder) {
@@ -32,8 +32,9 @@ export class EnergyComponent implements OnInit {
           units:this.units,
           value:this.value,
           ownerID:this.ownerID,
-          ownerEntity:this.ownerEntity,
-          description:this.description
+          ownerEntity:this.ownerEntity
+					// ,
+          // description:this.description
     });
   };
 
@@ -73,8 +74,9 @@ export class EnergyComponent implements OnInit {
           "units":this.units.value,
           "value":this.value.value,
           "ownerID":this.ownerID.value,
-          "ownerEntity":this.ownerEntity.value,
-					"description":this.description.value
+          "ownerEntity":this.ownerEntity.value
+					// ,
+					// "description":this.description.value
     };
 
     this.myForm.setValue({
@@ -82,8 +84,9 @@ export class EnergyComponent implements OnInit {
           "units":null,
           "value":null,
           "ownerID":null,
-          "ownerEntity":null,
-					"description":null
+          "ownerEntity":null
+					// ,
+					// "description":null
     });
 
     return this.serviceEnergy.addAsset(this.asset)
@@ -96,8 +99,9 @@ location.reload();
           "units":null,
           "value":null,
           "ownerID":null,
-          "ownerEntity":null,
-					"description":null
+          "ownerEntity":null
+					// ,
+					// "description":null
 
       });
     })
@@ -119,8 +123,9 @@ location.reload();
             "units":this.units.value,
             "value":this.value.value,
             "ownerID":this.ownerID.value,
-            "ownerEntity":this.ownerEntity.value,
-						"description":this.description.value
+            "ownerEntity":this.ownerEntity.value
+						// ,
+						// "description":this.description.value
     };
 
     return this.serviceEnergy.updateAsset(form.get("energyID").value,this.asset)
@@ -177,8 +182,9 @@ location.reload();
             "units":null,
             "value":null,
             "ownerID":null,
-            "ownerEntity":null,
-						"description":null
+            "ownerEntity":null
+						// ,
+						// "description":null
       };
 
         if(result.energyID){
@@ -211,11 +217,11 @@ location.reload();
           formObject.ownerEntity = null;
         }
 
-				if(result.description){
-          formObject.description = result.description;
-        }else{
-          formObject.description = null;
-        }
+				// if(result.description){
+        //   formObject.description = result.description;
+        // }else{
+        //   formObject.description = null;
+        // }
 
       this.myForm.setValue(formObject);
 
@@ -240,8 +246,9 @@ location.reload();
           "units":null,
           "value":null,
           "ownerID":null,
-          "ownerEntity":null,
-					"description":null
+          "ownerEntity":null
+					// ,
+					// "description":null
       });
   }
 
