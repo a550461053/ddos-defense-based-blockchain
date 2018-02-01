@@ -92,3 +92,8 @@ transaction EnergyToDDoS {
     --> Energy energyInc
     --> Energy energyDec
 }
+
+transaction DistributeCoins {
+    --> Coins coinsInc
+    --> Coins coinsDec
+}

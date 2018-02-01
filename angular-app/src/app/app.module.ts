@@ -25,6 +25,7 @@ import { TransactionRRComponent } from './TransactionRR/TransactionRR.component'
 import { TransactionRUComponent } from './TransactionRU/TransactionRU.component';
 import { TransactionRBComponent } from './TransactionRB/TransactionRB.component';
 import { TransactionDDOSComponent } from './TransactionDDOS/TransactionDDOS.component';
+import { DistributeCoinsComponent } from './DistributeCoins/DistributeCoins.component';
 
 import { AllTransactionsComponent } from './AllTransactions/AllTransactions.component';
 
@@ -38,7 +39,7 @@ import { AllTransactionsComponent } from './AllTransactions/AllTransactions.comp
     TransactionRUComponent,
     TransactionRBComponent,
     TransactionDDOSComponent,
-
+    DistributeCoinsComponent,
     AllTransactionsComponent,
 
     ResidentComponent,
