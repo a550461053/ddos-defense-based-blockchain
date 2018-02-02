@@ -17,7 +17,11 @@ ddos<div class="modal fade" id="addResidentModal" tabindex="-1" role="dialog" ar
             </div>
             <div class="form-group text-left">
               <label for="ownerEntity">submitterEntity</label>
-                  <textarea formControlName="ownerEntity" class="form-control" rows="3"></textarea>
+                <div>
+                <select name="submitterEntity" formControlName="ownerEntity">
+                  <option value="Resident" selected>Resident</option>
+                </select>
+                </div>
             </div>
             <div class="form-group text-left">
               <label for="lastName">TargetIP</label>

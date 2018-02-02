@@ -29,22 +29,6 @@
 
 
             <div class="form-group text-left">
-              <label for="energyValue">Target</label>
-                <input formControlName="energyValue" type="text" class="form-control" value="1" >
-            </div>
-
-            <div class="form-group text-left">
-              <label for="energyUnits">Target address type</label>
-
-              <div>
-                <select name="energyUnits" formControlName="energyUnits">
-                  <option value="IP" selected="selected">IP</option>
-                </select>
-              </div>
-            </div>
-
-
-            <div class="form-group text-left">
               <label for="cashValue">Cash Value</label>
                 <input formControlName="cashValue" type="text" class="form-control">
             </div>
@@ -58,7 +42,6 @@
               </select>
               </div>
             </div>
-
 
         </div>
         <div class="modal-footer">
@@ -128,9 +111,6 @@
 
 
 
-
-
-
 <div class="container">
   <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
 		<strong>Error:</strong> {{errorMessage}}
@@ -161,9 +141,9 @@
                 <th class="bc">Coins Balance</th>
 
 
-                <th class="bc">Energy Value</th>
+                <!-- <th class="bc">Energy Value</th>
 
-                <th class="bc">Energy Units</th>
+                <th class="bc">Energy Units</th> -->
 
 
                 <th class="bc">Cash Balance</th>
@@ -184,9 +164,9 @@
 
                 <td>{{resident.coinsValue}}</td>
 
-                <td>{{resident.energyValue}}</td>
+                <!-- <td>{{resident.energyValue}}</td>
 
-                <td>{{resident.energyUnits}}</td>
+                <td>{{resident.energyUnits}}</td> -->
 
                 <td>{{resident.cashValue}}</td>
 

@@ -253,20 +253,20 @@ export class ResidentComponent {
         });
 
 //注释
-        var splitted_energyID = resident.energy.split("#", 2);
-        var energyID = String(splitted_energyID[1]);
-        console.log(energyID);
-        this.serviceResident.getEnergy(energyID)
-        .toPromise()
-        .then((result) => {
-          this.errorMessage = null;
-          if(result.value){
-            resident.energyValue = result.value;
-          }
-          if(result.units){
-            resident.energyUnits = result.units;
-          }
-        });
+        // var splitted_energyID = resident.energy.split("#", 2);
+        // var energyID = String(splitted_energyID[1]);
+        // console.log(energyID);
+        // this.serviceResident.getEnergy(energyID)
+        // .toPromise()
+        // .then((result) => {
+        //   this.errorMessage = null;
+        //   if(result.value){
+        //     resident.energyValue = result.value;
+        //   }
+        //   if(result.units){
+        //     resident.energyUnits = result.units;
+        //   }
+        // });
 //注释
 
         var splitted_cashID = resident.cash.split("#", 2);
@@ -366,10 +366,10 @@ export class ResidentComponent {
     return this.serviceResident.addCoins(this.coins)
     .toPromise()
 		.then(() => {
-      console.log("create energy");//
-			this.serviceResident.addEnergy(this.energy)
-      .toPromise()
-		  .then(() => {//
+      // console.log("create energy");//
+			// this.serviceResident.addEnergy(this.energy)
+      // .toPromise()
+		  // .then(() => {//
         console.log("create cash");
         this.serviceResident.addCash(this.cash)
         .toPromise()
@@ -382,7 +382,7 @@ export class ResidentComponent {
            location.reload();
             });
         });
-		  });
+		  // });
 		});
   }
 }

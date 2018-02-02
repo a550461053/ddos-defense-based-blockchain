@@ -7,6 +7,8 @@ import { UtilityCompany } from '../org.decentralized.energy.network';
 
 import { DDoS } from '../org.decentralized.energy.network';
 import { Energy } from '../org.decentralized.energy.network';
+import { Cash } from '../org.decentralized.energy.network';
+import { Coins } from '../org.decentralized.energy.network';
 
 import { EnergyToDDoS } from '../org.decentralized.energy.network';
 
@@ -22,7 +24,11 @@ export class TransactionDDOSService {
     private DDOS: string = 'DDoS';
     private ENERGY_TO_DDOS: string = 'EnergyToDDoS';
 
-    constructor(private residentService: DataService<Resident>, private utilityCompanyService: DataService<UtilityCompany>, private coinsService: DataService<DDoS>, private energyService: DataService<Energy>, private energyToDDoSService: DataService<EnergyToDDoS>) {
+    constructor(private residentService: DataService<Resident>,
+			private utilityCompanyService: DataService<UtilityCompany>,
+			private ddosService: DataService<DDoS>,
+			private energyService: DataService<Energy>,
+			private energyToDDoSService: DataService<EnergyToDDoS>) {
     };
 
     //get all Residents
@@ -45,15 +51,22 @@ export class TransactionDDOSService {
     }
     //get DDoS asset
     public getDDoS(id: any): Observable<DDoS> {
-      return this.coinsService.getSingle(this.DDOS, id);
+      return this.ddosService.getSingle(this.DDOS, id);
     }
 		//get all DDoS asset
     public getAllDDoS(): Observable<DDoS[]> {
-      return this.coinsService.getAll(this.DDOS);
+      return this.ddosService.getAll(this.DDOS);
     }
     //create Energy to DDoS transaction
     public energyToDDoS(itemToAdd: any): Observable<EnergyToDDoS> {
       return this.energyToDDoSService.add(this.ENERGY_TO_DDOS, itemToAdd);
+    }
+
+
+		//add ddos functions
+
+    public addDDoS(itemToAdd: any): Observable<DDoS> {
+      return this.ddosService.add(this.DDOS, itemToAdd);
     }
 
 

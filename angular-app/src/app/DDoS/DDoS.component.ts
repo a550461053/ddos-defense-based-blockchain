@@ -78,9 +78,9 @@ export class DDoSComponent implements OnInit {
 
     this.asset = {
       $class: "org.decentralized.energy.network.DDoS",
-          "ddosID":this.ddosID.value,
+          "ddosID":"DDoS_" + this.ddosID.value,
           "units":this.units.value,
-          "value":this.value.value,
+          "value":Date.now(), // this.value.value,
           "ownerID":this.ownerID.value,
           "ownerEntity":this.ownerEntity.value
     };

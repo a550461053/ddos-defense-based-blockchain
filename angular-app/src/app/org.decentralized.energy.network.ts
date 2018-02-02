@@ -41,6 +41,7 @@ import {Event} from './org.hyperledger.composer.system';
       value: number;
       ownerID: string;
       ownerEntity: OwnerEntity;
+      flag: string;
       description: string;
    }
    export class Cash extends Asset {
@@ -74,12 +75,7 @@ import {Event} from './org.hyperledger.composer.system';
       cashDec: Cash;
    }
    export class EnergyToDDoS extends Transaction {
-      energyRate: number;
-      energyValue: number;
-      ddosInc: DDoS;
-      ddosDec: DDoS;
       energyInc: Energy;
-      energyDec: Energy;
    }
    export class DistributeCoins extends Transaction {
       coinsInc: Coins;
