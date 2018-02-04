@@ -23,12 +23,12 @@
     <br>
   </div>
 
-  <div class="row">
+<!--  <div class="row">
     <h4> Step1 - Create and Update Participants </h4>
   </div>
-    <!-- div class="col-md-9" -->
+
     <div class="row">
-    <!-- /div -->
+  
     <div class="participant col-md-4">
       <p> <strong>Residents</strong> own three assets: AbnormalConn, Coins and Cash.</p>
       <a [routerLink]="['/Resident']" class=participantButton>Residents</a>
@@ -44,7 +44,7 @@
       <a [routerLink]="['/Utility']" class="participantButton">Target Companies</a>
     </div>
 
-  </div>
+  </div> -->
 </div>
 
   <!-- <div class="row">
@@ -77,85 +77,6 @@
     <br>
   </div> -->
 
-
-
-
-<!-- for Transactions -->
-    <!-- <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
-  		<strong>Error:</strong> {{errorMessage}}
-  	</div>
-
-    <div class="row">
-        <h2> 交易信息 </h2>
-    </div> -->
-
-    <!-- <div class="row">
-      <br>
-    </div>
-
-    <div *ngIf="performedTransactions.length == 0 && systemTransactions.length == 0" class="row">
-        <h4>No transactions</h4>
-    </div> -->
-
-    <!-- <div *ngIf="performedTransactions.length > 0" class="row" >
-      <h4>Performed Transactions</h4>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th> Transaction Type </th>
-            <th> Transaction ID </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let transaction of performedTransactions; let i=index;">
-            <td *ngIf="i >= (performedTransactions.length - 5)">
-              {{transaction.transactionType}}
-            </td>
-            <td *ngIf="i >= (performedTransactions.length - 5)">
-              {{transaction.transactionId}}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
-
-    <div class="row">
-      <br>
-      <br>
-    </div>
-
-    <div *ngIf="systemTransactions.length > 0" class="row">
-      <h4>System Transactions</h4>
-
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th> Transaction Type </th>
-            <th> Transaction ID </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let transaction of systemTransactions; let i=index;">
-            <td *ngIf="i >= (systemTransactions.length - 5)">
-              {{transaction.transactionType}}
-            </td>
-            <td *ngIf="i >= (systemTransactions.length - 5)">
-              {{transaction.transactionId}}
-            </td>
-
-
-          </tr>
-        </tbody>
-      </table>
-
-      p *ngFor="let transaction of allTransactions">{{transaction.transactionId}}</p
-    </div> -->
-
-    <!-- <div class="row">
-      <br>
-      <br>
-    </div> -->
 
 
 <!-- for Energy -->

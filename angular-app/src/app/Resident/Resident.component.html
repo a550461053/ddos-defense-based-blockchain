@@ -4,12 +4,12 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="addResidentModalLabel">Add Resident</h4>
+        <h4 class="modal-title" id="addResidentModalLabel">Add Gateway</h4>
       </div>
       <form [formGroup]="myForm">
         <div class="modal-body">
             <div class="form-group text-left">
-              <label for="residentID">Resident ID</label>
+              <label for="residentID">Gateway ID</label>
                 <input formControlName="residentID" type="text" class="form-control">
                 </div>
             <div class="form-group text-left">
@@ -117,12 +117,12 @@
 	</div>
   <div class="row">
 
-      <h1 class="heading">Residents </h1>
+      <h1 class="heading">Gateways </h1>
   </div>
 
  <div class="row">
     <div class="col-md-12 text-right">
-      <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addResidentModal">Add Resident</button>
+      <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addResidentModal">Add Gateway</button>
     </div>
   </div>
   <br>

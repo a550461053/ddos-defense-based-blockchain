@@ -48,6 +48,8 @@ asset Energy identified by energyID {
     o Double value
     o String ownerID
     o OwnerEntity ownerEntity
+    o String description
+    o String flag
 }
 
 asset Cash identified by cashID {
@@ -85,12 +87,7 @@ transaction CashToCoins {
 }
 
 transaction EnergyToDDoS {
-    o Double energyRate
-    o Double energyValue
-    --> DDoS ddosInc
-    --> DDoS ddosDec
     --> Energy energyInc
-    --> Energy energyDec
 }
 
 transaction DistributeCoins {

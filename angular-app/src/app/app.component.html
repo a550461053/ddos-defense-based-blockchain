@@ -6,7 +6,7 @@
     </div>
     <ul class="nav navbar-nav navbar-right">
 
-        <li class="dropdown navfontAbout">
+      <!--  <li class="dropdown navfontAbout">
             <a class="dropdown-toggle navfont" data-toggle="dropdown" href="#">Info
               <span class="caret navfont"></span></a>
             <ul class="dropdown-menu">
@@ -14,16 +14,16 @@
               <li><a [routerLink]="['/About']">About</a></li>
               <li><a [routerLink]="['/AllTransactions']">Blockchain</a></li>
             </ul>
-          </li>
+          </li>-->
 
       <li class="dropdown">
         <a class="dropdown-toggle navfont" data-toggle="dropdown" href="#">Participants
           <span class="caret navfont"></span></a>
         <ul class="dropdown-menu">
 
-          <li><a [routerLink]="['/Resident']">Residents</a></li>
-          <li><a [routerLink]="['/Bank']">Banks</a></li>
+          <li><a [routerLink]="['/Resident']">Gateways</a></li>
           <li><a [routerLink]="['/UtilityCompany']">Target Companies</a></li>
+        <!--  <li><a [routerLink]="['/Bank']">Banks</a></li>-->
 
         </ul>
       </li>
@@ -45,21 +45,28 @@
 
 
       <li class="dropdown">
+        <a class="dropdown-toggle navfont" data-toggle="dropdown" href="#">Abnormal Info
+          <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+
+          <li><a [routerLink]="['/Energy']">Abnormal Connections Info</a></li>
+
+          <li><a [routerLink]="['/DDoS']">DDoS Info</a></li>
+
+        </ul>
+      </li>
+
+      <li class="dropdown">
         <a class="dropdown-toggle navfont" data-toggle="dropdown" href="#">Assets
           <span class="caret"></span></a>
         <ul class="dropdown-menu">
 
           <li><a [routerLink]="['/Coins']">Coins</a></li>
 
-          <li><a [routerLink]="['/Energy']">AbnormalConn</a></li>
-
           <li><a [routerLink]="['/Cash']">Cash</a></li>
-
-          <li><a [routerLink]="['/DDoS']">DDoS</a></li>
 
         </ul>
       </li>
-
 
 
     </ul>
