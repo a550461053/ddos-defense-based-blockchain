@@ -235,12 +235,14 @@ export class TransactionDDOSComponent {
 		let up_vecity = 0.000001; // 1s大约对应时间戳1000
 		// 记录最初的时间
     for (var item_units in energy_object_dict){
-			let time = energy_object_dict[item_units][2] - energy_object_dict[item_units][1];
-			console.log(time);
-      if (energy_object_dict[item_units][0] / time > up_vecity){
-        console.log(item_units + ":" + energy_object_dict[item_units]);
-				ip_list.push(item_units);
-      }
+				let time = energy_object_dict[item_units][2] - energy_object_dict[item_units][1];
+				console.log(time);
+				if (energy_object_dict[item_units][0] > 1){
+						if (energy_object_dict[item_units][0] / time > up_vecity){
+							console.log(item_units + ":" + energy_object_dict[item_units]);
+							ip_list.push(item_units);
+						}
+				}
     }
 
 		// 5. 找出所有满足要求的目标ip对应的energy条目 -> 用来执行交易，也就是变换该energy的units
