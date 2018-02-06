@@ -185,9 +185,9 @@ export class TransactionDDOSComponent {
   //execute transaction
   async execute(form: any): Promise<any> {
 
-    console.log(this.allResidents)
-    console.log(this.allUtilityCompanys)
-		console.log(this.allEnergy)
+    // console.log(this.allResidents)
+    // console.log(this.allUtilityCompanys)
+		// console.log(this.allEnergy)
 
     //	1. get resident
     for (let resident of this.allResidents) {
@@ -206,7 +206,7 @@ export class TransactionDDOSComponent {
       }
     }
 
-    console.log('Action: ' + this.action.value)
+    // console.log('Action: ' + this.action.value)
 
 		// 2. get all energy
 		let energy_list = [];
@@ -229,7 +229,8 @@ export class TransactionDDOSComponent {
 					energy_object_dict[energy_list[index].units][2] = energy_list[index].value;
         }
     }
-
+		console.log('energy_object_dict:');
+		console.log(energy_object_dict);
 		// 4. 找出所有满足要求的目标ip -> 发送的当前到所有的energy的速率的阈值判断
 		let ip_list = [];
 		let up_vecity = 0.000001; // 1s大约对应时间戳1000
@@ -255,6 +256,7 @@ export class TransactionDDOSComponent {
 						energyDec_list.push(item_energy);
 				}
 		}
+		console.log('ip_list:');
 		console.log(ip_list);
 		// if ("IP" == ip_list[0]){
 		// 	console.log('IP == ip_list');
@@ -287,7 +289,7 @@ export class TransactionDDOSComponent {
 		let transactionID_list = [];
 
     // 6. 分别遍历两种类型的energy list,分配不同的交易对象Obj
-		for (let item of energy_list){
+		for (let item of energyInc_list){ // energy_list){
 			//transaction objects
 			this.energyToDDoSObj = {
 				$class: "org.decentralized.energy.network.EnergyToDDoS",
@@ -330,39 +332,39 @@ export class TransactionDDOSComponent {
 			 this.transactionFrom = false;
 		 });
 
-		}
-		// 8. 创建新的DDoS汇总资产
-		// 显示为：目标IP：XXX，存在被 ddos攻击 的威胁
-		// ip_list
-		for (var index=0; index < ip_list.length; index++){
-
-			// 得到所有的DDoS条目，然后添加ID为最新一条ID+1
-			// 因为得到的是执行transactions之前获得的allDDoS，所以需要ID + i+1,；
-			if (this.allDDoS.length < 1){
-				var latest_ddos_id_process = 0;
-			} else {
-				var latest_ddos = this.allDDoS[this.allDDoS.length-1];
-				var latest_ddos_id_process = Number(latest_ddos.ddosID.split('_')[1]);
-			}
-
-			this.ddos = {
-				$class: "org.decentralized.energy.network.DDoS",
-						"ddosID":"DDoS_" + String(latest_ddos_id_process + index + 1),
-						"units":ip_list[index],
-						"value":Date.now(), // 提交的时间
-						"ownerID":this.resident.residentID, // 提交者
-						"ownerEntity":'Resident'
-			};
-				// this.serviceTransaction.addDDoS(this.ddos);
-
-				console.log("create ddos");
-				this.serviceTransaction.addDDoS(this.ddos)
-				.toPromise()
-				.then(() => {
-				 console.log("created assets");
-				 location.reload();
-					});
-		}
+	 };
+		// // 8. 创建新的DDoS汇总资产
+		// // 显示为：目标IP：XXX，存在被 ddos攻击 的威胁
+		// // ip_list
+		// for (var index=0; index < ip_list.length; index++){
+		//
+		// 	// 得到所有的DDoS条目，然后添加ID为最新一条ID+1
+		// 	// 因为得到的是执行transactions之前获得的allDDoS，所以需要ID + i+1,；
+		// 	if (this.allDDoS.length < 1){
+		// 		var latest_ddos_id_process = 0;
+		// 	} else {
+		// 		var latest_ddos = this.allDDoS[this.allDDoS.length-1];
+		// 		var latest_ddos_id_process = Number(latest_ddos.ddosID.split('_')[1]);
+		// 	}
+		//
+		// 	this.ddos = {
+		// 		$class: "org.decentralized.energy.network.DDoS",
+		// 				"ddosID":"DDoS_" + String(latest_ddos_id_process + index + 1),
+		// 				"units":ip_list[index],
+		// 				"value":Date.now(), // 提交的时间
+		// 				"ownerID":this.resident.residentID, // 提交者
+		// 				"ownerEntity":'Resident'
+		// 	};
+		// 		// this.serviceTransaction.addDDoS(this.ddos);
+		//
+		// 		console.log("create ddos");
+		// 		this.serviceTransaction.addDDoS(this.ddos)
+		// 		.toPromise()
+		// 		.then(() => {
+		// 		 console.log("created assets");
+		// 		 location.reload();
+		// 			});
+		// }
 
 		// 9. 发起奖励
 		//

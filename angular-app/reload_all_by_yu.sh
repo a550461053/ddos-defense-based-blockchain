@@ -1,5 +1,6 @@
 cd ../fabric-tools/
 ./stopFabric.sh
+rm ../dist/decentralized-energy-network.bna
 cd ../
 npm install
 cd fabric-tools/
