@@ -65,6 +65,7 @@ asset DDoS identified by ddosID {
     o String units
     o String value
     o String ownerID
+    o String targetID
     o OwnerEntity ownerEntity
 }
 
@@ -87,7 +88,7 @@ transaction CashToCoins {
 }
 
 transaction EnergyToDDoS {
-    --> Energy energyInc
+    --> Resident energyInc
 }
 
 transaction DistributeCoins {
