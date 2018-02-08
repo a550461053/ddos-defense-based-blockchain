@@ -247,7 +247,21 @@
                 <td>{{asset.units}}</td>
 
                 <td>{{asset.value}}</td> -->
-                {{asset.ownerID}} commit {{asset.energyID}}, object is:{{asset.units}}, time:{{asset.value}}
+                用户 {{asset.ownerID}} 提交了一条针对目标 {{asset.units}} 的类型为 {{asset.description}} 的异常
+          </tr>
+          <tr *ngIf=allAssets >基于共享后的异常连接进行分析...</tr>
+          <tr *ngFor="let ddos of allDDoS">
+
+                <!-- <td>{{asset.energyID}}</td>
+
+                <td>{{asset.ownerID}}</td>
+
+                <td>{{asset.ownerEntity}}</td>
+
+                <td>{{asset.units}}</td>
+
+                <td>{{asset.value}}</td> -->
+                用户 {{ddos.ownerID}} 提交了一条针对目标 {{ddos.units}} 的DDoS预警
           </tr>
         </tbody>
       </table>
