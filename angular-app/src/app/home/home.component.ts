@@ -41,6 +41,7 @@ export class HomeComponent implements OnInit {
   private asset;
   private currentId;
 	private errorMessage;
+	private DDoSInfoShow; //什么时候开始显示DDoS分析信息
 
 	// 定时器
 	private timer;
@@ -72,13 +73,13 @@ export class HomeComponent implements OnInit {
 								this.loadAllEnergy();
 								this.loadAllDDoS();
 								// console.log('timer');
-							}, 2000)
+							}, 1000)
 
 	};
 
 
 	ngOnInit(): void {
-
+    this.DDoSInfoShow = false;
 		// this.loadAllTransactions();
 		this.loadAllEnergy();
 		this.loadAllDDoS();
@@ -184,6 +185,8 @@ export class HomeComponent implements OnInit {
 		return this.serviceDDoS.getAll()
 		.toPromise()
 		.then((result) => {
+			if (result.length!=0)
+			this.DDoSInfoShow = true;
 			this.errorMessage = null;
 			result.forEach(ddos => {
 				tempList.push(ddos);
