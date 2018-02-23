@@ -9,7 +9,6 @@ import {Event} from './org.hyperledger.composer.system';
       lastName: string;
       coins: Coins;
       cash: Cash;
-      energy: Energy;
       ddos: DDoS;
    }
    export class Bank extends Participant {

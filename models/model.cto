@@ -9,7 +9,6 @@ participant Resident identified by residentID {
     o String lastName
     --> Coins coins
     --> Cash cash
-    --> Energy energy
 }
 
 participant Bank identified by bankID {
