@@ -97,8 +97,8 @@
             </div>
 
             <div class="form-group text-left">
-              <label for="units">units</label>
-                <input formControlName="units" type="text" class="form-control">
+              <label for="targetIP">targetIP</label>
+                <input formControlName="targetIP" type="text" class="form-control">
             </div>
 
             <div class="form-group text-left">
@@ -152,8 +152,8 @@
             </div>
 
             <div class="form-group text-left">
-              <label for="units">units</label>
-                <input [ngModel]="units"formControlName="units" type="text" class="form-control">
+              <label for="targetIP">targetIP</label>
+                <input [ngModel]="targetIP"formControlName="targetIP" type="text" class="form-control">
             </div>
 
             <div class="form-group text-left">
@@ -235,8 +235,63 @@
 
           </tr>
         </thead> -->
-        <tbody>
-          <tr *ngFor="let asset of allAssets">
+        <tbody  width="100%">
+          <tr>
+            <th width="33%">Gateway提交针对目标IP的异常</th>
+            <th width="33%">Gateway提交针对目标IP的DDoS</th>
+            <th width="33%">TargetCompany提交针对Gateway的奖励</th>
+          </tr>
+
+          <tr>
+              <td>
+                <table width="100%">
+                  <tr>
+                    <th align="center">提交者ID</th>
+                    <th align="center">目标IP</th>
+                    <th align="center">异常类型</th>
+                  </tr>
+
+                  <tr *ngFor="let asset of allAssets">
+                    <td align="center">{{asset.ownerID}}</td>
+                    <td align="center">{{asset.targetIP}}</td>
+                    <td align="center">{{asset.description}}</td>
+                    <!-- Gateway {{asset.ownerID}} 提交了一条针对目标 {{asset.targetIP}} 的类型为 {{asset.description}} 的异常 -->
+                  <tr>
+                </table>
+              </td>
+
+              <td>
+                <table width="100%">
+                  <tr>
+                    <th align="center">提交者ID</th>
+                    <th align="center">目标IP</th>
+                    <th align="center">异常类型</th>
+                  </tr>
+                  <tr *ngFor="let ddos of allDDoS">
+                    <td align="center">{{ddos.ownerID}}</td>
+                    <td align="center">{{ddos.targetIP}}</td>
+                    <td align="center">DDoS</td>
+                    <!-- Gateway {{ddos.ownerID}} 提交了一条针对目标 {{ddos.targetIP}} 的DDoS预警 -->
+                  </tr>
+                </table>
+              </td>
+
+              <td>
+                <table width="100%">
+                  <tr>
+                    <th align="center">奖励发起者ID</th>
+                    <th align="center">奖励对象ID</th>
+                    <th align="center">奖励金额</th>
+                  </tr>
+
+                  <tr *ngFor="let log of allLog">
+                    <td align="center">{{log.ownerID}}</td>
+                    <td align="center">{{log.value}}</td>
+                    <td align="center">1coin</td>
+                    <!-- TargetCompany {{log.ownerID}} 分发1coin奖励给提交者: {{log.value}} -->
+                  </tr>
+                </table>
+              </td>
 
                 <!-- <td>{{asset.energyID}}</td>
 
@@ -244,25 +299,39 @@
 
                 <td>{{asset.ownerEntity}}</td>
 
-                <td>{{asset.units}}</td>
+                <td>{{asset.targetIP}}</td>
 
                 <td>{{asset.value}}</td> -->
-                Gateway {{asset.ownerID}} 提交了一条针对目标 {{asset.units}} 的类型为 {{asset.description}} 的异常
           </tr>
-          <tr *ngIf="DDoSInfoShow" >基于共享后的异常连接进行分析...</tr>
+
+          <!-- <tr *ngIf="DDoSInfoShow" >基于共享后的异常连接进行分析...</tr>
           <tr *ngFor="let ddos of allDDoS">
-
-                <!-- <td>{{asset.energyID}}</td>
-
-                <td>{{asset.ownerID}}</td>
-
-                <td>{{asset.ownerEntity}}</td>
-
-                <td>{{asset.units}}</td>
-
-                <td>{{asset.value}}</td> -->
-                Gateway {{ddos.ownerID}} 提交了一条针对目标 {{ddos.units}} 的DDoS预警
+                Gateway {{ddos.ownerID}} 提交了一条针对目标 {{ddos.targetIP}} 的DDoS预警
           </tr>
+
+          <tr *ngIf="LogInfoShow" >分发奖励...</tr>
+          <tr *ngFor="let log of allLog">
+                TargetCompany {{log.ownerID}} 分发1coin奖励给提交者: {{log.value}}
+          </tr> -->
+<!-- 动态显示奖励交易 方案：
+①遍历所有的交易：可以解析具体的交易函数，但是无法传入参数，因为奖励函数使用的是遍历的方式，没有给定返回值；如果用这种方法就得返回所有的异常提交者，但是只能奖励合约好像没有返回值。
+②给TargetCompany增加属性：当前奖励的对象，也就是异常提交用户，也可以是一个字符串变量，但是好像就不好显示顺序实时结果，只按照遍历TargetCompany的顺序。
+③创建、从而遍历奖励对象：可以是字符串变量，每创建一笔奖励交易，就创建一个奖励对象/奖励说明。
+
+问题：
+①DDoS异常的submitter是Gateway，
+②奖励交易的submitter是TargetCompany，而且是谁提交，就遍历谁的targetIP的energy
+  问题：正常的奖励应该是由系统自动触发的；
+  解决：
+    现在改为了由TargetCompany主动触发，
+      触发之后，异常提交者Gateway才去在本地过滤掉通向该targetIP的流量
+    Gateway提交的异常，
+    Gateway提交的DDoS异常应该是
+
+
+
+-->
+
         </tbody>
       </table>
     </div>

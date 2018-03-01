@@ -21,6 +21,7 @@ participant Bank identified by bankID {
 participant UtilityCompany identified by utilityID {
     o String utilityID
     o String name
+    o String targetIP
     --> Coins coins
     --> Energy energy
 }
@@ -43,7 +44,7 @@ asset Coins identified by coinsID {
 
 asset Energy identified by energyID {
     o String energyID
-    o String units
+    o String targetIP
     o Double value
     o String ownerID
     o OwnerEntity ownerEntity
@@ -61,7 +62,16 @@ asset Cash identified by cashID {
 
 asset DDoS identified by ddosID {
     o String ddosID
-    o String units
+    o String targetIP
+    o String value
+    o String ownerID
+    o String targetID
+    o OwnerEntity ownerEntity
+}
+
+asset Log identified by logID {
+    o String logID
+    o String targetIP
     o String value
     o String ownerID
     o String targetID
@@ -93,4 +103,5 @@ transaction EnergyToDDoS {
 transaction DistributeCoins {
     --> Coins coinsInc
     --> Coins coinsDec
+    --> UtilityCompany targetCompany
 }

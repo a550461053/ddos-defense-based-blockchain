@@ -15,6 +15,20 @@ curl -X POST --header 'Content-Type: application/json' \
           "coinsID": "CO_2", "value": 5,
           "ownerID": "2", "ownerEntity": "Resident"}' \
     'http://localhost:3000/api/Coins'
+# 创建coins3
+curl -X POST --header 'Content-Type: application/json' \
+    --header 'Accept: application/json' \
+    -d '{"$class": "org.decentralized.energy.network.Coins",
+          "coinsID": "CO_3", "value": 5,
+          "ownerID": "3", "ownerEntity": "Resident"}' \
+    'http://localhost:3000/api/Coins'
+# 创建coins12
+curl -X POST --header 'Content-Type: application/json' \
+    --header 'Accept: application/json' \
+    -d '{"$class": "org.decentralized.energy.network.Coins",
+          "coinsID": "CO_12", "value": 500,
+          "ownerID": "12", "ownerEntity": "UtilityCompany"}' \
+    'http://localhost:3000/api/Coins'
 
 # 创建cash1
 curl -X POST --header 'Content-Type: application/json' \
@@ -30,20 +44,34 @@ curl -X POST --header 'Content-Type: application/json' \
           "cashID": "CA_2", "value": 5, "currency": "USD",
           "ownerID": "2", "ownerEntity": "Resident"}' \
     'http://localhost:3000/api/Cash'
+# 创建cash3
+curl -X POST --header 'Content-Type: application/json' \
+    --header 'Accept: application/json' \
+    -d '{"$class": "org.decentralized.energy.network.Cash",
+          "cashID": "CA_3", "value": 5, "currency": "USD",
+          "ownerID": "3", "ownerEntity": "Resident"}' \
+    'http://localhost:3000/api/Cash'
 
 # 创建energy
 curl -X POST --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
     -d '{"$class": "org.decentralized.energy.network.Energy",
-          "energyID": "1", "units": "192.168.0.1", "value": "'"$(date +'%s')"'",
+          "energyID": "1", "targetIP": "192.168.1.1", "value": "'"$(date +'%s')"'",
           "ownerID": "1", "ownerEntity": "Resident","description":"udp","flag":"0"}' \
     'http://localhost:3000/api/Energy'
 
 curl -X POST --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
     -d '{"$class": "org.decentralized.energy.network.Energy",
-          "energyID": "2", "units": "192.168.0.1", "value": "'"$(date +'%s')"'",
+          "energyID": "2", "targetIP": "192.168.1.1", "value": "'"$(date +'%s')"'",
           "ownerID": "2", "ownerEntity": "Resident","description":"udp","flag":"0"}' \
+    'http://localhost:3000/api/Energy'
+
+curl -X POST --header 'Content-Type: application/json' \
+    --header 'Accept: application/json' \
+    -d '{"$class": "org.decentralized.energy.network.Energy",
+          "energyID": "3", "targetIP": "192.168.1.1", "value": "'"$(date +'%s')"'",
+          "ownerID": "3", "ownerEntity": "Resident","description":"udp","flag":"0"}' \
     'http://localhost:3000/api/Energy'
 
 # 创建用户1
@@ -74,8 +102,32 @@ curl -X POST --header 'Content-Type: application/json' \
         }' \
     'http://localhost:3000/api/Resident'
 
+# 创建用户3
+curl -X POST --header 'Content-Type: application/json' \
+    --header 'Accept: application/json' \
+    -d '{
+          "$class": "org.decentralized.energy.network.Resident",
+          "residentID": "3",
+          "firstName": "qwr",
+          "lastName": "qwr",
+          "coins": "resource:org.decentralized.energy.network.Coins#CO_3",
+          "cash": "resource:org.decentralized.energy.network.Cash#CA_3",
+          "energy": "resource:org.decentralized.energy.network.Energy#3"
+        }' \
+    'http://localhost:3000/api/Resident'
+# 创建Target 12
+curl -X POST --header 'Content-Type: application/json' \
+  --header 'Accept: application/json' \
+  -d '{
+   "$class": "org.decentralized.energy.network.UtilityCompany",
+   "utilityID": "12",
+   "name": "test12",
+   "targetIP": "192.168.1.1",
+   "coins": "resource:org.decentralized.energy.network.Coins#CO_12",
+   "energy": "resource:org.decentralized.energy.network.Energy#2"
+ }' \
+ 'http://localhost:3000/api/UtilityCompany'
 
-
-# curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"$class": "org.decentralized.energy.network.Energy", "energyID": "56230", "units": "10", "value": "'"$(date +'%s')"'", "ownerID": "12", "ownerEntity": "Resident","description":"udp","flag":"0"}' 'http://localhost:3000/api/Energy'
+# curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"$class": "org.decentralized.energy.network.Energy", "energyID": "56230", "targetIP": "10", "value": "'"$(date +'%s')"'", "ownerID": "12", "ownerEntity": "Resident","description":"udp","flag":"0"}' 'http://localhost:3000/api/Energy'
 # sleep 10
 #curl -X GET --header 'Accept: application/json' 'http://localhost:3000/api/Energy'

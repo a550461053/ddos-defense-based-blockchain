@@ -32,7 +32,7 @@
 
             <div class="form-group text-left">
               <label for="lastName">TargetIP</label>
-                <input formControlName="units" type="text" class="form-control">
+                <input formControlName="targetIP" type="text" class="form-control">
             </div>
 
             <!-- <div class="form-group text-left">
@@ -77,8 +77,8 @@
             </div>
 
             <div class="form-group text-left">
-              <label for="units">units</label>
-                <input [ngModel]="units"formControlName="units" type="text" class="form-control">
+              <label for="targetIP">targetIP</label>
+                <input [ngModel]="targetIP"formControlName="targetIP" type="text" class="form-control">
             </div>
 
             <div class="form-group text-left">
@@ -149,16 +149,16 @@
       <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addResidentModal">Add1</button>
     </div> -->
 
-   <div class="col-md-12 text-right">
-      <button (click)="resetForm()" type="button" class="btn btn-default" data-toggle="modal" data-target="#addAssetModal">Add2</button>
-    </div>
+   <!-- <div class="col-md-12 text-right">
+      <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAssetModal">Add2</button>
+    </div> -->
 
     <!-- <div class="col-md-12 text-right">
       <button (click)="resetForm()" type="button" class="btn btn-default" data-toggle="modal" data-target="#updateAssetModal">Add3</button>
     </div> -->
 
   </div>
-  <br>
+  <!-- <br> -->
   <div class="row">
     <div class="col-md-12">
       <table class="table table-bordered table-responsive table-hover">
@@ -192,7 +192,7 @@
 
                <!-- <td>{{asset.ownerEntity}}</td> -->
 
-                <td>{{asset.units}}</td>
+                <td>{{asset.targetIP}}</td>
 
                 <td>{{asset.value}}</td>
 

@@ -215,17 +215,17 @@ async execute(form: any): Promise<any> {
 	}
 	// let energy_list = this.allEnergy;
 
-	// 3. counts of each kind of units
-	// 分别记录 [出现相同units的次数，第一次出现的时间，最新一次出现的时间]
+	// 3. counts of each kind of targetIP
+	// 分别记录 [出现相同targetIP的次数，第一次出现的时间，最新一次出现的时间]
 	let energy_object_dict = {};
 	for (var index=0; index < energy_list.length; index++){
-			if (!(energy_list[index].units in energy_object_dict)){
-				// 记录[出现相同units的次数，第一次出现的时间，最新一次出现的时间]
-				energy_object_dict[energy_list[index].units] = [1, energy_list[index].value, energy_list[index].value];
+			if (!(energy_list[index].targetIP in energy_object_dict)){
+				// 记录[出现相同targetIP的次数，第一次出现的时间，最新一次出现的时间]
+				energy_object_dict[energy_list[index].targetIP] = [1, energy_list[index].value, energy_list[index].value];
 			}else{
-				// 更新记录[出现相同units的次数 + 1，第一次出现的时间，最新一次出现的时间]
-				energy_object_dict[energy_list[index].units][0] += 1;
-				energy_object_dict[energy_list[index].units][2] = energy_list[index].value;
+				// 更新记录[出现相同targetIP的次数 + 1，第一次出现的时间，最新一次出现的时间]
+				energy_object_dict[energy_list[index].targetIP][0] += 1;
+				energy_object_dict[energy_list[index].targetIP][2] = energy_list[index].value;
 			}
 	}
 	console.log('energy_object_dict:');
@@ -234,22 +234,22 @@ async execute(form: any): Promise<any> {
 	let ip_list = [];
 	let up_vecity = 0.000001; // 1s大约对应时间戳1000
 	// 记录最初的时间
-	for (var item_units in energy_object_dict){
-			let time = energy_object_dict[item_units][2] - energy_object_dict[item_units][1];
+	for (var item_targetIP in energy_object_dict){
+			let time = energy_object_dict[item_targetIP][2] - energy_object_dict[item_targetIP][1];
 			console.log(time);
-			if (energy_object_dict[item_units][0] > 1){
-					if (energy_object_dict[item_units][0] / time > up_vecity){
-						console.log(item_units + ":" + energy_object_dict[item_units]);
-						ip_list.push(item_units);
+			if (energy_object_dict[item_targetIP][0] > 1){
+					if (energy_object_dict[item_targetIP][0] / time > up_vecity){
+						console.log(item_targetIP + ":" + energy_object_dict[item_targetIP]);
+						ip_list.push(item_targetIP);
 					}
 			}
 	}
 
-	// 5. 找出所有满足要求的目标ip对应的energy条目 -> 用来执行交易，也就是变换该energy的units
+	// 5. 找出所有满足要求的目标ip对应的energy条目 -> 用来执行交易，也就是变换该energy的targetIP
 	let energyInc_list = []; // 增加 flag 为1的energy —— 对应智能合约就是改变flag
 	let energyDec_list = []; // 减少 flag 为0的energy —— 对应智能合约就是不变
-	for (let item_energy of energy_list){  // var in就报错：item_enrery是string型，不含units属性
-			if (ip_list.indexOf(item_energy.units) != -1){  // 不能用in，in只能判断key是否存在。
+	for (let item_energy of energy_list){  // var in就报错：item_enrery是string型，不含targetIP属性
+			if (ip_list.indexOf(item_energy.targetIP) != -1){  // 不能用in，in只能判断key是否存在。
 					energyInc_list.push(item_energy);
 			} else {
 					energyDec_list.push(item_energy);

@@ -1,14 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { DDoSService } from './DDoS.service';
+import { LogService } from './Log.service';
 import 'rxjs/add/operator/toPromise';
 @Component({
-	selector: 'app-DDoS',
-	templateUrl: './DDoS.component.html',
-	styleUrls: ['./DDoS.component.css'],
-  providers: [DDoSService]
+	selector: 'app-Log',
+	templateUrl: './Log.component.html',
+	styleUrls: ['./Log.component.css'],
+  providers: [LogService]
 })
-export class DDoSComponent implements OnInit {
+export class LogComponent implements OnInit {
 
   myForm: FormGroup;
 
@@ -16,18 +16,18 @@ export class DDoSComponent implements OnInit {
   private asset;
   private currentId;
 	private errorMessage;
-  private energyToDDoSObj;
+  private energyToLogObj;
 
-      ddosID = new FormControl("", Validators.required);
+      logID = new FormControl("", Validators.required);
       targetIP = new FormControl("", Validators.required);
       value = new FormControl("", Validators.required);
       ownerID = new FormControl("", Validators.required);
       ownerEntity = new FormControl("", Validators.required);
 
 
-  constructor(private serviceDDoS:DDoSService, fb: FormBuilder) {
+  constructor(private serviceLog:LogService, fb: FormBuilder) {
     this.myForm = fb.group({
-          ddosID:this.ddosID,
+          logID:this.logID,
           targetIP:this.targetIP,
           value:this.value,
           ownerID:this.ownerID,
@@ -35,15 +35,15 @@ export class DDoSComponent implements OnInit {
 
     });
 		//transaction object
-		this.energyToDDoSObj = {
-				$class: "org.decentralized.energy.network.EnergyToDDoS",
-				"cashRate": 1,
-				"cashValue": 1,
-				"coinsInc": 1,
-				"coinsDec": 1,
-				"cashInc": 1,
-				"cashDec": 1
-		};
+		// this.energyToLogObj = {
+		// 		$class: "org.decentralized.energy.network.EnergyToLog",
+		// 		"cashRate": 1,
+		// 		"cashValue": 1,
+		// 		"coinsInc": 1,
+		// 		"coinsDec": 1,
+		// 		"cashInc": 1,
+		// 		"cashDec": 1
+		// };
   };
 
   ngOnInit(): void {
@@ -52,7 +52,7 @@ export class DDoSComponent implements OnInit {
 
   loadAll(): Promise<any> {
     let tempList = [];
-    return this.serviceDDoS.getAll()
+    return this.serviceLog.getAll()
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
@@ -77,8 +77,8 @@ export class DDoSComponent implements OnInit {
   addAsset(form: any): Promise<any> {
 
     this.asset = {
-      $class: "org.decentralized.energy.network.DDoS",
-          "ddosID":"DDoS_" + this.ddosID.value,
+      $class: "org.decentralized.energy.network.Log",
+          "logID":"Log_" + this.logID.value,
           "targetIP":this.targetIP.value,
           "value":Date.now(), // this.value.value,
           "ownerID":this.ownerID.value,
@@ -86,20 +86,20 @@ export class DDoSComponent implements OnInit {
     };
 
     this.myForm.setValue({
-          "ddosID":null,
+          "logID":null,
           "targetIP":null,
           "value":null,
           "ownerID":null,
           "ownerEntity":null
     });
 
-    return this.serviceDDoS.addAsset(this.asset)
+    return this.serviceLog.addAsset(this.asset)
     .toPromise()
     .then(() => {
 			this.errorMessage = null;
 location.reload();
       this.myForm.setValue({
-          "ddosID":null,
+          "logID":null,
           "targetIP":null,
           "value":null,
           "ownerID":null,
@@ -121,14 +121,14 @@ location.reload();
 
    updateAsset(form: any): Promise<any> {
     this.asset = {
-      $class: "org.decentralized.ddos.network.DDoS",
+      $class: "org.decentralized.log.network.Log",
             "targetIP":this.targetIP.value,
             "value":this.value.value,
             "ownerID":this.ownerID.value,
             "ownerEntity":this.ownerEntity.value
     };
 
-    return this.serviceDDoS.updateAsset(form.get("ddosID").value,this.asset)
+    return this.serviceLog.updateAsset(form.get("logID").value,this.asset)
 		.toPromise()
 		.then(() => {
 			this.errorMessage = null;
@@ -149,7 +149,7 @@ location.reload();
 
   deleteAsset(): Promise<any> {
 
-    return this.serviceDDoS.deleteAsset(this.currentId)
+    return this.serviceLog.deleteAsset(this.currentId)
 		.toPromise()
 		.then(() => {
 			this.errorMessage = null;
@@ -173,22 +173,22 @@ location.reload();
 
   getForm(id: any): Promise<any>{
 
-    return this.serviceDDoS.getAsset(id)
+    return this.serviceLog.getAsset(id)
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
       let formObject = {
-            "ddosID":null,
+            "logID":null,
             "targetIP":null,
             "value":null,
             "ownerID":null,
             "ownerEntity":null
       };
 
-        if(result.ddosID){
-          formObject.ddosID = result.ddosID;
+        if(result.logID){
+          formObject.logID = result.logID;
         }else{
-          formObject.ddosID = null;
+          formObject.logID = null;
         }
 
         if(result.targetIP){
@@ -235,7 +235,7 @@ location.reload();
 
   resetForm(): void{
     this.myForm.setValue({
-          "ddosID":null,
+          "logID":null,
           "targetIP":null,
           "value":null,
           "ownerID":null,
@@ -243,28 +243,28 @@ location.reload();
       });
   }
 
-	testDDoS(): void{
+	testLog(): void{
     // this.myForm.setValue({
-    //       "ddosID":null,
+    //       "logID":null,
     //       "targetIP":null,
     //       "value":null,
     //       "ownerID":null,
     //       "ownerEntity":null
     //   });
 
-			// this.serviceDDoS.getAsset(id)
+			// this.serviceLog.getAsset(id)
 	    // .toPromise()
 	    // .then((result) => {
 			// 	this.errorMessage = null;
 	    //   let formObject = {
-	    //         "ddosID":null,
+	    //         "logID":null,
 	    //         "targetIP":null,
 	    //         "value":null,
 	    //         "ownerID":null,
 	    //         "ownerEntity":null
 	    //   };
 
-			this.serviceDDoS.energyToDDoS(this.energyToDDoSObj);
+			// this.serviceLog.energyToLog(this.energyToLogObj);
   }
 
 }

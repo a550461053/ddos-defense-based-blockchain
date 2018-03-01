@@ -19,7 +19,7 @@ export class EnergyComponent implements OnInit {
 
 
       energyID = new FormControl("", Validators.required);
-      units = new FormControl("", Validators.required);
+      targetIP = new FormControl("", Validators.required);
       value = new FormControl("", Validators.required);
       ownerID = new FormControl("", Validators.required);
       ownerEntity = new FormControl("", Validators.required);
@@ -30,7 +30,7 @@ export class EnergyComponent implements OnInit {
   constructor(private serviceEnergy:EnergyService, fb: FormBuilder) {
     this.myForm = fb.group({
           energyID:this.energyID,
-          units:this.units,
+          targetIP:this.targetIP,
           value:this.value,
           ownerID:this.ownerID,
           ownerEntity:this.ownerEntity,
@@ -72,7 +72,7 @@ export class EnergyComponent implements OnInit {
     this.asset = {
       $class: "org.decentralized.energy.network.Energy",
           "energyID":"EN_" + this.energyID.value,
-          "units":this.units.value,
+          "targetIP":this.targetIP.value,
           "value":Date.now(), // this.value.value,
           "ownerID":this.ownerID.value,
           "ownerEntity":this.ownerEntity.value,
@@ -82,7 +82,7 @@ export class EnergyComponent implements OnInit {
 
     this.myForm.setValue({
           "energyID":null,
-          "units":null,
+          "targetIP":null,
           "value":null,
           "ownerID":null,
           "ownerEntity":null,
@@ -97,7 +97,7 @@ export class EnergyComponent implements OnInit {
 location.reload();
       this.myForm.setValue({
           "energyID":null,
-          "units":null,
+          "targetIP":null,
           "value":null,
           "ownerID":null,
           "ownerEntity":null,
@@ -121,7 +121,7 @@ location.reload();
    updateAsset(form: any): Promise<any> {
     this.asset = {
       $class: "org.decentralized.energy.network.Energy",
-            "units":this.units.value,
+            "targetIP":this.targetIP.value,
             "value":this.value.value,
             "ownerID":this.ownerID.value,
             "ownerEntity":this.ownerEntity.value,
@@ -180,7 +180,7 @@ location.reload();
 			this.errorMessage = null;
       let formObject = {
             "energyID":null,
-            "units":null,
+            "targetIP":null,
             "value":null,
             "ownerID":null,
             "ownerEntity":null,
@@ -194,10 +194,10 @@ location.reload();
           formObject.energyID = null;
         }
 
-        if(result.units){
-          formObject.units = result.units;
+        if(result.targetIP){
+          formObject.targetIP = result.targetIP;
         }else{
-          formObject.units = null;
+          formObject.targetIP = null;
         }
 
         if(result.value){
@@ -252,7 +252,7 @@ location.reload();
   resetForm(): void{
     this.myForm.setValue({
           "energyID":null,
-          "units":null,
+          "targetIP":null,
           "value":null,
           "ownerID":null,
           "ownerEntity":null,

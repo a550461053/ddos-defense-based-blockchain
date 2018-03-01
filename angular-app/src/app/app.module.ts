@@ -16,6 +16,7 @@ import { CoinsComponent } from './Coins/Coins.component';
 import { EnergyComponent } from './Energy/Energy.component';
 import { CashComponent } from './Cash/Cash.component';
 import { DDoSComponent } from './DDoS/DDoS.component';
+import { LogComponent } from './Log/Log.component';
 
 import { ResidentComponent } from './Resident/Resident.component';
 import { BankComponent } from './Bank/Bank.component';
@@ -49,7 +50,8 @@ import { AllTransactionsComponent } from './AllTransactions/AllTransactions.comp
     CoinsComponent,
 		EnergyComponent,
     CashComponent,
-    DDoSComponent
+    DDoSComponent,
+    LogComponent
 
   ],
   imports: [

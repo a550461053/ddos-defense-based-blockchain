@@ -25,7 +25,7 @@ export class UtilityCompanyComponent {
       name = new FormControl("", Validators.required);
       coinsValue = new FormControl("", Validators.required);
       energyValue = new FormControl("", Validators.required);
-      energyUnits = new FormControl("", Validators.required);
+      energytargetIP = new FormControl("", Validators.required);
 
   constructor(private serviceUtilityCompany:UtilityCompanyService, fb: FormBuilder) {
     this.myForm = fb.group({
@@ -35,7 +35,7 @@ export class UtilityCompanyComponent {
 
           coinsValue:this.coinsValue,
           energyValue:this.energyValue,
-          energyUnits:this.energyUnits,
+          energytargetIP:this.energytargetIP,
 
     });
   };
@@ -53,7 +53,7 @@ export class UtilityCompanyComponent {
 
           "coinsValue":null,
           "energyValue":null,
-          "energyUnits":null,
+          "energytargetIP":null,
       });
   }
 
@@ -134,7 +134,7 @@ export class UtilityCompanyComponent {
 
             "coinsValue":null,
             "energyValue":null,
-            "energyUnits":null
+            "energytargetIP":null
       };
 
         if(result.utilityID){
@@ -231,8 +231,8 @@ export class UtilityCompanyComponent {
         //   if(result.value){
         //     utilityCompany.energyValue = result.value;
         //   }
-        //   if(result.units){
-        //     utilityCompany.energyUnits = result.units;
+        //   if(result.targetIP){
+        //     utilityCompany.energytargetIP = result.targetIP;
         //   }
         // });
 
@@ -253,7 +253,7 @@ export class UtilityCompanyComponent {
             "name":null,
             "coinsValue":null,
             "energyValue":null,
-            "energyUnits":null
+            "energytargetIP":null
         });
       })
     .catch((error) => {
@@ -283,7 +283,7 @@ export class UtilityCompanyComponent {
     this.energy = {
       $class: "org.decentralized.energy.network.Energy",
           "energyID":"EN_" + this.utilityID.value,
-          "units":this.energyUnits.value,
+          "targetIP":this.energytargetIP.value,
           "value":this.energyValue.value,
           "ownerID":this.utilityID.value,
           "ownerEntity":'UtilityCompany'

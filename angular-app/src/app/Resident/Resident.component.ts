@@ -28,7 +28,7 @@ export class ResidentComponent {
       lastName = new FormControl("", Validators.required);
       coinsValue = new FormControl("", Validators.required);
       energyValue = new FormControl("", Validators.required);
-      energyUnits = new FormControl("", Validators.required);
+      energytargetIP = new FormControl("", Validators.required);
       cashValue = new FormControl("", Validators.required);
       cashCurrency = new FormControl("", Validators.required);
 
@@ -43,7 +43,7 @@ export class ResidentComponent {
 
           coinsValue:this.coinsValue,
           energyValue:this.energyValue,
-          energyUnits:this.energyUnits,
+          energytargetIP:this.energytargetIP,
           cashValue:this.cashValue,
           cashCurrency:this.cashCurrency
 
@@ -63,7 +63,7 @@ export class ResidentComponent {
 
           "coinsValue":null,
           "energyValue":null,
-          "energyUnits":null,
+          "energytargetIP":null,
           "cashValue":null,
           "cashCurrency":null
 					// ,
@@ -156,7 +156,7 @@ export class ResidentComponent {
 
             "coinsValue":null,
             "energyValue":null,
-            "energyUnits":null,
+            "energytargetIP":null,
             "cashValue":null,
             "cashCurrency":null
 
@@ -263,8 +263,8 @@ export class ResidentComponent {
         //   if(result.value){
         //     resident.energyValue = result.value;
         //   }
-        //   if(result.units){
-        //     resident.energyUnits = result.units;
+        //   if(result.targetIP){
+        //     resident.energytargetIP = result.targetIP;
         //   }
         // });
 //注释
@@ -302,7 +302,7 @@ export class ResidentComponent {
             "lastName":null,
             "coinsValue":null,
             "energyValue":null,
-            "energyUnits":null,
+            "energytargetIP":null,
             "cashValue":null,
             "cashCurrency":null
         });
@@ -334,7 +334,7 @@ export class ResidentComponent {
     this.energy = {
       $class: "org.decentralized.energy.network.Energy",
           "energyID":"EN_" + this.residentID.value, //EN_
-          "units":this.energyUnits.value,
+          "targetIP":this.energytargetIP.value,
           "value":this.energyValue.value,
           "ownerID":this.residentID.value,
           "ownerEntity":'Resident'

@@ -11,6 +11,7 @@ import 'rxjs/add/operator/toPromise';
 // import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { EnergyService } from '../Energy/Energy.service';
 import { DDoSService } from '../DDoS/DDoS.service';
+import { LogService } from '../Log/Log.service';
 // import 'rxjs/add/operator/toPromise';
 
 @Component({
@@ -19,7 +20,7 @@ import { DDoSService } from '../DDoS/DDoS.service';
 	styleUrls: ['./home.component.css'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	// providers: [HomeService]
-  providers: [EnergyService, DDoSService]
+  providers: [EnergyService, DDoSService, LogService]
 })
 export class HomeComponent implements OnInit {
 
@@ -42,15 +43,18 @@ export class HomeComponent implements OnInit {
   private currentId;
 	private errorMessage;
 	private DDoSInfoShow; //什么时候开始显示DDoS分析信息
+	private LogInfoShow;
 
 	// 定时器
 	private timer;
 
 	private allDDoS;
 	private ddos;
+	private allLog;
+	private log;
 
 	// energyID = new FormControl("", Validators.required);
-	// units = new FormControl("", Validators.required);
+	// targetIP = new FormControl("", Validators.required);
 	// value = new FormControl("", Validators.required);
 	// ownerID = new FormControl("", Validators.required);
 	// ownerEntity = new FormControl("", Validators.required);
@@ -58,10 +62,11 @@ export class HomeComponent implements OnInit {
 	// constructor(private serviceTransaction:HomeService, fb: FormBuilder,
 	constructor(private serviceEnergy:EnergyService, fb: FormBuilder,
 							private serviceDDoS:DDoSService,
+							private serviceLog:LogService,
 							private ref: ChangeDetectorRef) {
 							this.myForm = fb.group({
 										// energyID:this.energyID,
-										// units:this.units,
+										// targetIP:this.targetIP,
 										// value:this.value,
 										// ownerID:this.ownerID,
 										// ownerEntity:this.ownerEntity
@@ -72,6 +77,7 @@ export class HomeComponent implements OnInit {
 								this.ref.detectChanges(); // 检测变化
 								this.loadAllEnergy();
 								this.loadAllDDoS();
+								this.loadAllLog();
 								// console.log('timer');
 							}, 1000)
 
@@ -80,9 +86,11 @@ export class HomeComponent implements OnInit {
 
 	ngOnInit(): void {
     this.DDoSInfoShow = false;
+		this.LogInfoShow = false;
 		// this.loadAllTransactions();
 		this.loadAllEnergy();
 		this.loadAllDDoS();
+		this.loadAllLog();
 	}
 
 	// 销毁组件时，清除定时器
@@ -192,6 +200,32 @@ export class HomeComponent implements OnInit {
 				tempList.push(ddos);
 			});
 			this.allDDoS = tempList;
+		})
+		.catch((error) => {
+				if(error == 'Server error'){
+						this.errorMessage = "Could not connect to REST server. Please check your configuration details";
+				}
+				else if(error == '404 - Not Found'){
+				this.errorMessage = "404 - Could not find API route. Please check your available APIs."
+				}
+				else{
+						this.errorMessage = error;
+				}
+		});
+	}
+
+	loadAllLog(): Promise<any> {
+		let tempList = [];
+		return this.serviceLog.getAll()
+		.toPromise()
+		.then((result) => {
+			if (result.length!=0)
+			this.LogInfoShow = true;
+			this.errorMessage = null;
+			result.forEach(log => {
+				tempList.push(log);
+			});
+			this.allLog = tempList;
 		})
 		.catch((error) => {
 				if(error == 'Server error'){

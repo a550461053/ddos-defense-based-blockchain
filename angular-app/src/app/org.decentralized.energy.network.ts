@@ -36,7 +36,7 @@ import {Event} from './org.hyperledger.composer.system';
    }
    export class Energy extends Asset {
       energyID: string;
-      units: string;
+      targetIP: string;
       value: number;
       ownerID: string;
       ownerEntity: OwnerEntity;
@@ -52,7 +52,15 @@ import {Event} from './org.hyperledger.composer.system';
    }
    export class DDoS extends Asset {
       ddosID: string;
-      units: string;
+      targetIP: string;
+      value: number;
+      ownerID: string;
+      targetID: string;
+      ownerEntity: OwnerEntity;
+   }
+   export class Log extends Asset {
+      logID: string;
+      targetIP: string;
       value: number;
       ownerID: string;
       targetID: string;
