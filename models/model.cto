@@ -23,7 +23,6 @@ participant UtilityCompany identified by utilityID {
     o String name
     o String targetIP
     --> Coins coins
-    --> Energy energy
 }
 
 

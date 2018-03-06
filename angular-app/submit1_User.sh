@@ -52,27 +52,6 @@ curl -X POST --header 'Content-Type: application/json' \
           "ownerID": "3", "ownerEntity": "Resident"}' \
     'http://localhost:3000/api/Cash'
 
-# 创建energy
-curl -X POST --header 'Content-Type: application/json' \
-    --header 'Accept: application/json' \
-    -d '{"$class": "org.decentralized.energy.network.Energy",
-          "energyID": "1", "targetIP": "192.168.1.1", "value": "'"$(date +'%s')"'",
-          "ownerID": "1", "ownerEntity": "Resident","description":"udp","flag":"0"}' \
-    'http://localhost:3000/api/Energy'
-
-curl -X POST --header 'Content-Type: application/json' \
-    --header 'Accept: application/json' \
-    -d '{"$class": "org.decentralized.energy.network.Energy",
-          "energyID": "2", "targetIP": "192.168.1.1", "value": "'"$(date +'%s')"'",
-          "ownerID": "2", "ownerEntity": "Resident","description":"udp","flag":"0"}' \
-    'http://localhost:3000/api/Energy'
-
-curl -X POST --header 'Content-Type: application/json' \
-    --header 'Accept: application/json' \
-    -d '{"$class": "org.decentralized.energy.network.Energy",
-          "energyID": "3", "targetIP": "192.168.1.1", "value": "'"$(date +'%s')"'",
-          "ownerID": "3", "ownerEntity": "Resident","description":"udp","flag":"0"}' \
-    'http://localhost:3000/api/Energy'
 
 # 创建用户1
 curl -X POST --header 'Content-Type: application/json' \
@@ -83,8 +62,7 @@ curl -X POST --header 'Content-Type: application/json' \
           "firstName": "q",
           "lastName": "q",
           "coins": "resource:org.decentralized.energy.network.Coins#CO_1",
-          "cash": "resource:org.decentralized.energy.network.Cash#CA_1",
-          "energy": "resource:org.decentralized.energy.network.Energy#1"
+          "cash": "resource:org.decentralized.energy.network.Cash#CA_1"
         }' \
     'http://localhost:3000/api/Resident'
 
@@ -97,8 +75,7 @@ curl -X POST --header 'Content-Type: application/json' \
           "firstName": "qw",
           "lastName": "qw",
           "coins": "resource:org.decentralized.energy.network.Coins#CO_2",
-          "cash": "resource:org.decentralized.energy.network.Cash#CA_2",
-          "energy": "resource:org.decentralized.energy.network.Energy#2"
+          "cash": "resource:org.decentralized.energy.network.Cash#CA_2"
         }' \
     'http://localhost:3000/api/Resident'
 
@@ -111,8 +88,7 @@ curl -X POST --header 'Content-Type: application/json' \
           "firstName": "qwr",
           "lastName": "qwr",
           "coins": "resource:org.decentralized.energy.network.Coins#CO_3",
-          "cash": "resource:org.decentralized.energy.network.Cash#CA_3",
-          "energy": "resource:org.decentralized.energy.network.Energy#3"
+          "cash": "resource:org.decentralized.energy.network.Cash#CA_3"
         }' \
     'http://localhost:3000/api/Resident'
 # 创建Target 12
@@ -122,9 +98,8 @@ curl -X POST --header 'Content-Type: application/json' \
    "$class": "org.decentralized.energy.network.UtilityCompany",
    "utilityID": "12",
    "name": "test12",
-   "targetIP": "192.168.1.1",
-   "coins": "resource:org.decentralized.energy.network.Coins#CO_12",
-   "energy": "resource:org.decentralized.energy.network.Energy#2"
+   "targetIP": "210.73.64.1",
+   "coins": "resource:org.decentralized.energy.network.Coins#CO_12"
  }' \
  'http://localhost:3000/api/UtilityCompany'
 

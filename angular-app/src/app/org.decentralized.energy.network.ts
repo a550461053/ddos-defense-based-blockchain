@@ -21,7 +21,6 @@ import {Event} from './org.hyperledger.composer.system';
       utilityID: string;
       name: string;
       coins: Coins;
-      energy: Energy;
    }
    export enum OwnerEntity {
       Resident,
