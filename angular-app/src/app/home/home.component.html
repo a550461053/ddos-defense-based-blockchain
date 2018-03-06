@@ -235,15 +235,17 @@
 
           </tr>
         </thead> -->
-        <tbody  width="100%">
+        <tbody width="100%">
           <tr>
-            <th width="33%">Gateway提交针对目标IP的异常连结</th>
-            <th width="33%">Gateway分析后提交针对目标IP的DDoS预警</th>
-            <th width="33%">TargetCompany提交针对Gateway的奖励</th>
+            <th class="allblack" width="30%">Gateway提交针对目标IP的异常连结</th>
+            <th class="spec" width="5%" >  </th>
+            <th class="allblack" width="30%">Gateway分析后提交针对目标IP的DDoS预警</th>
+            <th class="spec" width="5%" >  </th>
+            <th class="allblack" width="30%">TargetCompany提交针对Gateway的奖励</th>
           </tr>
 
           <tr>
-              <td>
+              <td class="allblack">
                 <table width="100%">
                   <tr>
                     <th align="center">提交者ID</th>
@@ -256,11 +258,11 @@
                     <td align="center">{{asset.targetIP}}</td>
                     <td align="center">{{asset.description}}</td>
                     <!-- Gateway {{asset.ownerID}} 提交了一条针对目标 {{asset.targetIP}} 的类型为 {{asset.description}} 的异常 -->
-                  <tr>
+                  </tr>
                 </table>
               </td>
-
-              <td>
+              <td class="spec"> <table width="100%"><tr> </tr></table> </td>
+              <td class="allblack">
                 <table width="100%">
                   <tr>
                     <th align="center">提交者ID</th>
@@ -276,7 +278,9 @@
                 </table>
               </td>
 
-              <td>
+              <td class="spec"> <table width="100%"><tr> </tr></table> </td>
+
+              <td class="allblack">
                 <table width="100%">
                   <tr>
                     <th align="center">奖励发起者ID</th>
