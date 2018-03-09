@@ -30,11 +30,15 @@ import { DistributeCoinsComponent } from './DistributeCoins/DistributeCoins.comp
 
 import { AllTransactionsComponent } from './AllTransactions/AllTransactions.component';
 
+import { BaiduMapModule } from "angular2-baidu-map";
+// import { BaiduComponent } from "./baidu/baidu.component";
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
+    // BaiduComponent,
 
     TransactionRRComponent,
     TransactionRUComponent,
@@ -52,14 +56,15 @@ import { AllTransactionsComponent } from './AllTransactions/AllTransactions.comp
     CashComponent,
     DDoSComponent,
     LogComponent
-
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+
+    BaiduMapModule.forRoot({ak:'CG68LRree4AC5WNAyTv5X3G5HLPKe8Ah'})
   ],
   providers: [
     Configuration,

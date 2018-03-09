@@ -13,7 +13,7 @@ th {
     text-align: center;
 }
 .bc {
-    background-color: lightgreen;
+    background-color: lightblue;
 }
 
 th.allblack {
@@ -22,7 +22,7 @@ th.allblack {
 }
 th.spec {
   border-style: solid;
-  border-color: transparent black transparent transparent;
+  border-color: transparent transparent transparent transparent;
 }
 td.allblack {
   border-style: solid;
@@ -31,9 +31,12 @@ td.allblack {
 
 td.spec {
   border-style: solid;
+  border-color: transparent transparent transparent transparent;
+}
+td.spec2 {
+  border-style: solid;
   border-color: transparent black transparent transparent;
 }
-
 
 .bodytext {
     text-align: justify;

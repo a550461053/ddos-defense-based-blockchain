@@ -1,5 +1,4 @@
 
-
 <div class="container">
   <div class="row">
       <!--h1 class="heading">decentralized energy </h1-->
@@ -44,8 +43,8 @@
       <a [routerLink]="['/Utility']" class="participantButton">Target Companies</a>
     </div>
 
-  </div> -->
-</div>
+  </div>
+</div> -->
 
   <!-- <div class="row">
     <h4> Step2 - Execute Transactions </h4>
@@ -80,7 +79,7 @@
 
 
 <!-- for Energy -->
-
+<!--
 <div class="modal fade" id="addAssetModal" tabindex="-1" role="dialog" aria-labelledby="addAssetModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -127,7 +126,7 @@
       </form>
     </div>
   </div>
-</div>
+</div> -->
 
 
 <!-- <div class="modal-footer">
@@ -135,7 +134,7 @@
   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 </div> -->
 
-
+<!--
 <div class="modal fade" id="updateAssetModal" tabindex="-1" role="dialog" aria-labelledby="updateAssetModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -179,10 +178,10 @@
       </form>
     </div>
   </div>
-</div>
+</div> -->
 
 
-<div class="modal fade" id="deleteAssetModal" tabindex="-1" role="dialog" aria-labelledby="deleteAssetModalLabel">
+<!-- <div class="modal fade" id="deleteAssetModal" tabindex="-1" role="dialog" aria-labelledby="deleteAssetModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -206,7 +205,7 @@
       </form>
     </div>
   </div>
-</div>
+</div> -->
 
 
 <div class="container">
@@ -218,95 +217,178 @@
   </div>
   <br>
   <div class="row">
-    <div class="col-md-12">
-      <table class="table table-bordered table-responsive table-hover">
-        <!-- <thead class="thead">
-          <tr class="thead-cols">
 
-                <th class="bc">AbnormalConn ID</th>
 
-                <th class="bc">Owner ID</th>
+    <div class="col-md-12 table-responsive">
+			<table class="table table-striped table-bordered table-hover">
+				<tr>
+					<td>
+						<baidu-map [options]="options" style="display: block; width: 650px; height: 450px; align: center;"></baidu-map>
+					</td>
 
-                <th class="bc">Owner Entity</th>
+					<td class="spec"> </td>
 
-                <th class="bc">Object ID</th>
+					<td>
+						<tr>
+							<th class="bc text-primary spec" width="35%">Gateway提交针对目标IP的异常连结</th>
+						</tr>
+						<tr>
+							<td class="spec">
+								<div class="pre-scrollable table-responsive">
+									<table class="table table-striped table-responsive table-hover scrolltable pre-scrollable" width="100%">
+										<thead>
+											<tr>
+												<th style="display: table-head-group;" width="20%">提交者ID</th>
+												<th style="display: table-head-group;" width="30%">目标IP</th>
+												<th style="display: table-head-group;" width="50%">异常类型</th>
+											</tr>
+										</thead>
+										<tbody> <!---style="height:100px;overflow-y: scrol;" >-->
+											<tr *ngFor="let asset of allAssets">
+												<!-- <div class="pre-scrollable" > -->
+												<td align="center" width="20%">{{asset.ownerID}}</td>
+												<td align="center" width="30%">{{asset.targetIP}}</td>
+												<td align="center" width="50%">{{asset.description}}</td>
+												<!-- Gateway {{asset.ownerID}} 提交了一条针对目标 {{asset.targetIP}} 的类型为 {{asset.description}} 的异常 -->
+												<!-- </div> -->
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</td>
+						</tr>
+					</td>
 
-                <th class="bc">Time Stamp</th>
+				</tr>
 
+				<tr>
+
+						<!-- <th class="bc text-primary allblack" width="35%">Gateway提交针对目标IP的异常连结</th>
+						<th class="spec" width="5%" >  </th> -->
+						<th class="bc text-primary allblack" width="48%">Gateway提交针对目标IP的DDoS预警</th>
+						<th class="spec2" width="4%" >  </th>
+						<th class="bc text-primary allblack" width="48%">TargetCompany提交针对Gateway的奖励</th>
+
+
+				</tr>
+
+
+				<tr width="100%">
+
+							<td class="allblack active" width="48%">
+								<div class="pre-scrollable table-responsive" >
+								<table  class="table table-striped table-responsive table-hover scrolltable pre-scrollable" width="100%">
+									<tr>
+										<th align="center">提交者ID</th>
+										<th align="center">目标IP</th>
+										<th > 描述 </th>
+										<th > 时间 </th>
+									</tr>
+									<tr *ngFor="let ddos of allDDoS">
+										<td class=" text-primary" align="center">{{ddos.ownerID}}</td>
+										<td class=" text-primary" align="center">{{ddos.targetIP}}</td>
+										<td class=" text-primary" align="center">待填</td>
+										<td class=" text-primary" align="center">{{ddos.value}}</td>
+									</tr>
+								</table>
+								</div>
+							</td>
+							<td class="spec2"> </td>
+							<td class="allblack" width="48%">
+								<div class="pre-scrollable table-responsive" >
+								<table  class="table table-striped table-responsive table-hover scrolltable pre-scrollable" width="100%">
+									<tr>
+										<th align="center">奖励发起者ID</th>
+										<th align="center">奖励对象ID</th>
+										<th align="center">奖励金额</th>
+									</tr>
+									<tr *ngFor="let log of allLog">
+										<td align="center" class="text-warning">{{log.ownerID}}</td>
+										<td align="center" class="text-warning">{{log.value}}</td>
+										<td align="center" class="text-warning">1coin</td>
+									</tr>
+								</table>
+								</div>
+							</td>
+
+				</tr>
+
+			</table>
+
+
+      <!-- <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th class="bc text-primary allblack" width="35%">Gateway提交针对目标IP的异常连结</th>
+            <th class="spec" width="5%" >  </th>
+            <th class="bc text-primary allblack" width="25%">Gateway提交针对目标IP的DDoS预警</th>
+            <th class="spec" width="5%" >  </th>
+            <th class="bc text-primary allblack" width="30%">TargetCompany提交针对Gateway的奖励</th>
           </tr>
-        </thead> -->
+        </thead>
         <tbody width="100%">
-          <tr>
-            <th class="allblack" width="30%">Gateway提交针对目标IP的异常连结</th>
-            <th class="spec" width="5%" >  </th>
-            <th class="allblack" width="30%">Gateway分析后提交针对目标IP的DDoS预警</th>
-            <th class="spec" width="5%" >  </th>
-            <th class="allblack" width="30%">TargetCompany提交针对Gateway的奖励</th>
-          </tr>
 
-          <tr>
-              <td class="allblack">
-                <table width="100%">
-                  <tr>
-                    <th align="center">提交者ID</th>
-                    <th align="center">目标IP</th>
-                    <th align="center">异常类型</th>
-                  </tr>
+            <tr>
 
-                  <tr *ngFor="let asset of allAssets">
-                    <td align="center">{{asset.ownerID}}</td>
-                    <td align="center">{{asset.targetIP}}</td>
-                    <td align="center">{{asset.description}}</td>
-                    <!-- Gateway {{asset.ownerID}} 提交了一条针对目标 {{asset.targetIP}} 的类型为 {{asset.description}} 的异常 -->
-                  </tr>
-                </table>
-              </td>
-              <td class="spec"> <table width="100%"><tr> </tr></table> </td>
-              <td class="allblack">
-                <table width="100%">
-                  <tr>
-                    <th align="center">提交者ID</th>
-                    <th align="center">目标IP</th>
-                  <!--  <th align="center">异常类型</th> -->
-                  </tr>
-                  <tr *ngFor="let ddos of allDDoS">
-                    <td align="center">{{ddos.ownerID}}</td>
-                    <td align="center">{{ddos.targetIP}}</td>
-                  <!--  <td align="center">DDoS</td> -->
-                    <!-- Gateway {{ddos.ownerID}} 提交了一条针对目标 {{ddos.targetIP}} 的DDoS预警 -->
-                  </tr>
-                </table>
-              </td>
+                <td class="allblack" width="35%">
+                  <div class="pre-scrollable table-responsive">
+                    <table class="table table-striped table-responsive table-hover scrolltable pre-scrollable" width="100%">
+                      <thead>
+                        <tr>
+                          <th style="display: table-head-group;" width="20%">提交者ID</th>
+                          <th style="display: table-head-group;" width="30%">目标IP</th>
+                          <th style="display: table-head-group;" width="50%">异常类型</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let asset of allAssets">
 
-              <td class="spec"> <table width="100%"><tr> </tr></table> </td>
+                          <td align="center" width="20%">{{asset.ownerID}}</td>
+                          <td align="center" width="30%">{{asset.targetIP}}</td>
+                          <td align="center" width="50%">{{asset.description}}</td>
 
-              <td class="allblack">
-                <table width="100%">
-                  <tr>
-                    <th align="center">奖励发起者ID</th>
-                    <th align="center">奖励对象ID</th>
-                    <th align="center">奖励金额</th>
-                  </tr>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
 
-                  <tr *ngFor="let log of allLog">
-                    <td align="center">{{log.ownerID}}</td>
-                    <td align="center">{{log.value}}</td>
-                    <td align="center">1coin</td>
-                    <!-- TargetCompany {{log.ownerID}} 分发1coin奖励给提交者: {{log.value}} -->
-                  </tr>
-                </table>
-              </td>
+                <td class="spec" width="5%"> <table width="100%"><tr> </tr></table> </td>
 
-                <!-- <td>{{asset.energyID}}</td>
+                <td class="allblack active" width="25%">
+                  <div class="pre-scrollable table-responsive" >
+                  <table  class="table table-striped table-responsive table-hover scrolltable pre-scrollable" width="100%">
+                    <tr>
+                      <th align="center">提交者ID</th>
+                      <th align="center">目标IP</th>
+                    </tr>
+                    <tr *ngFor="let ddos of allDDoS">
+                      <td class=" text-primary" align="center">{{ddos.ownerID}}</td>
+                      <td class=" text-primary" align="center">{{ddos.targetIP}}</td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
 
-                <td>{{asset.ownerID}}</td>
+                <td class="spec" width="5%"> <table width="100%"><tr> </tr></table> </td>
 
-                <td>{{asset.ownerEntity}}</td>
-
-                <td>{{asset.targetIP}}</td>
-
-                <td>{{asset.value}}</td> -->
-          </tr>
+                <td class="allblack" width="30%">
+                  <div class="pre-scrollable table-responsive" >
+                  <table  class="table table-striped table-responsive table-hover scrolltable pre-scrollable" width="100%">
+                    <tr>
+                      <th align="center">奖励发起者ID</th>
+                      <th align="center">奖励对象ID</th>
+                      <th align="center">奖励金额</th>
+                    </tr>
+                    <tr *ngFor="let log of allLog">
+                      <td align="center" class="text-warning">{{log.ownerID}}</td>
+                      <td align="center" class="text-warning">{{log.value}}</td>
+                      <td align="center" class="text-warning">1coin</td>
+                    </tr>
+                  </table>
+                  </div>
+                </td>
+            </tr> -->
 
           <!-- <tr *ngIf="DDoSInfoShow" >基于共享后的异常连接进行分析...</tr>
           <tr *ngFor="let ddos of allDDoS">
@@ -336,8 +418,9 @@
 
 -->
 
-        </tbody>
-      </table>
     </div>
+
   </div>
 </div>
+</div>
+<!-- <a [routerLink]="['/Baidu']">baidumap</a> -->

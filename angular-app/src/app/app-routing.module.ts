@@ -22,10 +22,15 @@ import { DistributeCoinsComponent } from './DistributeCoins/DistributeCoins.comp
 
 import { AllTransactionsComponent } from './AllTransactions/AllTransactions.component';
 
+import { BaiduMapModule } from "angular2-baidu-map";
+
+// import { BaiduComponent } from './baidu/baidu.component';
 
 const routes: Routes = [
 
     {path: '', component: HomeComponent},
+    // {path: 'Baidu', component: BaiduComponent},
+
     {path: 'About', component: AboutComponent},
 
 		{ path: 'Coins', component: CoinsComponent},

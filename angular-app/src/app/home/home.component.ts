@@ -1,6 +1,7 @@
 import { Component, OnInit, Input , ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
+import { MapOptions } from 'angular2-baidu-map';
 
 // 1. Transactinos
 import { HomeService } from './home.service';
@@ -37,7 +38,7 @@ export class HomeComponent implements OnInit {
 
 	// 2. Energy
 	myForm: FormGroup;
-
+  public options : MapOptions;  // 百度地图
   private allAssets;  // 此处指代energy
   private asset;
   private currentId;
@@ -79,8 +80,17 @@ export class HomeComponent implements OnInit {
 								this.loadAllDDoS();
 								this.loadAllLog();
 								// console.log('timer');
-							}, 1000)
+							}, 1000);
 
+							// 百度地图配置
+							this.options = {
+					      centerAndZoom: {
+					        lat: 39.920116,
+					        lng: 116.403703,
+					        zoom: 5
+					      },
+					      enableKeyboard: true
+					    };
 	};
 
 
