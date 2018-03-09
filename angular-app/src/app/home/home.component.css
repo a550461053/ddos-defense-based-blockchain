@@ -18,23 +18,28 @@ th {
 
 th.allblack {
   border-style: solid;
+  font-size: 18px;
   border-color: black black black black;
 }
 th.spec {
   border-style: solid;
+  font-size: 18px;
   border-color: transparent transparent transparent transparent;
 }
 td.allblack {
   border-style: solid;
+  font-size: 14px;
   border-color: black black black black;
 }
 
 td.spec {
   border-style: solid;
+  font-size: 14px;
   border-color: transparent transparent transparent transparent;
 }
 td.spec2 {
   border-style: solid;
+  font-size: 14px;
   border-color: transparent black transparent transparent;
 }
 
