@@ -15,9 +15,9 @@ export class TransactionRUComponent {
 
   //defined rate
   private utilityCoinsPerEnergy = 1;
-  private utilityEnergyPerCoins = (1 / this.utilityCoinsPerEnergy).toFixed(3);  
+  private utilityEnergyPerCoins = (1 / this.utilityCoinsPerEnergy).toFixed(3);
   private coinsExchanged;
-  
+
   private energyValue;
 
 
@@ -26,45 +26,45 @@ export class TransactionRUComponent {
   private transactionFrom;
 
   private allResidents;
-  private allUtilityCompanys;
+  private allTargetCompany;
 
   private resident;
   private utiltyCompany;
-  
+
   private energyToCoinsObj;
 
   private transactionID;
 
   private energyReceiverAsset;
-  private energyProducerAsset;  
+  private energyProducerAsset;
   private coinsCreditAsset;
   private coinsDebitAsset;
 
     formResidentID = new FormControl("", Validators.required);
-	  formUtilityID = new FormControl("", Validators.required); 
-    action = new FormControl("", Validators.required); 
+	  formUtilityID = new FormControl("", Validators.required);
+    action = new FormControl("", Validators.required);
 	  value = new FormControl("", Validators.required);
-  
+
   constructor(private serviceTransaction:TransactionRUService, fb: FormBuilder) {
-      
+
 	  this.myForm = fb.group({
-		  
+
 		  formResidentID:this.formResidentID,
 		  formUtilityID:this.formUtilityID,
       action:this.action,
       value:this.value,
-      
+
     });
-    
+
   };
 
   ngOnInit(): void {
     this.transactionFrom  = true;
     this.loadAllResidents()
-    .then(() => {                     
-            this.loadAllUtilityCompanys();
+    .then(() => {
+            this.loadAllTargetCompany();
     });
-    
+
   }
 
   //get all Residents
@@ -93,16 +93,16 @@ export class TransactionRUComponent {
   }
 
   //get all Utility Companies
-  loadAllUtilityCompanys(): Promise<any> {
+  loadAllTargetCompany(): Promise<any> {
     let tempList = [];
-    return this.serviceTransaction.getAllUtilityCompanys()
+    return this.serviceTransaction.getAllTargetCompany()
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
-      result.forEach(utilityCompany => {
-        tempList.push(utilityCompany);
+      result.forEach(TargetCompany => {
+        tempList.push(TargetCompany);
       });
-      this.allUtilityCompanys = tempList;
+      this.allTargetCompany = tempList;
     })
     .catch((error) => {
         if(error == 'Server error'){
@@ -119,25 +119,25 @@ export class TransactionRUComponent {
 
   //execute transaction
   execute(form: any): Promise<any> {
-          
+
     console.log(this.allResidents)
-    console.log(this.allUtilityCompanys)
+    console.log(this.allTargetCompany)
 
     //get resident
     for (let resident of this.allResidents) {
-      console.log(resident.residentID);       
+      console.log(resident.residentID);
       if(resident.residentID == this.formResidentID.value){
         this.resident = resident;
-      }     
+      }
     }
 
     //get utility company
-    for (let utilityCompany of this.allUtilityCompanys) {
-        console.log(utilityCompany.utilityID); 
-      
-      if(utilityCompany.utilityID == this.formUtilityID.value){
-        this.utiltyCompany = utilityCompany;
-      }     
+    for (let TargetCompany of this.allTargetCompany) {
+        console.log(TargetCompany.utilityID);
+
+      if(TargetCompany.utilityID == this.formUtilityID.value){
+        this.utiltyCompany = TargetCompany;
+      }
     }
 
     console.log('Action: ' + this.action.value)
@@ -148,7 +148,7 @@ export class TransactionRUComponent {
         this.energyValue = this.value.value;
 
         this.energyReceiverAsset = this.resident.energy;
-        this.energyProducerAsset = this.utiltyCompany.energy;  
+        this.energyProducerAsset = this.utiltyCompany.energy;
         this.coinsCreditAsset = this.utiltyCompany.coins;
         this.coinsDebitAsset = this.resident.coins;
     }
@@ -157,11 +157,11 @@ export class TransactionRUComponent {
         this.energyValue = this.value.value;
 
         this.energyReceiverAsset = this.utiltyCompany.energy;
-        this.energyProducerAsset = this.resident.energy;  
+        this.energyProducerAsset = this.resident.energy;
         this.coinsCreditAsset = this.resident.coins;
         this.coinsDebitAsset = this.utiltyCompany.coins;
     }
-    
+
 
     console.log('Producer Energy ID ' + this.energyProducerAsset);
     console.log('Producer Coins ID ' + this.coinsCreditAsset);
@@ -169,12 +169,12 @@ export class TransactionRUComponent {
     console.log('Consumer Coins ID ' + this.coinsDebitAsset);
 
     //identify energy and coins id which will be debited
-    var splitted_energyID = this.energyProducerAsset.split("#", 2); 
+    var splitted_energyID = this.energyProducerAsset.split("#", 2);
     var energyID = String(splitted_energyID[1]);
 
-    var splitted_coinsID = this.coinsDebitAsset.split("#", 2); 
+    var splitted_coinsID = this.coinsDebitAsset.split("#", 2);
     var coinsID = String(splitted_coinsID[1]);
-        
+
     this.coinsExchanged = this.utilityCoinsPerEnergy * this.energyValue;
 
     //transaction object
@@ -194,7 +194,7 @@ export class TransactionRUComponent {
     .then((result) => {
       this.errorMessage = null;
       if(result.value) {
-        if ((result.value - this.energyValue) < 0 ){          
+        if ((result.value - this.energyValue) < 0 ){
           this.errorMessage = "Insufficient energy in producer account";
           return false;
         }
@@ -204,14 +204,14 @@ export class TransactionRUComponent {
     .then((checkProducerEnergy) => {
       console.log('checkEnergy: ' + checkProducerEnergy)
       if(checkProducerEnergy)
-      {        
+      {
         this.serviceTransaction.getCoins(coinsID)
         .toPromise()
         .then((result) => {
           this.errorMessage = null;
           if(result.value) {
             if ((result.value - this.coinsExchanged) < 0 ){
-              
+
               this.errorMessage = "Insufficient coins in consumer account";
               return false;
             }
@@ -244,7 +244,7 @@ export class TransactionRUComponent {
             });
           }
         });
-      }        
+      }
     });
-  }        
+  }
 }

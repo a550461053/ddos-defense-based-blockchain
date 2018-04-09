@@ -17,7 +17,7 @@ import {Event} from './org.hyperledger.composer.system';
       coins: Coins;
       cash: Cash;
    }
-   export class UtilityCompany extends Participant {
+   export class TargetCompany extends Participant {
       utilityID: string;
       name: string;
       coins: Coins;
@@ -25,7 +25,7 @@ import {Event} from './org.hyperledger.composer.system';
    export enum OwnerEntity {
       Resident,
       Bank,
-      UtilityCompany,
+      TargetCompany,
    }
    export class Coins extends Asset {
       coinsID: string;

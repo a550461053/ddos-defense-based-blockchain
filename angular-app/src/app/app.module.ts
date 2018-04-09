@@ -20,7 +20,7 @@ import { LogComponent } from './Log/Log.component';
 
 import { ResidentComponent } from './Resident/Resident.component';
 import { BankComponent } from './Bank/Bank.component';
-import { UtilityCompanyComponent } from './UtilityCompany/UtilityCompany.component';
+import { TargetCompanyComponent } from './TargetCompany/TargetCompany.component';
 
 import { TransactionRRComponent } from './TransactionRR/TransactionRR.component';
 import { TransactionRUComponent } from './TransactionRU/TransactionRU.component';
@@ -30,7 +30,7 @@ import { DistributeCoinsComponent } from './DistributeCoins/DistributeCoins.comp
 
 import { AllTransactionsComponent } from './AllTransactions/AllTransactions.component';
 
-import { BaiduMapModule } from "angular2-baidu-map";
+// import { BaiduMapModule } from "angular2-baidu-map";
 // import { BaiduComponent } from "./baidu/baidu.component";
 
 @NgModule({
@@ -49,7 +49,7 @@ import { BaiduMapModule } from "angular2-baidu-map";
 
     ResidentComponent,
     BankComponent,
-    UtilityCompanyComponent,
+    TargetCompanyComponent,
 
     CoinsComponent,
 		EnergyComponent,
@@ -64,7 +64,7 @@ import { BaiduMapModule } from "angular2-baidu-map";
     HttpModule,
     AppRoutingModule,
 
-    BaiduMapModule.forRoot({ak:'CG68LRree4AC5WNAyTv5X3G5HLPKe8Ah'})
+    // BaiduMapModule.forRoot({ak:'CG68LRree4AC5WNAyTv5X3G5HLPKe8Ah'})
   ],
   providers: [
     Configuration,

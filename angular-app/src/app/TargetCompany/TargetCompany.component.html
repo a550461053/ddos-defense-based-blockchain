@@ -1,10 +1,10 @@
 
-<div class="modal fade" id="addUtilityCompanyModal" tabindex="-1" role="dialog" aria-labelledby="addUtilityCompanyModalLabel">
+<div class="modal fade" id="addTargetCompanyModal" tabindex="-1" role="dialog" aria-labelledby="addTargetCompanyModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="addUtilityCompanyModalLabel">Add TargetCompany</h4>
+        <h4 class="modal-title" id="addTargetCompanyModalLabel">Add TargetCompany</h4>
       </div>
       <form [formGroup]="myForm">
         <div class="modal-body">
@@ -39,7 +39,7 @@
 
         </div>
         <div class="modal-footer">
-          <button (click)="addUtilityCompany(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+          <button (click)="addTargetCompany(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </form>
@@ -48,12 +48,12 @@
 </div>
 
 
-<div class="modal fade" id="updateUtilityCompanyModal" tabindex="-1" role="dialog" aria-labelledby="updateUtilityCompanyModalLabel">
+<div class="modal fade" id="updateTargetCompanyModal" tabindex="-1" role="dialog" aria-labelledby="updateTargetCompanyModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="updateUtilityCompanyModalLabel">Update Asset</h4>
+        <h4 class="modal-title" id="updateTargetCompanyModalLabel">Update Asset</h4>
       </div>
       <form [formGroup]="myForm">
         <div class="modal-body">
@@ -67,7 +67,7 @@
             </div>
         </div>
         <div class="modal-footer">
-          <button (click)="updateUtilityCompany(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+          <button (click)="updateTargetCompany(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </form>
@@ -77,19 +77,19 @@
 
 
 
-<div class="modal fade" id="deleteUtilityCompanyModal" tabindex="-1" role="dialog" aria-labelledby="deleteUtilityCompanyModalLabel">
+<div class="modal fade" id="deleteTargetCompanyModal" tabindex="-1" role="dialog" aria-labelledby="deleteTargetCompanyModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="deleteUtilityCompanyModalLabel">Delete Asset</h4>
+        <h4 class="modal-title" id="deleteTargetCompanyModalLabel">Delete Asset</h4>
       </div>
-      <form [formGroup]="myForm" (ngSubmit)="deleteUtilityCompany()">
+      <form [formGroup]="myForm" (ngSubmit)="deleteTargetCompany()">
         <div class="modal-body">
           Are you sure you want to delete this asset?
         </div>
         <div class="modal-footer">
-          <button (click)="deleteUtilityCompany()" type="submit" class="btn btn-danger" data-dismiss="modal">Yes</button>
+          <button (click)="deleteTargetCompany()" type="submit" class="btn btn-danger" data-dismiss="modal">Yes</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
         </div>
       </form>
@@ -112,7 +112,7 @@
 
  <div class="row">
     <div class="col-md-12 text-right">
-      <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addUtilityCompanyModal">Add TargetCompany</button>
+      <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addTargetCompanyModal">Add TargetCompany</button>
     </div>
   </div>
   <br>
@@ -136,23 +136,23 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let utilityCompany of allUtilityCompanys">
+          <tr *ngFor="let TargetCompany of allTargetCompanys">
 
-                <td>{{utilityCompany.utilityID}}</td>
+                <td>{{TargetCompany.utilityID}}</td>
 
-                <td>{{utilityCompany.name}}</td>
+                <td>{{TargetCompany.name}}</td>
 
-                <td>{{utilityCompany.coinsValue}}</td>
+                <td>{{TargetCompany.coinsValue}}</td>
 
-                <!-- <td>{{utilityCompany.energyValue}}</td>
+                <!-- <td>{{TargetCompany.energyValue}}</td>
 
-                <td>{{utilityCompany.energytargetIP}}</td> -->
+                <td>{{TargetCompany.energytargetIP}}</td> -->
 
             <td>
 
-              <button (click)="getForm(utilityCompany.utilityID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateUtilityCompanyModal">Update</button>
+              <button (click)="getForm(TargetCompany.utilityID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateTargetCompanyModal">Update</button>
 
-              <button (click)="setId(utilityCompany.utilityID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUtilityCompanyModal">Delete</button>
+              <button (click)="setId(TargetCompany.utilityID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteTargetCompanyModal">Delete</button>
 
             </td>
           </tr>

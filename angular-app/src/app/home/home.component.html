@@ -1,5 +1,14 @@
 
-<div class="container">
+<head>
+
+ <!-- <script src="node_modules/angular2/bundles/angular2.sfx.dev.js"></script> -->
+ <!-- <script src="index.js"></script> -->
+ <script>
+
+ </script>
+</head>
+
+<div class="container-fluid">
   <div class="row">
       <!--h1 class="heading">decentralized energy </h1-->
      <h1 class="heading">Welcome to IoT-DDoS Defense using Hyperledger</h1>
@@ -19,7 +28,7 @@
     </div>
 
   <div class="row">
-    <br>
+    <!-- <br> -->
   </div>
 
 <!--  <div class="row">
@@ -208,7 +217,7 @@
 </div> -->
 
 
-<div class="container">
+<div class="container-fluid">
 	<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
 		<strong>Error:</strong> {{errorMessage}}
 	</div>
@@ -223,43 +232,25 @@
 			<table class="table table-striped table-bordered table-hover">
 				<tr>
 					<td width="48%">
-						<baidu-map [options]="options" style="display: block; width: 100%; height: 450px; align: center;"></baidu-map>
+						<!-- <baidu-map [options]="options" style="display: block; width: 100%; height: 450px; align: center;"></baidu-map> -->
+            <canvas #myCanvas width="900" height="500">
+            </canvas>
 					</td>
 
-					<td class="spec" width="4%"> </td>
+					<td class="spec2" width="4%"> </td>
 
-					<td>
-						<tr>
-							<th class="bc text-primary spec" width="48%">Gateway提交针对目标IP的异常连结</th>
+					<td  class="allblack" width="48%" >
+						<tr width="100%">
+							<th class="bc text-primary bigfont" width="900" height="40">Gateway提交针对目标IP的异常连结</th>
 						</tr>
-						<tr>
-
-							<!-- <td class="allblack active" width="48%">
-								<div class="pre-scrollable table-responsive" >
-								<table  class="table table-striped table-responsive table-hover scrolltable pre-scrollable" width="100%">
-									<tr>
-										<th align="center">提交者ID</th>
-										<th align="center">目标IP</th>
-										<th > 描述 </th>
-										<th > 时间 </th>
-									</tr>
-									<tr *ngFor="let ddos of allDDoS">
-										<td class=" text-primary" align="center">{{ddos.ownerID}}</td>
-										<td class=" text-primary" align="center">{{ddos.targetIP}}</td>
-										<td class=" text-primary" align="center">待填</td>
-										<td class=" text-primary" align="center">{{ddos.value}}</td>
-									</tr>
-								</table>
-								</div>
-							</td> -->
-
-							<td class="spec">
+						<tr width="100%">
+							<td class=""  width="100%">
 								<div class="pre-scrollable table-responsive">
 									<table class="table table-striped table-responsive table-hover scrolltable pre-scrollable" width="100%">
 										<thead>
 											<tr>
 												<th style="display: table-head-group;" width="20%">提交者ID</th>
-												<th style="display: table-head-group;" width="20%">目标IP</th>
+												<th style="display: table-head-group;" width="30%">目标IP</th>
 												<th style="display: table-head-group;" width="30%">异常类型</th>
 												<th style="display: table-head-group;" width="20%">时间</th>
 											</tr>
@@ -269,8 +260,8 @@
 												<!-- <div class="pre-scrollable" > -->
 												<td align="center" width="20%">{{asset.ownerID}}</td>
 												<td align="center" width="30%">{{asset.targetIP}}</td>
-												<td align="center" width="50%">{{asset.description}}</td>
-												<td align="center" width="50%">{{asset.value}}</td>
+												<td align="center" width="30%">{{asset.description}}</td>
+												<td align="center" width="20%">{{asset.value}}</td>
 												<!-- Gateway {{asset.ownerID}} 提交了一条针对目标 {{asset.targetIP}} 的类型为 {{asset.description}} 的异常 -->
 												<!-- </div> -->
 											</tr>
@@ -282,6 +273,8 @@
 					</td>
 
 				</tr>
+
+        <tr height="20"> </tr>
 
 				<tr>
 
@@ -338,80 +331,6 @@
 			</table>
 
 
-      <!-- <table class="table table-striped table-bordered table-hover">
-        <thead>
-          <tr>
-            <th class="bc text-primary allblack" width="35%">Gateway提交针对目标IP的异常连结</th>
-            <th class="spec" width="5%" >  </th>
-            <th class="bc text-primary allblack" width="25%">Gateway提交针对目标IP的DDoS预警</th>
-            <th class="spec" width="5%" >  </th>
-            <th class="bc text-primary allblack" width="30%">TargetCompany提交针对Gateway的奖励</th>
-          </tr>
-        </thead>
-        <tbody width="100%">
-
-            <tr>
-
-                <td class="allblack" width="35%">
-                  <div class="pre-scrollable table-responsive">
-                    <table class="table table-striped table-responsive table-hover scrolltable pre-scrollable" width="100%">
-                      <thead>
-                        <tr>
-                          <th style="display: table-head-group;" width="20%">提交者ID</th>
-                          <th style="display: table-head-group;" width="30%">目标IP</th>
-                          <th style="display: table-head-group;" width="50%">异常类型</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr *ngFor="let asset of allAssets">
-
-                          <td align="center" width="20%">{{asset.ownerID}}</td>
-                          <td align="center" width="30%">{{asset.targetIP}}</td>
-                          <td align="center" width="50%">{{asset.description}}</td>
-
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </td>
-
-                <td class="spec" width="5%"> <table width="100%"><tr> </tr></table> </td>
-
-                <td class="allblack active" width="25%">
-                  <div class="pre-scrollable table-responsive" >
-                  <table  class="table table-striped table-responsive table-hover scrolltable pre-scrollable" width="100%">
-                    <tr>
-                      <th align="center">提交者ID</th>
-                      <th align="center">目标IP</th>
-                    </tr>
-                    <tr *ngFor="let ddos of allDDoS">
-                      <td class=" text-primary" align="center">{{ddos.ownerID}}</td>
-                      <td class=" text-primary" align="center">{{ddos.targetIP}}</td>
-                    </tr>
-                  </table>
-                  </div>
-                </td>
-
-                <td class="spec" width="5%"> <table width="100%"><tr> </tr></table> </td>
-
-                <td class="allblack" width="30%">
-                  <div class="pre-scrollable table-responsive" >
-                  <table  class="table table-striped table-responsive table-hover scrolltable pre-scrollable" width="100%">
-                    <tr>
-                      <th align="center">奖励发起者ID</th>
-                      <th align="center">奖励对象ID</th>
-                      <th align="center">奖励金额</th>
-                    </tr>
-                    <tr *ngFor="let log of allLog">
-                      <td align="center" class="text-warning">{{log.ownerID}}</td>
-                      <td align="center" class="text-warning">{{log.value}}</td>
-                      <td align="center" class="text-warning">1coin</td>
-                    </tr>
-                  </table>
-                  </div>
-                </td>
-            </tr> -->
-
           <!-- <tr *ngIf="DDoSInfoShow" >基于共享后的异常连接进行分析...</tr>
           <tr *ngFor="let ddos of allDDoS">
                 Gateway {{ddos.ownerID}} 提交了一条针对目标 {{ddos.targetIP}} 的DDoS预警
@@ -436,6 +355,28 @@
     Gateway提交的异常，
     Gateway提交的DDoS异常应该是
 
+任务一：
+	动态显示空间连线图
+	解决：
+		0.采用html5的canvas画图直接实现，较为复杂。
+		①采用2D的连线图：d3.js可以直接实现
+			d3.js是数据可视化的工具包
+			d3.js的力导向图
+			还需要进一步研究一下其example实例
+		②采用3D的连线图：需要three.js才能实现
+			是一些列游戏引擎之一
+		③采用HT for Web 或者 html5的Qunee
+技术对比：
+  - canvas：使用的是即时渲染，更底层，消耗内存资源更少，适合复杂图形构建
+  - svg：使用的是保留渲染
+
+任务二：
+	修改已有的区块链配置，将UtilityCompany改为TargetCompany
+	解决：
+		①修改angular-app下的所有项目文件
+			model.cto,以及transactions.js,
+		②重启网络的时候出现问题，BNA文件无法创建：
+			解决：在根目录下的..acl,qry等文件是业务逻辑以及各种权限的配置，需要修改相应的位置
 
 
 -->
@@ -445,4 +386,13 @@
   </div>
 </div>
 </div>
+
+
+
+<!-- <canvas height="620" width="1360" id="canvas"
+style="position: absolute; height: 50%;"
+></canvas> -->
+<!-- <script src="index.js" charset="utf-8"></script> -->
+
+<!-- <div><iframe src="./myline.html" frameBorder="0" style="width:400px;height:400px;" ></iframe></div> -->
 <!-- <a [routerLink]="['/Baidu']">baidumap</a> -->

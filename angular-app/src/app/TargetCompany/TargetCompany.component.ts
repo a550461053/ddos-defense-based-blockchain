@@ -1,20 +1,20 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { UtilityCompanyService } from './UtilityCompany.service';
+import { TargetCompanyService } from './TargetCompany.service';
 import 'rxjs/add/operator/toPromise';
 
 @Component({
-	selector: 'app-UtilityCompany',
-	templateUrl: './UtilityCompany.component.html',
-	styleUrls: ['./UtilityCompany.component.css'],
-  	providers: [UtilityCompanyService]
+	selector: 'app-TargetCompany',
+	templateUrl: './TargetCompany.component.html',
+	styleUrls: ['./TargetCompany.component.css'],
+  	providers: [TargetCompanyService]
 })
-export class UtilityCompanyComponent {
+export class TargetCompanyComponent {
 
   myForm: FormGroup;
 
-  private allUtilityCompanys;
-  private utilityCompany;
+  private allTargetCompany;
+  private TargetCompany;
   private currentId;
   private errorMessage;
 
@@ -27,7 +27,7 @@ export class UtilityCompanyComponent {
       energyValue = new FormControl("", Validators.required);
       energytargetIP = new FormControl("", Validators.required);
 
-  constructor(private serviceUtilityCompany:UtilityCompanyService, fb: FormBuilder) {
+  constructor(private serviceTargetCompany:TargetCompanyService, fb: FormBuilder) {
     this.myForm = fb.group({
 
           utilityID:this.utilityID,
@@ -58,18 +58,18 @@ export class UtilityCompanyComponent {
   }
 
   //allow update name of Utility Company
-  updateUtilityCompany(form: any): Promise<any> {
+  updateTargetCompany(form: any): Promise<any> {
 
     console.log("update check");
-    this.utilityCompany = {
-      $class: "org.decentralized.energy.network.UtilityCompany",
+    this.TargetCompany = {
+      $class: "org.decentralized.energy.network.TargetCompany",
             "name":this.name.value,
 
              "coins": "resource:org.decentralized.energy.network.Coins#CO_" + form.get("utilityID").value,
              "energy": "resource:org.decentralized.energy.network.Energy#EN_" + form.get("utilityID").value
     };
-    console.log(this.utilityCompany);
-    return this.serviceUtilityCompany.updateUtilityCompany(form.get("utilityID").value,this.utilityCompany)
+    console.log(this.TargetCompany);
+    return this.serviceTargetCompany.updateTargetCompany(form.get("utilityID").value,this.TargetCompany)
 		.toPromise()
 		.then(() => {
 			this.errorMessage = null;
@@ -88,17 +88,17 @@ export class UtilityCompanyComponent {
   }
 
   //delete Utility Company and the coins and energy assets associated to it
-  deleteUtilityCompany(): Promise<any> {
+  deleteTargetCompany(): Promise<any> {
 
-    return this.serviceUtilityCompany.deleteUtilityCompany(this.currentId)
+    return this.serviceTargetCompany.deleteTargetCompany(this.currentId)
 		.toPromise()
 		.then(() => {
 			this.errorMessage = null;
       var coinsID = "CO_"+this.currentId;
-      this.serviceUtilityCompany.deleteCoins(coinsID)
+      this.serviceTargetCompany.deleteCoins(coinsID)
       .toPromise()
       .then(() => {
-          this.serviceUtilityCompany.deleteEnergy("EN_"+this.currentId)
+          this.serviceTargetCompany.deleteEnergy("EN_"+this.currentId)
           .toPromise()
           .then(() => {
               console.log("Deleted")
@@ -124,7 +124,7 @@ export class UtilityCompanyComponent {
 
   getForm(id: any): Promise<any>{
 
-    return this.serviceUtilityCompany.getUtilityCompany(id)
+    return this.serviceTargetCompany.getTargetCompany(id)
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
@@ -167,16 +167,16 @@ export class UtilityCompanyComponent {
   }
 
 
-  loadAll_OnlyUtilityCompanys(): Promise<any> {
+  loadAll_OnlyTargetCompany(): Promise<any> {
     let tempList = [];
-    return this.serviceUtilityCompany.getAllUtilityCompanys()
+    return this.serviceTargetCompany.getAllTargetCompany()
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
-      result.forEach(utilityCompany => {
-        tempList.push(utilityCompany);
+      result.forEach(TargetCompany => {
+        tempList.push(TargetCompany);
       });
-      this.allUtilityCompanys = tempList;
+      this.allTargetCompany = tempList;
     })
     .catch((error) => {
         if(error == 'Server error'){
@@ -194,56 +194,56 @@ export class UtilityCompanyComponent {
   //load all Utility Companies and the coins and energy assets associated to it
   loadAll(): Promise<any>  {
 
-    //retrieve all utilityCompanys
-    let utilityCompanyList = [];
-    return this.serviceUtilityCompany.getAllUtilityCompanys()
+    //retrieve all TargetCompanys
+    let TargetCompanyList = [];
+    return this.serviceTargetCompany.getAllTargetCompany()
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
-      result.forEach(utilityCompany => {
-        utilityCompanyList.push(utilityCompany);
+      result.forEach(TargetCompany => {
+        TargetCompanyList.push(TargetCompany);
       });
     })
     .then(() => {
 
-      for (let utilityCompany of utilityCompanyList) {
+      for (let TargetCompany of TargetCompanyList) {
         console.log("in for loop")
-        console.log(utilityCompany.coins)
+        console.log(TargetCompany.coins)
 
-        var splitted_coinsID = utilityCompany.coins.split("#", 2);
+        var splitted_coinsID = TargetCompany.coins.split("#", 2);
         var coinsID = String(splitted_coinsID[1]);
-        this.serviceUtilityCompany.getCoins(coinsID)
+        this.serviceTargetCompany.getCoins(coinsID)
         .toPromise()
         .then((result) => {
           this.errorMessage = null;
           if(result.value){
-            utilityCompany.coinsValue = result.value;
+            TargetCompany.coinsValue = result.value;
           }
         });
 
-        // var splitted_energyID = utilityCompany.energy.split("#", 2);
+        // var splitted_energyID = TargetCompany.energy.split("#", 2);
         // var energyID = String(splitted_energyID[1]);
         // console.log(energyID);
-        // this.serviceUtilityCompany.getEnergy(energyID)
+        // this.serviceTargetCompany.getEnergy(energyID)
         // .toPromise()
         // .then((result) => {
         //   this.errorMessage = null;
         //   if(result.value){
-        //     utilityCompany.energyValue = result.value;
+        //     TargetCompany.energyValue = result.value;
         //   }
         //   if(result.targetIP){
-        //     utilityCompany.energytargetIP = result.targetIP;
+        //     TargetCompany.energytargetIP = result.targetIP;
         //   }
         // });
 
       }
-      this.allUtilityCompanys = utilityCompanyList;
+      this.allTargetCompany = TargetCompanyList;
     });
 
   }
 
   //add Utility Company participant
-  addUtilityCompany(form: any): Promise<any> {
+  addTargetCompany(form: any): Promise<any> {
 
     return this.createAssetsUtility()
       .then(() => {
@@ -277,7 +277,7 @@ export class UtilityCompanyComponent {
           "coinsID":"CO_" + this.utilityID.value,
           "value":this.coinsValue.value,
           "ownerID":this.utilityID.value,
-          "ownerEntity":'UtilityCompany'
+          "ownerEntity":'TargetCompany'
     };
 
     this.energy = {
@@ -286,11 +286,11 @@ export class UtilityCompanyComponent {
           "targetIP":this.energytargetIP.value,
           "value":this.energyValue.value,
           "ownerID":this.utilityID.value,
-          "ownerEntity":'UtilityCompany'
+          "ownerEntity":'TargetCompany'
     };
 
-    this.utilityCompany = {
-      $class: "org.decentralized.energy.network.UtilityCompany",
+    this.TargetCompany = {
+      $class: "org.decentralized.energy.network.TargetCompany",
           "utilityID":this.utilityID.value,
           "name":this.name.value,
 
@@ -298,15 +298,15 @@ export class UtilityCompanyComponent {
           "energy":"EN_" + this.utilityID.value,
     };
 
-    return this.serviceUtilityCompany.addCoins(this.coins)
+    return this.serviceTargetCompany.addCoins(this.coins)
     .toPromise()
 		.then(() => {
       // console.log("create energy");
-			// this.serviceUtilityCompany.addEnergy(this.energy)
+			// this.serviceTargetCompany.addEnergy(this.energy)
       // .toPromise()
       // .then(() => {
-        console.log("create utilityCompanys");
-        this.serviceUtilityCompany.addUtilityCompany(this.utilityCompany)
+        console.log("create TargetCompanys");
+        this.serviceTargetCompany.addTargetCompany(this.TargetCompany)
         .toPromise()
         .then(() => {
           console.log("created assets");

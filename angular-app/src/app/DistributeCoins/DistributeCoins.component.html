@@ -7,7 +7,7 @@
 	</div>
 
   <div class="row">
-      <h1> </h1>  
+      <h1> </h1>
   </div>
 
   <div class="row">
@@ -24,18 +24,18 @@
 
 
            <p>Target Company:
-              <select name="utilityCompanys" formControlName="formUtilityID" >
-                <option *ngFor="let utilityCompany of allUtilityCompanys" value="{{utilityCompany.utilityID}}">{{utilityCompany.utilityID}}</option>
+              <select name="TargetCompany" formControlName="formUtilityID" >
+                <option *ngFor="let TargetCompany of allTargetCompany" value="{{TargetCompany.utilityID}}">{{TargetCompany.utilityID}}</option>
               </select>
             </p>
 
-            <p>Resident: 
+            <p>Resident:
               <select name="residents" formControlName="formResidentID">
                 <option *ngFor="let resident of allResidents" value="{{resident.residentID}}">{{resident.residentID}}</option>
               </select>
-            </p>           
+            </p>
 
-  
+
             </form>
         </div>
       </div>
@@ -46,7 +46,7 @@
         <div class="panel-heading"><strong>Transaction Executed</strong></div>
         <div class="panel-body">
           <form [formGroup]="myForm">
-            <p>Transaction ID: {{transactionID}}</p>             
+            <p>Transaction ID: {{transactionID}}</p>
           </form>
         </div>
       </div>
@@ -54,10 +54,10 @@
 
   </div>
 
-  <div class="row">  
+  <div class="row">
     <div *ngIf="transactionFrom" class="col-md-offset-4 col-md-4">
     <button (click)="execute(form);" type="button" class="btn btn-success" data-toggle="modal" >Execute Transaction</button>
-	  
+
     </div>
   </div>
 

@@ -37,7 +37,7 @@ rule ResidentReadAccessUtilityCompanies {
     description: "Allow residents read access to other utility companies"
     participant: "org.decentralized.energy.network.Resident"
     operation: READ
-    resource: "org.decentralized.energy.network.UtilityCompany"
+    resource: "org.decentralized.energy.network.TargetCompany"
     action: ALLOW
 }
 
@@ -118,46 +118,46 @@ rule BankAccessCashRecord {
 
 
 //Utility Companies to have access to their own account
-rule UtilityCompanyAccessOwnRecord {
+rule TargetCompanyAccessOwnRecord {
     description: "Allow utilty company to access only their profile"
-    participant(p): "org.decentralized.energy.network.UtilityCompany"
+    participant(p): "org.decentralized.energy.network.TargetCompany"
     operation: READ, UPDATE, DELETE
-    resource(r): "org.decentralized.energy.network.UtilityCompany"
+    resource(r): "org.decentralized.energy.network.TargetCompany"
     condition: (r.getIdentifier() === p.getIdentifier())
     action: ALLOW
 }
 
 //Utility Companies to have read only access to other Utility Companies
-rule UtilityCompanyReadAccessUtilityCompanies {
+rule TargetCompanyReadAccessUtilityCompanies {
     description: "Allow utility companies read access to other Utility Companies"
-    participant: "org.decentralized.energy.network.UtilityCompany"
+    participant: "org.decentralized.energy.network.TargetCompany"
     operation: READ
-    resource: "org.decentralized.energy.network.UtilityCompany"
+    resource: "org.decentralized.energy.network.TargetCompany"
     action: ALLOW
 }
 
 //Utility Companies to have read only access to other Residents
-rule UtilityCompanyReadAccessResidents {
+rule TargetCompanyReadAccessResidents {
     description: "Allow utility companies read access to other Residents"
-    participant: "org.decentralized.energy.network.UtilityCompany"
+    participant: "org.decentralized.energy.network.TargetCompany"
     operation: READ
     resource: "org.decentralized.energy.network.Resident"
     action: ALLOW
 }
 
 //Utility Companies to have read access to all coins assets
-rule UtilityCompanyAccessCoinsRecord {
+rule TargetCompanyAccessCoinsRecord {
     description: "Allow utility companies read access to all coins assets"
-    participant: "org.decentralized.energy.network.UtilityCompany"
+    participant: "org.decentralized.energy.network.TargetCompany"
     operation: READ
     resource: "org.decentralized.energy.network.Coins"
     action: ALLOW
 }
 
 //Utility Companies to have read/update access to all energy assets
-rule UtilityCompanyAccessEnergyRecord {
+rule TargetCompanyAccessEnergyRecord {
     description: "Allow utility companies read access to all energy assets"
-    participant: "org.decentralized.energy.network.UtilityCompany"
+    participant: "org.decentralized.energy.network.TargetCompany"
     operation: READ
     resource: "org.decentralized.energy.network.Energy"
     action: ALLOW

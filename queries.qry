@@ -14,7 +14,7 @@ query selectBanks {
 query selectUtilityCompanies {
   description: "Select all utility companies"
   statement:
-      SELECT org.decentralized.energy.network.UtilityCompany
+      SELECT org.decentralized.energy.network.TargetCompany
 }
 
 query selectCoins {

@@ -219,17 +219,17 @@ describe('Decentralized Energy - check transactions, access', () => {
                 const utility_coins = factory.newResource(NS, 'Coins', 'CO_U1');
                 utility_coins.value = 5000;
                 utility_coins.ownerID = 'U1';
-                utility_coins.ownerEntity = 'UtilityCompany';            
+                utility_coins.ownerEntity = 'TargetCompany';
 
                 // create utility energy asset
                 const utility_energy = factory.newResource(NS, 'Energy', 'EN_U1');
                 utility_energy.value = 1000;
                 utility_energy.units = 'kwh';
                 utility_energy.ownerID = 'U1';
-                utility_energy.ownerEntity = 'UtilityCompany';
+                utility_energy.ownerEntity = 'TargetCompany';
                 
                 // create Utility Company
-                const U1 = factory.newResource(NS, 'UtilityCompany', 'U1');
+                const U1 = factory.newResource(NS, 'TargetCompany', 'U1');
                 U1.name = 'New Utility';            
                 U1.coins = factory.newRelationship(NS, 'Coins', utility_coins.$identifier);
                 U1.energy = factory.newRelationship(NS, 'Energy', utility_energy.$identifier);
@@ -275,7 +275,7 @@ describe('Decentralized Energy - check transactions, access', () => {
                             return participantRegistry.add(B1);
                         })
                         .then(() => {
-                            return businessNetworkConnection.getParticipantRegistry(NS + '.UtilityCompany');
+                            return businessNetworkConnection.getParticipantRegistry(NS + '.TargetCompany');
                         })
                         .then((participantRegistry) => {
                             // add utility company
@@ -306,7 +306,7 @@ describe('Decentralized Energy - check transactions, access', () => {
                         return importCardForIdentity(B1Identity, identity);
                     })
                     .then(() => {                        
-                        return businessNetworkConnection.issueIdentity('org.decentralized.energy.network.UtilityCompany#U1', 'utility1');
+                        return businessNetworkConnection.issueIdentity('org.decentralized.energy.network.TargetCompany#U1', 'utility1');
                     })
                     .then((identity) => {
                         return importCardForIdentity(U1Identity, identity);                        

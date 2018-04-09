@@ -3,7 +3,7 @@ import { DataService } from '../data.service';
 import { Observable } from 'rxjs/Observable';
 
 import { Resident } from '../org.decentralized.energy.network';
-import { UtilityCompany } from '../org.decentralized.energy.network';
+import { TargetCompany } from '../org.decentralized.energy.network';
 
 import { DDoS } from '../org.decentralized.energy.network';
 import { Energy } from '../org.decentralized.energy.network';
@@ -19,13 +19,13 @@ import 'rxjs/Rx';
 export class TransactionDDOSService {
 
 	  private RESIDENT: string = 'Resident';
-    private UTILITYCOMPANY: string = 'UtilityCompany';
+    private TARGETCOMPANY: string = 'TargetCompany';
     private ENERGY: string = 'Energy';
     private DDOS: string = 'DDoS';
     private ENERGY_TO_DDOS: string = 'EnergyToDDoS';
 
     constructor(private residentService: DataService<Resident>,
-			private utilityCompanyService: DataService<UtilityCompany>,
+			private TargetCompanyService: DataService<TargetCompany>,
 			private ddosService: DataService<DDoS>,
 			private energyService: DataService<Energy>,
 			private energyToDDoSService: DataService<EnergyToDDoS>) {
@@ -37,8 +37,8 @@ export class TransactionDDOSService {
     }
 
     //get all Utility Companies
-    public getAllUtilityCompanys(): Observable<UtilityCompany[]> {
-        return this.utilityCompanyService.getAll(this.UTILITYCOMPANY);
+    public getAllTargetCompany(): Observable<TargetCompany[]> {
+        return this.TargetCompanyService.getAll(this.TARGETCOMPANY);
     }
 
     //get Energy asset

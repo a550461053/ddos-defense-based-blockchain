@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs/Observable';
-import { UtilityCompany } from '../org.decentralized.energy.network';
+import { TargetCompany } from '../org.decentralized.energy.network';
 
 import { Coins } from '../org.decentralized.energy.network';
 import { Energy } from '../org.decentralized.energy.network';
@@ -10,35 +10,35 @@ import 'rxjs/Rx';
 
 // Can be injected into a constructor
 @Injectable()
-export class UtilityCompanyService {
+export class TargetCompanyService {
 
-	
-		private UTILITYCOMPANY: string = 'UtilityCompany';  
+
+		private TARGETCOMPANY: string = 'TargetCompany';
     private COINS: string = 'Coins';
     private ENERGY: string = 'Energy';
-	
-    constructor(private utilityCompanyService: DataService<UtilityCompany>, private coinsService: DataService<Coins>, private energyService: DataService<Energy>) {
+
+    constructor(private TargetCompanyService: DataService<TargetCompany>, private coinsService: DataService<Coins>, private energyService: DataService<Energy>) {
     };
 
-    //utilitycompany functions
-    public getAllUtilityCompanys(): Observable<UtilityCompany[]> {
-        return this.utilityCompanyService.getAll(this.UTILITYCOMPANY);
+    //TargetCompany functions
+    public getAllTargetCompany(): Observable<TargetCompany[]> {
+        return this.TargetCompanyService.getAll(this.TARGETCOMPANY);
     }
 
-    public getUtilityCompany(id: any): Observable<UtilityCompany> {
-      return this.utilityCompanyService.getSingle(this.UTILITYCOMPANY, id);
+    public getTargetCompany(id: any): Observable<TargetCompany> {
+      return this.TargetCompanyService.getSingle(this.TARGETCOMPANY, id);
     }
 
-    public addUtilityCompany(itemToAdd: any): Observable<UtilityCompany> {
-      return this.utilityCompanyService.add(this.UTILITYCOMPANY, itemToAdd);
+    public addTargetCompany(itemToAdd: any): Observable<TargetCompany> {
+      return this.TargetCompanyService.add(this.TARGETCOMPANY, itemToAdd);
     }
 
-    public deleteUtilityCompany(id: any): Observable<UtilityCompany> {
-      return this.utilityCompanyService.delete(this.UTILITYCOMPANY, id);
+    public deleteTargetCompany(id: any): Observable<TargetCompany> {
+      return this.TargetCompanyService.delete(this.TARGETCOMPANY, id);
     }
 
-    public updateUtilityCompany(id: any, itemToUpdate: any): Observable<UtilityCompany> {
-      return this.utilityCompanyService.update(this.UTILITYCOMPANY, id, itemToUpdate);
+    public updateTargetCompany(id: any, itemToUpdate: any): Observable<TargetCompany> {
+      return this.TargetCompanyService.update(this.TARGETCOMPANY, id, itemToUpdate);
     }
 
 

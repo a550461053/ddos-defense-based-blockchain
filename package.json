@@ -80,7 +80,5 @@
     "functions": 100,
     "lines": 100
   },
-  "dependencies": {
-    "angular2-baidu-map": "^4.1.1"
-  }
+  "dependencies": {}
 }

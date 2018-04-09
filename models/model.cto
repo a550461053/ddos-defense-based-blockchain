@@ -18,7 +18,7 @@ participant Bank identified by bankID {
     --> Cash cash
 }
 
-participant UtilityCompany identified by utilityID {
+participant TargetCompany identified by utilityID {
     o String utilityID
     o String name
     o String targetIP
@@ -29,7 +29,7 @@ participant UtilityCompany identified by utilityID {
 enum OwnerEntity {
   o Resident
   o Bank
-  o UtilityCompany
+  o TargetCompany
 }
 
 
@@ -102,5 +102,5 @@ transaction EnergyToDDoS {
 transaction DistributeCoins {
     --> Coins coinsInc
     --> Coins coinsDec
-    --> UtilityCompany targetCompany
+    --> TargetCompany targetCompany
 }

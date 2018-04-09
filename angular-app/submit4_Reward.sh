@@ -9,7 +9,7 @@ curl -X POST --header 'Content-Type: application/json' \
       "$class": "org.decentralized.energy.network.DistributeCoins",
       "coinsInc": "resource:org.decentralized.energy.network.Coins#CO_2",
       "coinsDec": "resource:org.decentralized.energy.network.Coins#CO_12",
-      "targetCompany": "resource:org.decentralized.energy.network.UtilityCompany#12"
+      "targetCompany": "resource:org.decentralized.energy.network.TargetCompany#12"
     }' \
     'http://localhost:3000/api/DistributeCoins'
 

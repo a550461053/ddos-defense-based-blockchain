@@ -7,8 +7,8 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Configuration } from '../configuration';
 import { DataService } from '../data.service';
-import { TransactionRBComponent } from './TransactionRB.component';
-import {TransactionRBService} from './TransactionRB.service';
+import { TransactionRBComponent } from '../TransactionRB/TransactionRB.component';
+import { TransactionRBService } from '../TransactionRB/TransactionRB.service';
 describe('TransactionComponent', () => {
   let component: TransactionRBComponent;
   let fixture: ComponentFixture<TransactionRBComponent>;

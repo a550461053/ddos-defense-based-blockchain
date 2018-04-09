@@ -12,7 +12,7 @@ import { LogComponent } from './Log/Log.component';
 
 import { ResidentComponent } from './Resident/Resident.component';
 import { BankComponent } from './Bank/Bank.component';
-import { UtilityCompanyComponent } from './UtilityCompany/UtilityCompany.component';
+import { TargetCompanyComponent } from './TargetCompany/TargetCompany.component';
 
 import { TransactionRRComponent } from './TransactionRR/TransactionRR.component';
 import { TransactionRUComponent } from './TransactionRU/TransactionRU.component';
@@ -22,7 +22,7 @@ import { DistributeCoinsComponent } from './DistributeCoins/DistributeCoins.comp
 
 import { AllTransactionsComponent } from './AllTransactions/AllTransactions.component';
 
-import { BaiduMapModule } from "angular2-baidu-map";
+// import { BaiduMapModule } from "angular2-baidu-map";
 
 // import { BaiduComponent } from './baidu/baidu.component';
 
@@ -41,13 +41,13 @@ const routes: Routes = [
 
     { path: 'Resident', component: ResidentComponent},
     { path: 'Bank', component: BankComponent},
-    { path: 'UtilityCompany', component: UtilityCompanyComponent},
+    { path: 'TargetCompany', component: TargetCompanyComponent},
 
     { path: 'TransactionRR', component: TransactionRRComponent },
     { path: 'TransactionRU', component: TransactionRUComponent },
     { path: 'TransactionRB', component: TransactionRBComponent },
     { path: 'TransactionDDOS', component: TransactionDDOSComponent },
-    { path: 'DistributeCoins', component:DistributeCoinsComponent},
+    { path: 'DistributeCoins', component: DistributeCoinsComponent },
     { path: 'AllTransactions', component: AllTransactionsComponent },
 
 		{path: '**', redirectTo:''}

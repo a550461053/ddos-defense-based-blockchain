@@ -26,7 +26,7 @@ export class TransactionDDOSComponent {
   private transactionFrom;
 
   private allResidents;
-  private allUtilityCompanys;
+  private allTargetCompany;
 
 
   private resident;
@@ -67,7 +67,7 @@ export class TransactionDDOSComponent {
     this.transactionFrom  = true;
     this.loadAllResidents()
     .then(() => {
-            this.loadAllUtilityCompanys()
+            this.loadAllTargetCompany()
 						.then(() => {
 										this.loadAllEnergy()
 													.then(() => {
@@ -104,16 +104,16 @@ export class TransactionDDOSComponent {
   }
 
   //get all Utility Companies
-  loadAllUtilityCompanys(): Promise<any> {
+  loadAllTargetCompany(): Promise<any> {
     let tempList = [];
-    return this.serviceTransaction.getAllUtilityCompanys()
+    return this.serviceTransaction.getAllTargetCompany()
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
-      result.forEach(utilityCompany => {
-        tempList.push(utilityCompany);
+      result.forEach(TargetCompany => {
+        tempList.push(TargetCompany);
       });
-      this.allUtilityCompanys = tempList;
+      this.allTargetCompany = tempList;
     })
     .catch((error) => {
         if(error == 'Server error'){
@@ -185,7 +185,7 @@ export class TransactionDDOSComponent {
 async execute(form: any): Promise<any> {
 
 	// console.log(this.allResidents)
-	// console.log(this.allUtilityCompanys)
+	// console.log(this.allTargetCompany)
 	// console.log(this.allEnergy)
 
 	//	1. get resident
@@ -197,11 +197,11 @@ async execute(form: any): Promise<any> {
 	}
 
 	//get utility company
-	for (let utilityCompany of this.allUtilityCompanys) {
-			console.log(utilityCompany.utilityID);
+	for (let TargetCompany of this.allTargetCompany) {
+			console.log(TargetCompany.utilityID);
 
-		if(utilityCompany.utilityID == this.formUtilityID.value){
-			this.utiltyCompany = utilityCompany;
+		if(TargetCompany.utilityID == this.formUtilityID.value){
+			this.utiltyCompany = TargetCompany;
 		}
 	}
 
@@ -342,7 +342,7 @@ async execute(form: any): Promise<any> {
 //    execute(form: any): Promise<any> {
 //
 //     // console.log(this.allResidents)
-//     // console.log(this.allUtilityCompanys)
+//     // console.log(this.allTargetCompany)
 // 		// console.log(this.allEnergy)
 //
 //     //	1. get resident

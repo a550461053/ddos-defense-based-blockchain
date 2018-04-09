@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // import { ControlAnchor, NavigationControlType } from 'angular2-baidu-map';
-import { MapOptions } from 'angular2-baidu-map';
+// import { MapOptions } from 'angular2-baidu-map';
 @Component({
   selector: 'map-presentation',
   templateUrl: "./baidu.component.html",
@@ -17,17 +17,19 @@ import { MapOptions } from 'angular2-baidu-map';
 export class BaiduComponent  {// implements OnInit {
   // opts: any;
   // offlineOpts: OfflineOptions;
-  options: MapOptions;
-  constructor() {
-    this.options = {
-      centerAndZoom: {
-        lat: 39.92,
-        lng: 116.40,
-        zoom: 16
-      },
-      enableKeyboard: true
-    };
-  }
+
+  // options: MapOptions;
+  // constructor() {
+  //   this.options = {
+  //     centerAndZoom: {
+  //       lat: 39.92,
+  //       lng: 116.40,
+  //       zoom: 16
+  //     },
+  //     enableKeyboard: true
+  //   };
+  // }
+
   // ngOnInit() {
   //   // 配置地图，参考百度api
   //   this.opts = {

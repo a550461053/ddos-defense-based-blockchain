@@ -24,10 +24,10 @@ export class DistributeCoinsComponent {
   private transactionFrom;
 
   private allResidents;
-  private allUtilityCompanys;
+  private allTargetCompany;
 
   private resident;
-  private utilityCompany;
+  private TargetCompany;
 
   private DistributeCoinsObj;
   private transactionID;
@@ -56,7 +56,7 @@ export class DistributeCoinsComponent {
     this.transactionFrom  = true;
     this.loadAllResidents()
     .then(() => {
-            this.loadAllUtilityCompanys();
+            this.loadAllTargetCompany();
     });
   }
 
@@ -86,16 +86,16 @@ export class DistributeCoinsComponent {
   }
 
   //get all Utility Companies
-  loadAllUtilityCompanys(): Promise<any> {
+  loadAllTargetCompany(): Promise<any> {
     let tempList = [];
-    return this.serviceTransaction.getAllUtilityCompanys()
+    return this.serviceTransaction.getAllTargetCompany()
     .toPromise()
     .then((result) => {
 			this.errorMessage = null;
-      result.forEach(utilityCompany => {
-        tempList.push(utilityCompany);
+      result.forEach(TargetCompany => {
+        tempList.push(TargetCompany);
       });
-      this.allUtilityCompanys = tempList;
+      this.allTargetCompany = tempList;
     })
     .catch((error) => {
         if(error == 'Server error'){
@@ -114,7 +114,7 @@ export class DistributeCoinsComponent {
   execute(form: any): Promise<any> {
 
     console.log(this.allResidents);
-    console.log(this.allUtilityCompanys);
+    console.log(this.allTargetCompany);
 
     //get resident
     for (let resident of this.allResidents) {
@@ -125,16 +125,16 @@ export class DistributeCoinsComponent {
     }
 
     //get utility company
-    for (let utilityCompany of this.allUtilityCompanys) {
-        console.log(utilityCompany.utilityID);
-      if(utilityCompany.utilityID == this.formUtilityID.value){
-        this.utilityCompany = utilityCompany;
+    for (let TargetCompany of this.allTargetCompany) {
+        console.log(TargetCompany.utilityID);
+      if(TargetCompany.utilityID == this.formUtilityID.value){
+        this.TargetCompany = TargetCompany;
       }
     }
 
     this.coinsCreditAsset = this.resident.coins;
-    this.coinsDebitAsset = this.utilityCompany.coins;
-    this.targetCompany = this.utilityCompany;
+    this.coinsDebitAsset = this.TargetCompany.coins;
+    this.targetCompany = this.TargetCompany;
 
     console.log('Coins Credit Asset: ' + this.coinsCreditAsset);
     console.log('Coins Debit Asset: ' + this.coinsDebitAsset);

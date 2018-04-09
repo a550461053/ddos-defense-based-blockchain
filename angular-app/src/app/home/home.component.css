@@ -16,6 +16,12 @@ th {
     background-color: lightblue;
 }
 
+.bigfont {
+    font-size: 18px;
+}
+.smallfont {
+    font-size: 14px;
+}
 th.allblack {
   border-style: solid;
   font-size: 18px;
@@ -25,6 +31,11 @@ th.spec {
   border-style: solid;
   font-size: 18px;
   border-color: transparent transparent transparent transparent;
+}
+th.spec2 {
+  border-style: solid;
+  font-size: 18px;
+  border-color: transparent black transparent transparent;
 }
 td.allblack {
   border-style: solid;

@@ -7,28 +7,28 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Configuration } from '../configuration';
 import { DataService } from '../data.service';
-import { TransactionRUComponent } from './TransactionRU.component';
-import {TransactionRUService} from './TransactionRU.service';
-describe('TransactionComponent', () => {
-  let component: TransactionRUComponent;
-  let fixture: ComponentFixture<TransactionRUComponent>;
+import { TargetCompanyComponent } from './TargetCompany.component';
+import { TargetCompanyService } from './TargetCompany.service';
+describe('TargetCompanyComponent', () => {
+  let component: TargetCompanyComponent;
+  let fixture: ComponentFixture<TargetCompanyComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TransactionRUComponent ],
+      declarations: [ TargetCompanyComponent ],
 imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule
   ],
-providers: [TransactionRUService,DataService,Configuration]
+providers: [TargetCompanyService,DataService,Configuration]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TransactionRUComponent);
+    fixture = TestBed.createComponent(TargetCompanyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
