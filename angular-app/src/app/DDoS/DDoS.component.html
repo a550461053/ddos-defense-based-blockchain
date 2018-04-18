@@ -30,7 +30,7 @@
 
             <div class="form-group text-left">
               <label for="coinsValue">Time</label>
-                <input formControlName="value" type="text" class="form-control">
+                <input formControlName="time" type="text" class="form-control">
             </div>
 
 
@@ -70,8 +70,8 @@
             </div>
 
             <div class="form-group text-left">
-              <label for="value">value</label>
-                <input formControlName="value" type="number" step='any' class="form-control">
+              <label for="time">value</label>
+                <input formControlName="time" type="number" step='any' class="form-control">
             </div>
 
             <div class="form-group text-left">
@@ -117,8 +117,8 @@
             </div>
 
             <div class="form-group text-left">
-              <label for="value">value</label>
-                <input [ngModel]="value" formControlName="value" type="number" step='any' class="form-control">
+              <label for="time">time</label>
+                <input [ngModel]="time" formControlName="time" type="number" step='any' class="form-control">
             </div>
 
             <div class="form-group text-left">
@@ -210,7 +210,7 @@
 
                 <td>{{asset.targetIP}}</td>
 
-                <td>{{asset.value}}</td>
+                <td>{{asset.time}}</td>
 
           </tr>
         </tbody>

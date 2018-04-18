@@ -2,56 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0c862ba-ee83-4f98-874f-9b68fdd59f6f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/angular-app/TransactionRU/TransactionRU.component.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/angular-app/TransactionRU/TransactionRU.component.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/angular-app/TransactionRU/TransactionRU.component.spec.ts" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/angular-app/TransactionRU/TransactionRU.component.ts" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/angular-app/TransactionRU/TransactionRU.service.ts" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/angular-app/TransactionRU0/TransactionRU.component.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/angular-app/TransactionRU0/TransactionRU.component.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/angular-app/TransactionRU0/TransactionRU.component.spec.ts" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/angular-app/TransactionRU0/TransactionRU.component.ts" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/angular-app/TransactionRU0/TransactionRU.service.ts" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/angular-app/package-lock.json" afterPath="$PROJECT_DIR$/angular-app/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/angular-app/package.json" afterPath="$PROJECT_DIR$/angular-app/package.json" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/DistributeCoins/DistributeCoins.component.html" afterPath="$PROJECT_DIR$/angular-app/src/app/DistributeCoins/DistributeCoins.component.html" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/DistributeCoins/DistributeCoins.component.spec.ts" afterPath="$PROJECT_DIR$/angular-app/src/app/DistributeCoins/DistributeCoins.component.spec.ts" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/DistributeCoins/DistributeCoins.component.ts" afterPath="$PROJECT_DIR$/angular-app/src/app/DistributeCoins/DistributeCoins.component.ts" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/DistributeCoins/DistributeCoins.service.ts" afterPath="$PROJECT_DIR$/angular-app/src/app/DistributeCoins/DistributeCoins.service.ts" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/TransactionDDOS/TransactionDDOS.component.spec.ts" afterPath="$PROJECT_DIR$/angular-app/src/app/TransactionDDOS/TransactionDDOS.component.spec.ts" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/angular-app/src/app/DDoS/DDoS.component.html" afterPath="$PROJECT_DIR$/angular-app/src/app/DDoS/DDoS.component.html" />
+      <change beforePath="$PROJECT_DIR$/angular-app/src/app/DDoS/DDoS.component.ts" afterPath="$PROJECT_DIR$/angular-app/src/app/DDoS/DDoS.component.ts" />
+      <change beforePath="$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.html" afterPath="$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.html" />
+      <change beforePath="$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.ts" afterPath="$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.ts" />
       <change beforePath="$PROJECT_DIR$/angular-app/src/app/TransactionDDOS/TransactionDDOS.component.ts" afterPath="$PROJECT_DIR$/angular-app/src/app/TransactionDDOS/TransactionDDOS.component.ts" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/TransactionDDOS/TransactionDDOS.service.ts" afterPath="$PROJECT_DIR$/angular-app/src/app/TransactionDDOS/TransactionDDOS.service.ts" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/TransactionRU/TransactionRU.component.html" afterPath="$PROJECT_DIR$/angular-app/src/app/TransactionRU/TransactionRU.component.html" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/TransactionRU/TransactionRU.component.ts" afterPath="$PROJECT_DIR$/angular-app/src/app/TransactionRU/TransactionRU.component.ts" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/TransactionRU/TransactionRU.service.ts" afterPath="$PROJECT_DIR$/angular-app/src/app/TransactionRU/TransactionRU.service.ts" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/UtilityCompany/UtilityCompany.component.css" afterPath="$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.css" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/UtilityCompany/UtilityCompany.component.html" afterPath="$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.html" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/UtilityCompany/UtilityCompany.component.spec.ts" afterPath="$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.spec.ts" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/UtilityCompany/UtilityCompany.component.ts" afterPath="$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.ts" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/UtilityCompany/UtilityCompany.service.ts" afterPath="$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.service.ts" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/app-routing.module.ts" afterPath="$PROJECT_DIR$/angular-app/src/app/app-routing.module.ts" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/app.component.html" afterPath="$PROJECT_DIR$/angular-app/src/app/app.component.html" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/app.module.ts" afterPath="$PROJECT_DIR$/angular-app/src/app/app.module.ts" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/baidu/baidu.component.ts" afterPath="$PROJECT_DIR$/angular-app/src/app/baidu/baidu.component.ts" />
-      <change beforePath="$PROJECT_DIR$/angular-app/src/app/home/home.component.css" afterPath="$PROJECT_DIR$/angular-app/src/app/home/home.component.css" />
       <change beforePath="$PROJECT_DIR$/angular-app/src/app/home/home.component.html" afterPath="$PROJECT_DIR$/angular-app/src/app/home/home.component.html" />
       <change beforePath="$PROJECT_DIR$/angular-app/src/app/home/home.component.ts" afterPath="$PROJECT_DIR$/angular-app/src/app/home/home.component.ts" />
       <change beforePath="$PROJECT_DIR$/angular-app/src/app/org.decentralized.energy.network.ts" afterPath="$PROJECT_DIR$/angular-app/src/app/org.decentralized.energy.network.ts" />
+      <change beforePath="$PROJECT_DIR$/angular-app/submit0_Init.sh" afterPath="$PROJECT_DIR$/angular-app/submit0_Init.sh" />
       <change beforePath="$PROJECT_DIR$/angular-app/submit1_User.sh" afterPath="$PROJECT_DIR$/angular-app/submit1_User.sh" />
       <change beforePath="$PROJECT_DIR$/angular-app/submit2_AbnormalInfo.sh" afterPath="$PROJECT_DIR$/angular-app/submit2_AbnormalInfo.sh" />
+      <change beforePath="$PROJECT_DIR$/angular-app/submit3_DDoS.sh" afterPath="$PROJECT_DIR$/angular-app/submit3_DDoS.sh" />
       <change beforePath="$PROJECT_DIR$/angular-app/submit4_Reward.sh" afterPath="$PROJECT_DIR$/angular-app/submit4_Reward.sh" />
       <change beforePath="$PROJECT_DIR$/dist/decentralized-energy-network.bna" afterPath="$PROJECT_DIR$/dist/decentralized-energy-network.bna" />
       <change beforePath="$PROJECT_DIR$/dist/networkadmin.card" afterPath="$PROJECT_DIR$/dist/networkadmin.card" />
       <change beforePath="$PROJECT_DIR$/lib/transactions.js" afterPath="$PROJECT_DIR$/lib/transactions.js" />
       <change beforePath="$PROJECT_DIR$/models/model.cto" afterPath="$PROJECT_DIR$/models/model.cto" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angular2-baidu-map/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angular2-baidu-map/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angular2-baidu-map/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/permissions.acl" afterPath="$PROJECT_DIR$/permissions.acl" />
-      <change beforePath="$PROJECT_DIR$/queries.qry" afterPath="$PROJECT_DIR$/queries.qry" />
-      <change beforePath="$PROJECT_DIR$/test/test.js" afterPath="$PROJECT_DIR$/test/test.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -65,11 +34,83 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="home.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angular-app/src/app/home/home.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
-              <caret line="360" column="12" lean-forward="true" selection-start-line="360" selection-start-column="12" selection-end-line="360" selection-end-column="12" />
+            <state relative-caret-position="-4228">
+              <caret line="320" column="19" lean-forward="true" selection-start-line="320" selection-start-column="19" selection-end-line="320" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="submit1_User.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular-app/submit1_User.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-275">
+              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="submit2_AbnormalInfo.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular-app/submit2_AbnormalInfo.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="submit0_Init.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular-app/submit0_Init.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="775">
+              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="transactions.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/transactions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="146">
+              <caret line="245" column="26" lean-forward="true" selection-start-line="245" selection-start-column="26" selection-end-line="245" selection-end-column="26" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="submit3_DDoS.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular-app/submit3_DDoS.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="submit4_Reward.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular-app/submit4_Reward.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="625">
+              <caret line="25" column="49" lean-forward="true" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="model.cto" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/model.cto">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="401">
+              <caret line="43" column="37" lean-forward="true" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -78,8 +119,18 @@
       <file leaf-file-name="home.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angular-app/src/app/home/home.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1151">
-              <caret line="368" column="5" lean-forward="true" selection-start-line="368" selection-start-column="5" selection-end-line="368" selection-end-column="5" />
+            <state relative-caret-position="469">
+              <caret line="346" column="0" lean-forward="true" selection-start-line="346" selection-start-column="0" selection-end-line="346" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="576">
+              <caret line="77" column="10" lean-forward="true" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -92,6 +143,29 @@
       <find>resident</find>
       <find>UtilityCompany</find>
       <find>fillStyle</find>
+      <find>UpdateValues</find>
+      <find>abnormalsubmitters</find>
+      <find>energy_object_dict</find>
+      <find>transactionID</find>
+      <find>allTargetCompany</find>
+      <find>allTargetCompanys</find>
+      <find>'org.decentralized.energy.network.TargetCompany'</find>
+      <find>TargetCompany</find>
+      <find>curEnergyCount</find>
+      <find>value</find>
+      <find>lastEnergyCount</find>
+      <find>log_length</find>
+      <find>String</find>
+      <find>nodeColor1</find>
+      <find>pic_discription</find>
+      <find>coinsInc</find>
+      <find>submitterArray</find>
+      <find>allAssets</find>
+      <find>.network.Coins#CO_</find>
+      <find>log</find>
+      <find>${index}</find>
+      <find>distanceOfNodes</find>
+      <find>allLog</find>
     </findStrings>
     <replaceStrings>
       <replace>TargetCompany</replace>
@@ -103,33 +177,38 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lib/transactions.js" />
-        <option value="$PROJECT_DIR$/angular-app/submit0_Init.sh" />
-        <option value="$PROJECT_DIR$/angular-app/submit1_User.sh" />
-        <option value="$PROJECT_DIR$/angular-app/submit4_Reward.sh" />
         <option value="$PROJECT_DIR$/angular-app/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/angular-app/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/angular-app/src/app/org.decentralized.energy.network.ts" />
-        <option value="$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.html" />
         <option value="$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.service.ts" />
         <option value="$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.spec.ts" />
-        <option value="$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.ts" />
         <option value="$PROJECT_DIR$/angular-app/src/app/TransactionRU/TransactionRU.component.html" />
         <option value="$PROJECT_DIR$/angular-app/src/app/TransactionRU/TransactionRU.component.ts" />
         <option value="$PROJECT_DIR$/angular-app/src/app/TransactionRU/TransactionRU.service.ts" />
         <option value="$PROJECT_DIR$/angular-app/src/app/TransactionDDOS/TransactionDDOS.component.spec.ts" />
-        <option value="$PROJECT_DIR$/angular-app/src/app/TransactionDDOS/TransactionDDOS.component.ts" />
         <option value="$PROJECT_DIR$/angular-app/src/app/TransactionDDOS/TransactionDDOS.service.ts" />
         <option value="$PROJECT_DIR$/angular-app/src/app/DistributeCoins/DistributeCoins.component.ts" />
         <option value="$PROJECT_DIR$/angular-app/src/app/DistributeCoins/DistributeCoins.service.ts" />
         <option value="$PROJECT_DIR$/angular-app/src/app/DistributeCoins/DistributeCoins.component.html" />
         <option value="$PROJECT_DIR$/angular-app/src/app/DistributeCoins/DistributeCoins.component.spec.ts" />
-        <option value="$PROJECT_DIR$/models/model.cto" />
         <option value="$PROJECT_DIR$/angular-app/src/app/app-routing.module.ts" />
         <option value="$PROJECT_DIR$/permissions.acl" />
         <option value="$PROJECT_DIR$/queries.qry" />
+        <option value="$PROJECT_DIR$/models/model.cto" />
+        <option value="$PROJECT_DIR$/angular-app/src/app/DDoS/DDoS.component.ts" />
+        <option value="$PROJECT_DIR$/angular-app/src/app/TransactionDDOS/TransactionDDOS.component.ts" />
+        <option value="$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.ts" />
+        <option value="$PROJECT_DIR$/angular-app/src/app/DDoS/DDoS.component.html" />
+        <option value="$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.html" />
+        <option value="$PROJECT_DIR$/angular-app/src/app/org.decentralized.energy.network.ts" />
         <option value="$PROJECT_DIR$/angular-app/src/app/home/home.component.html" />
         <option value="$PROJECT_DIR$/angular-app/src/app/home/home.component.ts" />
+        <option value="$PROJECT_DIR$/angular-app/submit1_User.sh" />
+        <option value="$PROJECT_DIR$/angular-app/submit4_Reward.sh" />
+        <option value="$PROJECT_DIR$/angular-app/submit0_Init.sh" />
+        <option value="$PROJECT_DIR$/angular-app/submit2_AbnormalInfo.sh" />
+        <option value="$PROJECT_DIR$/angular-app/submit3_DDoS.sh" />
+        <option value="$PROJECT_DIR$/lib/transactions.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -146,7 +225,7 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="145" />
+    <option name="x" value="440" />
     <option name="y" value="-6" />
     <option name="width" value="1400" />
     <option name="height" value="1030" />
@@ -166,6 +245,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -197,7 +278,47 @@
               <item name="angular-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="DDoS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ddos-defense-based-blockchain" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ddos-defense-based-blockchain" type="462c0819:PsiDirectoryNode" />
+              <item name="angular-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="DistributeCoins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ddos-defense-based-blockchain" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ddos-defense-based-blockchain" type="462c0819:PsiDirectoryNode" />
+              <item name="angular-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ddos-defense-based-blockchain" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ddos-defense-based-blockchain" type="462c0819:PsiDirectoryNode" />
+              <item name="angular-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Log" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ddos-defense-based-blockchain" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ddos-defense-based-blockchain" type="462c0819:PsiDirectoryNode" />
+              <item name="angular-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="TargetCompany" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ddos-defense-based-blockchain" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ddos-defense-based-blockchain" type="462c0819:PsiDirectoryNode" />
+              <item name="angular-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="TransactionDDOS" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ddos-defense-based-blockchain" type="b2602c69:ProjectViewProjectNode" />
@@ -213,8 +334,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -254,28 +373,28 @@
       <option name="presentableId" value="Default" />
       <updated>1522064666662</updated>
       <workItem from="1522064668356" duration="1074000" />
-      <workItem from="1523244643496" duration="16219000" />
+      <workItem from="1523244643496" duration="18431000" />
+      <workItem from="1523320271255" duration="60816000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17293000" />
+    <option name="totallyTimeSpent" value="80321000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-6" width="1855" height="1086" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2328841" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295964" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22102426" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -283,6 +402,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -336,174 +456,12 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/Energy/Energy.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/Energy/Energy.component.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#73#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/Energy/Energy.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1650">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/Energy/Energy.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-150">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/Energy/Energy.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/home/home.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/home/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/home/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/home/map.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/home/myline.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#canvas#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/Log/Log.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/Log/Log.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/Log/Log.component.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#73#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/Log/Log.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#57#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/Log/Log.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/Resident/Resident.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/Resident/Resident.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/Resident/Resident.component.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#73#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/angular-app/src/app/Resident/Resident.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#57#0" expanded="true" />
+            <element signature="e#0#57#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -518,26 +476,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -548,35 +486,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/TransactionDDOS/TransactionDDOS.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/angular-app/src/app/TransactionDDOS/TransactionDDOS.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -584,29 +497,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/TransactionDDOS/TransactionDDOS.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/TransactionDDOS/TransactionDDOS.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#57#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -634,9 +524,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#73#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -644,7 +531,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -680,9 +566,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#73#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -690,7 +573,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -698,7 +580,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -706,7 +587,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -742,13 +622,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/DDoS/DDoS.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <element signature="e#0#73#0" expanded="false" />
+            <element signature="e#0#43#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/org.hyperledger.composer.system.ts">
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -756,22 +643,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/org.decentralized.energy.network.ts">
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-75">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/data.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#0#58#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -784,18 +661,226 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular-app/src/app/home/home.component.html">
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/data.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1151">
-          <caret line="368" column="5" lean-forward="true" selection-start-line="368" selection-start-column="5" selection-end-line="368" selection-end-column="5" />
+        <state relative-caret-position="725">
+          <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-600">
+          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/org.hyperledger.composer.system.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/TransactionDDOS/TransactionDDOS.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/TransactionDDOS/TransactionDDOS.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="25" column="52" lean-forward="true" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/DDoS/DDoS.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1868">
+          <caret line="182" column="24" lean-forward="true" selection-start-line="182" selection-start-column="24" selection-end-line="182" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/DDoS/DDoS.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="73" column="44" lean-forward="false" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="146" column="15" lean-forward="true" selection-start-line="146" selection-start-column="15" selection-end-line="146" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/TransactionDDOS/TransactionDDOS.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="114" column="9" lean-forward="true" selection-start-line="114" selection-start-column="9" selection-end-line="114" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/DistributeCoins/DistributeCoins.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-450">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/DistributeCoins/DistributeCoins.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1125">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#57#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/Log/Log.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="24" column="43" lean-forward="false" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/Log/Log.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="23" column="16" lean-forward="false" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/org.decentralized.energy.network.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="64" column="22" lean-forward="true" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/TargetCompany/TargetCompany.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/submit4_Reward.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="25" column="49" lean-forward="true" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/model.cto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="43" column="37" lean-forward="true" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/submit1_User.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-275">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/submit3_DDoS.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/angular-app/src/app/home/home.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="360" column="12" lean-forward="true" selection-start-line="360" selection-start-column="12" selection-end-line="360" selection-end-column="12" />
+        <state relative-caret-position="-4228">
+          <caret line="320" column="19" lean-forward="true" selection-start-line="320" selection-start-column="19" selection-end-line="320" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/submit2_AbnormalInfo.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/submit0_Init.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/transactions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="245" column="26" lean-forward="true" selection-start-line="245" selection-start-column="26" selection-end-line="245" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-app/src/app/home/home.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="346" column="0" lean-forward="true" selection-start-line="346" selection-start-column="0" selection-end-line="346" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="77" column="10" lean-forward="true" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
           <folding />
         </state>
       </provider>

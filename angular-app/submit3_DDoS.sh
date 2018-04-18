@@ -2,11 +2,12 @@
 
 
 # 创建energy
+
 #statuscode=`curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json'  -d '{"$class": "org.decentralized.energy.network.Energy", "energyID": "6", "targetIP": "192.168.0.1", "value": "'"$(date +'%s')"'", "ownerID": "2", "ownerEntity": "Resident","description":"udp","flag":"0"}' 'http://localhost:3000/api/Energy'`
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json'  \
     -d '{
       "$class": "org.decentralized.energy.network.EnergyToDDoS",
-      "energyInc":"resource:org.decentralized.energy.network.Resident#1"}' \
+      "energyInc":"resource:org.decentralized.energy.network.Resident#0002"}' \
       'http://localhost:3000/api/EnergyToDDoS'
 
 

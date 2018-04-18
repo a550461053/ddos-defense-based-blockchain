@@ -20,6 +20,7 @@ import {Event} from './org.hyperledger.composer.system';
    export class TargetCompany extends Participant {
       utilityID: string;
       name: string;
+		 	targetIP: string;
       coins: Coins;
    }
    export enum OwnerEntity {
@@ -52,7 +53,7 @@ import {Event} from './org.hyperledger.composer.system';
    export class DDoS extends Asset {
       ddosID: string;
       targetIP: string;
-      value: number;
+      time: string;
       ownerID: string;
       targetID: string;
       ownerEntity: OwnerEntity;
@@ -60,9 +61,10 @@ import {Event} from './org.hyperledger.composer.system';
    export class Log extends Asset {
       logID: string;
       targetIP: string;
-      value: number;
+      value: string;
       ownerID: string;
       targetID: string;
+		 	lastEnergyCount: string;
       ownerEntity: OwnerEntity;
    }
    export class EnergyToCoins extends Transaction {
@@ -87,5 +89,6 @@ import {Event} from './org.hyperledger.composer.system';
    export class DistributeCoins extends Transaction {
       coinsInc: Coins;
       coinsDec: Coins;
+		 	targetCompany: TargetCompany;
    }
 // }

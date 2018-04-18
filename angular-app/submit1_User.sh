@@ -1,12 +1,102 @@
 #!/bin/bash
 
-# 创建coins1
-curl -X POST --header 'Content-Type: application/json' \
-    --header 'Accept: application/json' \
-    -d '{"$class": "org.decentralized.energy.network.Coins",
-          "coinsID": "CO_1", "value": 5,
-          "ownerID": "1", "ownerEntity": "Resident"}' \
-    'http://localhost:3000/api/Coins'
+# 循环实现，需要考虑每一个用户的：
+# 	coins的coinsID和ownerID
+# 	bash的coinsID和ownerID
+# 	"residentID": "10",
+#   "firstName": "wqwr",
+# 	"lastName": "wqwr",
+#		"coins": "resource:org.decentralized.energy.network.Coins#CO_5",
+# 	"cash": "resource:org.decentralized.energy.network.Cash#CA_5"
+
+
+# 创建用户i
+index=1
+N=12  # 总的用户数
+M=3   # 总的target数
+pre_str1="000"
+pre_str2="00"
+while [ "$index" -lt "$N" ]
+do
+	if [ "$index" -le "9" ]; then
+		pre_str=$pre_str1
+	else
+		pre_str=$pre_str2
+	fi
+
+		echo "CO_${pre_str}${index}"
+  	echo "\n"
+	# 创建coins1
+	curl -X POST --header 'Content-Type: application/json' \
+			--header 'Accept: application/json' \
+			-d '{"$class": "org.decentralized.energy.network.Coins",
+						"coinsID": "'"CO_${pre_str}${index}"'", "value": 5,
+						"ownerID": "'"${pre_str}${index}"'", "ownerEntity": "Resident"}' \
+			'http://localhost:3000/api/Coins'
+
+	# 创建cash1
+	curl -X POST --header 'Content-Type: application/json' \
+			--header 'Accept: application/json' \
+			-d '{"$class": "org.decentralized.energy.network.Cash",
+						"cashID": "'"CA_${pre_str}${index}"'", "value": 5, "currency": "USD",
+						"ownerID": "'"${pre_str}${index}"'", "ownerEntity": "Resident"}' \
+			'http://localhost:3000/api/Cash'
+
+	# 创建用户2
+  echo "user${pre_str}${index} \n"
+  curl -X POST --header 'Content-Type: application/json' \
+      --header 'Accept: application/json' \
+      -d '{
+            "$class": "org.decentralized.energy.network.Resident",
+            "residentID": "'"${pre_str}${index}"'",
+            "firstName": "'"q${pre_str}${index}"'",
+            "lastName": "'"qw${pre_str}${index}"'",
+            "coins": "'"resource:org.decentralized.energy.network.Coins#CO_${pre_str}${index}"'",
+            "cash": "'"resource:org.decentralized.energy.network.Cash#CA_${pre_str}${index}"'"
+          }' \
+      'http://localhost:3000/api/Resident'
+((index++))
+done
+
+
+
+# 创建Target i
+index=1
+pre_str3="010"
+pre_str4="01"
+while [ "$index" -lt "$M" ]
+do
+	if [ "$index" -le "9" ]; then
+		pre_str=$pre_str3
+	else
+		pre_str=$pre_str4
+	fi
+	echo "CO_${pre_str}${index}"
+	echo "\n"
+	# 创建coins1
+	curl -X POST --header 'Content-Type: application/json' \
+			--header 'Accept: application/json' \
+			-d '{"$class": "org.decentralized.energy.network.Coins",
+						"coinsID": "'"CO_${pre_str}${index}"'", "value": 500,
+						"ownerID": "'"${pre_str}${index}"'", "ownerEntity": "Resident"}' \
+			'http://localhost:3000/api/Coins'
+
+	# 创建Target 12
+	curl -X POST --header 'Content-Type: application/json' \
+		--header 'Accept: application/json' \
+		-d '{
+		 "$class": "org.decentralized.energy.network.TargetCompany",
+		 "utilityID": "'"${pre_str}${index}"'",
+		 "name": "'"test${pre_str}${index}"'",
+		 "targetIP": "'"210.73.64.${index}"'",
+		 "coins": "'"resource:org.decentralized.energy.network.Coins#CO_${pre_str}${index}"'"
+	 }' \
+	 'http://localhost:3000/api/TargetCompany'
+((index++))
+done
+
+
+:<<BLOCK
 
 # 创建coins2
 curl -X POST --header 'Content-Type: application/json' \
@@ -50,7 +140,13 @@ curl -X POST --header 'Content-Type: application/json' \
           "coinsID": "CO_12", "value": 500,
           "ownerID": "12", "ownerEntity": "TargetCompany"}' \
     'http://localhost:3000/api/Coins'
-
+# 创建coins13
+curl -X POST --header 'Content-Type: application/json' \
+    --header 'Accept: application/json' \
+    -d '{"$class": "org.decentralized.energy.network.Coins",
+          "coinsID": "CO_13", "value": 500,
+          "ownerID": "13", "ownerEntity": "TargetCompany"}' \
+    'http://localhost:3000/api/Coins'
 
 # 创建cash1
 curl -X POST --header 'Content-Type: application/json' \
@@ -253,6 +349,23 @@ curl -X POST --header 'Content-Type: application/json' \
  }' \
  'http://localhost:3000/api/TargetCompany'
 
+# 创建Target 13
+curl -X POST --header 'Content-Type: application/json' \
+  --header 'Accept: application/json' \
+  -d '{
+   "$class": "org.decentralized.energy.network.TargetCompany",
+   "utilityID": "13",
+   "name": "test13",
+   "targetIP": "210.73.64.2",
+   "coins": "resource:org.decentralized.energy.network.Coins#CO_13"
+ }' \
+ 'http://localhost:3000/api/TargetCompany'
+
+BLOCK
+
+:<<BLOCK
+
+BLOCK
 # curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"$class": "org.decentralized.energy.network.Energy", "energyID": "56230", "targetIP": "10", "value": "'"$(date +'%s')"'", "ownerID": "12", "ownerEntity": "Resident","description":"udp","flag":"0"}' 'http://localhost:3000/api/Energy'
 # sleep 10
 #curl -X GET --header 'Accept: application/json' 'http://localhost:3000/api/Energy'

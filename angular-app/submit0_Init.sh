@@ -1,5 +1,38 @@
 #!/bin/bash
 
+
+N=12  # 总的用户数
+M=3   # 总的target数
+Abnormal=12 # 异常连接数
+
+index=1
+pre_str1="000"
+pre_str2="00"
+descriptions=("TCP中SYN握手未完成", "udp数据包异常", "HTTP数据包异常", "DNS反射攻击")
+len=${#descriptions[*]}
+
+# 删除异常连接energy
+while [ "$index" -lt "$Abnormal" ]
+do
+	if [ "$index" -le "9" ]; then
+		pre_str=$pre_str1
+		index1=$((index))
+	else
+		pre_str=$pre_str2
+		index1=$((index))
+	fi
+
+	# 删除Energy
+	curl -X DELETE --header 'Accept: application/json' 'http://localhost:3000/api/Energy/'"${pre_str}${index1}"
+
+	# 删除DDoS
+	#curl -X DELETE --header 'Accept: application/json' 'http://localhost:3000/api/DDoS/DDOS_2'
+((index++))
+done
+
+
+:<<BLOCK
+
 # # 删除coins1
 # curl -X DELETE --header 'Accept: application/json' \
 #     'http://localhost:3000/api/Coins/CO_1'
@@ -83,3 +116,5 @@ curl -X DELETE --header 'Accept: application/json' 'http://localhost:3000/api/En
 # curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"$class": "org.decentralized.energy.network.Energy", "energyID": "56230", "units": "10", "value": "'"$(date +'%s')"'", "ownerID": "12", "ownerEntity": "Resident","description":"udp","flag":"0"}' 'http://localhost:3000/api/Energy'
 # sleep 10
 #curl -X GET --header 'Accept: application/json' 'http://localhost:3000/api/Energy'
+
+BLOCK

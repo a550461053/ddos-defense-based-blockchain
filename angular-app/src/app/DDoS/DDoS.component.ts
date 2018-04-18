@@ -20,7 +20,7 @@ export class DDoSComponent implements OnInit {
 
       ddosID = new FormControl("", Validators.required);
       targetIP = new FormControl("", Validators.required);
-      value = new FormControl("", Validators.required);
+			time = new FormControl("", Validators.required);
       ownerID = new FormControl("", Validators.required);
       ownerEntity = new FormControl("", Validators.required);
 
@@ -29,7 +29,7 @@ export class DDoSComponent implements OnInit {
     this.myForm = fb.group({
           ddosID:this.ddosID,
           targetIP:this.targetIP,
-          value:this.value,
+					time:this.time,
           ownerID:this.ownerID,
           ownerEntity:this.ownerEntity
 
@@ -80,7 +80,7 @@ export class DDoSComponent implements OnInit {
       $class: "org.decentralized.energy.network.DDoS",
           "ddosID":"DDoS_" + this.ddosID.value,
           "targetIP":this.targetIP.value,
-          "value":Date.now(), // this.value.value,
+          "time":Date.now(), // this.value.value,
           "ownerID":this.ownerID.value,
           "ownerEntity":this.ownerEntity.value
     };
@@ -88,7 +88,7 @@ export class DDoSComponent implements OnInit {
     this.myForm.setValue({
           "ddosID":null,
           "targetIP":null,
-          "value":null,
+          "time":null,
           "ownerID":null,
           "ownerEntity":null
     });
@@ -101,7 +101,7 @@ location.reload();
       this.myForm.setValue({
           "ddosID":null,
           "targetIP":null,
-          "value":null,
+          "time":null,
           "ownerID":null,
           "ownerEntity":null
 
@@ -123,7 +123,7 @@ location.reload();
     this.asset = {
       $class: "org.decentralized.ddos.network.DDoS",
             "targetIP":this.targetIP.value,
-            "value":this.value.value,
+            "time":this.time.value,
             "ownerID":this.ownerID.value,
             "ownerEntity":this.ownerEntity.value
     };
@@ -180,7 +180,7 @@ location.reload();
       let formObject = {
             "ddosID":null,
             "targetIP":null,
-            "value":null,
+            "time":null,
             "ownerID":null,
             "ownerEntity":null
       };
@@ -197,10 +197,10 @@ location.reload();
           formObject.targetIP = null;
         }
 
-        if(result.value){
-          formObject.value = result.value;
+        if(result.time){
+          formObject.time = result.time;
         }else{
-          formObject.value = null;
+          formObject.time = null;
         }
 
         if(result.ownerID){
@@ -237,7 +237,7 @@ location.reload();
     this.myForm.setValue({
           "ddosID":null,
           "targetIP":null,
-          "value":null,
+          "time":null,
           "ownerID":null,
           "ownerEntity":null
       });

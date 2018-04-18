@@ -297,15 +297,25 @@ this.paint();
 		var myblue2 = '#42f4ce';
 		var myblackblue1 = '#12233d';
 		var mygrey1 = '#8884c9';
-	  var easingFactor = 5.0;
+		var mygreen1 = '#2bd83c';
+		var mygreen2 = '#033d08';
+
 		var black = '#000';
-	  var backgroundColor = mygrey1; //mygrey1; //myblue1; // '#155';
+
+
+		var backgroundColor = mygrey1; //myblue1; // '#155';
+		var pic_discription = '#9900cc';
 	  var nodeColor = '#fff';
-	  var edgeColor = '#fff';//'#000';
+	  var nodeColor1 = '#fff';
+	  var nodeColor2 = '#1111ff';
+	  var edgeColor = '#000'; //'#000'; //'#fff';
+
+		var easingFactor = 5.0;
 		var edgeWidth = 4.5;
-		var nodeSize = 2;
+		var nodeSize = 5;
 		var vecMax = 0.5;
-		var node_speed = 0.1;  					//
+		var node_speed = 0.0;  					//  b0-1.0
+		var distanceOfNodes = 300;
 		var canvasRef_limit_left = 0.2;  // 限定canvas显示的边界
 		var canvasRef_limit_right = 0.8;
 		var nodes = [];
@@ -352,12 +362,12 @@ this.paint();
 						representobject: nodeisResident ? this.allResidents[i-this.resident_nodes_numbers] : this.allTargetCompany[i-this.targetcompany_nodes_numbers],
 						drivenByMouse: i == 0,
 						abnormalNumbers: 0,
-						x: Math.random() * canvasRef.width * 0.9 + canvasRef.width * 0.1,
-						y: Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1,
+						x: i == 0 ? canvasRef.width * 0.5 : (i < 3 ? ((Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].x) > canvasRef.width*0.6) && (Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].x) < canvasRef.width*0.2)) ? Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1 : (Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].x : ((Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-3].x) > canvasRef.width*0.6) && (Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-3].x) < canvasRef.width*0.2)) ? Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1 : (Math.random()*1-0.5) * distanceOfNodes + nodes[Math.max(i%3-1, 0)].x),
+						y: i == 0 ? canvasRef.height * 0.5 : (i < 3 ? ((Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].y) > canvasRef.height*0.6) && (Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].y) < canvasRef.height*0.2)) ? Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1 : (Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].y : ((Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-3].y) > canvasRef.height*0.6) && (Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-3].y) < canvasRef.height*0.2)) ? Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1 : (Math.random()*1-0.5) * distanceOfNodes + nodes[Math.max(i%3-1, 0)].y), //Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1 : ,
 						vx: (Math.random() * 1 - 0.5) * node_speed,
 						vy: (Math.random() * 1 - 0.5) * node_speed,
 						radius: Math.random() > 0.6 ? 3 + Math.random() * nodeSize : 4 + Math.random() * nodeSize,
-						nodeColor: '#fff'
+						nodeColor: nodeisResident ? '#fff' : nodeColor2
 					};
 
 					nodes.push(node);
@@ -398,7 +408,7 @@ this.paint();
 			// console.log(lastNodes.length + ' ' + nodes.length + ' ' + this.abnormalNumbers + ' ' + this.newAbnormalNumber + ' ' + this.lastIndexAbnormal);
 			console.log('this:' + lastNodes.length + ' ' +
 				this.lastIndexAbnormal + ' ' +
-			  this.abnormalNumbers)
+			  this.abnormalNumbers);
 			// 更新上次异常值
 			if (this.newAbnormalNumber >= this.abnormalNumbers) {
 				this.abnormalNumbers = this.newAbnormalNumber;
@@ -472,27 +482,33 @@ this.paint();
 	  }
 
 		function render() {
-	    ctx.fillStyle = backgroundColor;
+
+			var gradient = ctx.createLinearGradient(0, 0, canvasRef.width, canvasRef.height);
+			gradient.addColorStop(0, myblackblue1);
+			gradient.addColorStop(0.5, "blue");
+			gradient.addColorStop(1.0, mygrey1);
+
+	    ctx.fillStyle = backgroundColor; //gradient; //
 	    ctx.fillRect(0, 0, canvasRef.width, canvasRef.height);
 
 			// 创建图例
-			ctx.font = "20px Georgia";
-			ctx.fillStyle = myblue2;
+			ctx.font = "bold 20px Arial"; //Georgia"; // bold在前面才有效果
+			ctx.fillStyle = pic_discription; // myblue2;
 			ctx.fillText("Gateway", 30, 50);
 
-			ctx.fillStyle = "#fff";
-			// ctx.beginPath();
+			ctx.fillStyle = nodeColor1;
+			ctx.beginPath();
 			ctx.arc(10, 40, 5, 0, 2 * Math.PI);
 			ctx.fill();  // 带填充的实心图形
-			// ctx.fillStyle = "#fff";
-			// ctx.beginPath();
+			ctx.fillStyle = nodeColor2;
+			ctx.beginPath(); // 需要重新开始绘图path，否则颜色变为同一个
 			ctx.rect(5, 90, 10, 10);
 			ctx.fill();  // 带填充的实心图形
 			// var gradient = ctx.createLinearGradient(0, 0, 200, 0);
 			// gradient.addColorStop(0, "magenta");
 			// gradient.addColorStop(0.5, "blue");
 			// gradient.addColorStop(1.0, "red");
-			ctx.fillStyle = myblue2; //gradient;
+			ctx.fillStyle = pic_discription; //gradient;
 			ctx.fillText("TargetCompany", 20, 100);
 
 	    edges.forEach(function (e) {
@@ -613,7 +629,7 @@ this.paint();
 					// targetIP:"210.73.64.1"
 					// value:1521785737
 					console.log('before ...');
-					console.log('before loadAllEnergy' + this.nodes[0].abnormalNumbers )
+					console.log('before loadAllEnergy' + this.nodes[0].abnormalNumbers );
 					console.log(this.lastNodes[0]);
 					this.paint();
 					// this.lastNodes = this.nodes;
@@ -680,7 +696,7 @@ this.paint();
 						this.errorMessage = "Could not connect to REST server. Please check your configuration details";
 				}
 				else if(error == '404 - Not Found'){
-				this.errorMessage = "404 - Could not find API route. Please check your available APIs."
+						this.errorMessage = "404 - Could not find API route. Please check your available APIs."
 				}
 				else{
 						this.errorMessage = error;
@@ -718,7 +734,7 @@ this.paint();
 						this.errorMessage = "Could not connect to REST server. Please check your configuration details";
 				}
 				else if(error == '404 - Not Found'){
-				this.errorMessage = "404 - Could not find API route. Please check your available APIs."
+						this.errorMessage = "404 - Could not find API route. Please check your available APIs."
 				}
 				else{
 						this.errorMessage = error;

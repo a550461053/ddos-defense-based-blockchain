@@ -303,7 +303,7 @@
 										<td class=" text-primary" align="center">{{ddos.ownerID}}</td>
 										<td class=" text-primary" align="center">{{ddos.targetIP}}</td>
 										<td class=" text-primary" align="center">待填</td>
-										<td class=" text-primary" align="center">{{ddos.value}}</td>
+										<td class=" text-primary" align="center">{{ddos.time}}</td>
 									</tr>
 								</table>
 								</div>
@@ -378,7 +378,36 @@
 		②重启网络的时候出现问题，BNA文件无法创建：
 			解决：在根目录下的..acl,qry等文件是业务逻辑以及各种权限的配置，需要修改相应的位置
 
+任务三：
+	修改无法创建多个奖励的bug
+	解决：
+		①找到了智能合约遍历participant的函数getParticipantRegistry()
+		②修改后，Log资产无法正确创建，因为Log的新增属性lastEnergyCount设置为了string，所以使用的时候要转化为int：parseInt(string_)，String(int_)
 
+任务四：
+	修改添加的矩形点的渲染和数据绑定，实现动态添加和闪烁
+
+任务五：
+	修复得到的transactions是乱序的？
+	解决：通过测试，发现transactions是按照资产ID顺序进行创建，所以需要用多位数ID表示，如：0001,0002等
+
+任务六：
+	增加创建众多用户、异常连接、ddos、奖励
+	解决：
+		①bash的多行注释：
+			:<<BLOCK‘
+				注释内容
+			’BLOCK
+		②for循环实现添加用户
+		③for循环实现添加异常连接
+
+任务七：
+	修复bug：
+		当ddos交易按顺序执行，提交了2条ddos
+		奖励交易发起之后，顺序问题，若先奖励了最后一条ddos，就不会去奖励上一条ddos；因为奖励每次遍历所有不现实
+	解决：
+		①奖励每次遍历所有～
+		②
 -->
 
     </div>

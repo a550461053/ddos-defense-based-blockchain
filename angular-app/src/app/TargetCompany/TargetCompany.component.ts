@@ -23,6 +23,8 @@ export class TargetCompanyComponent {
 
       utilityID = new FormControl("", Validators.required);
       name = new FormControl("", Validators.required);
+      targetIP = new FormControl("", Validators.required);
+
       coinsValue = new FormControl("", Validators.required);
       energyValue = new FormControl("", Validators.required);
       energytargetIP = new FormControl("", Validators.required);
@@ -32,6 +34,7 @@ export class TargetCompanyComponent {
 
           utilityID:this.utilityID,
           name:this.name,
+					targetIP:this.targetIP,
 
           coinsValue:this.coinsValue,
           energyValue:this.energyValue,
@@ -50,6 +53,7 @@ export class TargetCompanyComponent {
     this.myForm.setValue({
           "utilityID":null,
           "name":null,
+					"targetIP":null,
 
           "coinsValue":null,
           "energyValue":null,
@@ -131,6 +135,7 @@ export class TargetCompanyComponent {
       let formObject = {
             "utilityID":null,
             "name":null,
+						"targetIP":null,
 
             "coinsValue":null,
             "energyValue":null,
@@ -149,6 +154,11 @@ export class TargetCompanyComponent {
           formObject.name = null;
         }
 
+				if(result.targetIP){
+					formObject.targetIP = result.targetIP;
+				}else{
+					formObject.targetIP = null;
+				}
       this.myForm.setValue(formObject);
 
     })
@@ -251,6 +261,7 @@ export class TargetCompanyComponent {
         this.myForm.setValue({
             "utilityID":null,
             "name":null,
+						"targetIP":null,
             "coinsValue":null,
             "energyValue":null,
             "energytargetIP":null
@@ -293,6 +304,7 @@ export class TargetCompanyComponent {
       $class: "org.decentralized.energy.network.TargetCompany",
           "utilityID":this.utilityID.value,
           "name":this.name.value,
+					"targetIP":this.targetIP.value,
 
           "coins":"CO_" + this.utilityID.value,
           "energy":"EN_" + this.utilityID.value,
