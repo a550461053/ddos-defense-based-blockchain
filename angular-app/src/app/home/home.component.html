@@ -261,7 +261,7 @@
 												<td align="center" width="20%">{{asset.ownerID}}</td>
 												<td align="center" width="30%">{{asset.targetIP}}</td>
 												<td align="center" width="30%">{{asset.description}}</td>
-												<td align="center" width="20%">{{asset.value}}</td>
+												<td align="center" width="20%">{{asset.value*1000|date:'yyyy-MM-dd HH:mm:ss'}}</td>
 												<!-- Gateway {{asset.ownerID}} 提交了一条针对目标 {{asset.targetIP}} 的类型为 {{asset.description}} 的异常 -->
 												<!-- </div> -->
 											</tr>
@@ -303,7 +303,7 @@
 										<td class=" text-primary" align="center">{{ddos.ownerID}}</td>
 										<td class=" text-primary" align="center">{{ddos.targetIP}}</td>
 										<td class=" text-primary" align="center">待填</td>
-										<td class=" text-primary" align="center">{{ddos.time}}</td>
+										<td class=" text-primary" align="center">{{ddos.time|date:'yyyy-MM-dd HH:mm:ss'}}</td>
 									</tr>
 								</table>
 								</div>

@@ -60,6 +60,9 @@
         - mac地址
         - IP地址
 3. 流量捕获部署
+    - 流量类型:
+        + 模拟攻击:使用实际流量回放和trafgen多线程数据包生成器
+        + 实际攻击:通过交换机镜像，捕获Miria攻击下的摄像头数据；
     - 部署：
         + 路由器下局域网：mirai主机+交换机
         + 交换机下接：摄像头+捕获PC
@@ -75,7 +78,7 @@
             - 导出展示层为csv文件：需要选择packet details为All expanded
             - 到处数据流：文件-导出特定分组-txt
     - 数据处理：
-        + 
+        +
 4. 异常检测
 
 5. 智能合约
@@ -87,15 +90,58 @@
     - canvas动画渲染
 
 7. 自动化执行：
-- 自动化shell脚本执行：
-    - 目的：方便前段模拟调试
-    - submit0_init.sh:删除已有的交易信息
-    - submit1_User.sh:注册用户
-    - submit2_Abnormalinfo.sh:提交异常
-        + 攻击类型的随机化选取
-        + 攻击顺序：先无效提交、再有效提交
-    - submit3_DDoS.sh:提交DDoS
-    - submit4_Reward.sh:提交奖励
+- 目的：方便前段模拟调试
+- 所有的ID号：采用4位表示，0001
+- shell脚本语法：
+    + 条件判断：[EXPRESSION]
+        - 与：-a
+        - 或：-o
+        - 非：!
+        - 大于：-gt(greater than)
+        - 大于等于：-ge(greater equal)
+        - 小于：-lt(less than)
+        - 小于等于：-le(less equal)
+        - 不等于：-ne(not equal)
+    + if:
+        - if [条件]; then
+        - fi
+    + for:
+        - while ["$index" -lt "N"]; do
+        - ((index++))
+        - done
+    + 数组：
+        - 赋值：array=(a, b, $c)
+        - 长度：${#array[*]} 或 ${#array[@]}
+        - 引用单个值：${array[i]}
+        - 引用所有值：${array[*]}
+    + 字符串拼接：
+        - 变量+字符串：res=${val}"a"
+        - 字符串+变量：res="a${val}"
+        - 单引号：内部全看作是字符串
+        - 单引号内插入变量：'"'内容'"' 替换原来的 "内容"
+    + 随机数：RANDOM是Bash内建函数，产生0-32767内的整数
+    + 求余数：res=$((index%M+1))
+- submit0_init.sh:删除已有的交易信息，否则调试需要重启区块链。
+    + 仅限调试提交交易、注册用户
+    + coins、cash不删除
+    + 异常连接energy删除、DDoS删除
+- submit1_User.sh:注册用户
+    + 包括：N个Gateway节点+M个TargetCompany节点
+    + 每个Gateway的：coins注册(初始5coins)，cash注册(初始5cash)
+    + 每个TargetCompany的：coins注册(初始500coins)
+- submit2_Abnormalinfo.sh:提交异常
+    + 包括：Abnormal个异常连接数
+    + 定义异常类型descriptions=("TCP中SYN握手未完成", "udp数据包异常", "HTTP数据包异常", "DNS反射攻击")
+    + 攻击顺序：先无效提交k个、再有效提交
+    + 攻击类型description：随机化选取
+    + 提交者ID：前k个无效提交，后面节点随机化选取
+    + 攻击目标targetIP：前k个无效随机化，后面有效异常的targetIP后缀取对M的余数
+- submit3_DDoS.sh:提交DDoS
+    + 问题:DDoS提交是应该通过网络随机选择节点进行提交交易；
+    + 解决:后续将改为随机选定节点自动执行
+- submit4_Reward.sh:提交奖励
+    + 问题:奖励分发什么时候执行?
+    + 解决:应该设置奖励分发之后才进行流量清洗；则奖励智能合约也需要重新修改；
 
 8. 流量清洗
 
@@ -107,7 +153,7 @@
     ②给TargetCompany增加属性：当前奖励的对象，也就是异常提交用户，也可以是一个字符串变量，但是好像就不好显示顺序实时结果，只按照遍历TargetCompany的顺序。
     ③创建、从而遍历奖励对象：可以是字符串变量，每创建一笔奖励交易，就创建一个奖励对象/奖励说明。
 
-- 问题一：
+- 疑惑：
     - 问题：正常的奖励应该是由系统自动触发的；
         ①DDoS异常的submitter是Gateway，
         ②奖励交易的submitter是TargetCompany，而且是谁提交，就遍历谁的targetIP的异常连接energy
@@ -141,11 +187,13 @@
 - 任务三：
 	- 问题：修改无法创建多个奖励的bug
 	- 解决：
-		①找到了智能合约遍历participant的函数getParticipantRegistry()
-		②修改后，Log资产无法正确创建，因为Log的新增属性lastEnergyCount设置为了string，所以使用的时候要转化为int：parseInt(string_)，String(int_)
+		1. 找到了智能合约遍历participant的函数getParticipantRegistry()
+		2. 修改后，Log资产无法正确创建，因为Log的新增属性lastEnergyCount设置为了string，所以使用的时候要转化为int：parseInt(string_)，String(int_)
 
 - 任务四：
 	- 问题：修改添加的矩形点的渲染和数据绑定，实现动态添加和闪烁
+	- 解决：
+	    1. 创建上次点状态，记录；
 
 - 任务五：
 	- 问题：修复得到的transactions是乱序的？
@@ -154,23 +202,39 @@
 - 任务六：
 	- 问题：增加创建众多用户、异常连接、ddos、奖励
 	- 解决：
-		①bash的多行注释：
+		1. bash的多行注释：
+		```
 			:<<BLOCK‘
 				注释内容
 			’BLOCK
-		②for循环实现添加用户
-		③for循环实现添加异常连接
+		```
+		2. for循环实现添加用户
+		3. for循环实现添加异常连接
 
 - 任务七：
 	- 问题：修复bug：
-		①当ddos交易按顺序执行，提交了2条ddos
-		②奖励交易发起之后，顺序问题，若先奖励了最后一条ddos，就不会去奖励上一条ddos；因为奖励每次遍历所有不现实
+		1. 当ddos交易按顺序执行，提交了2条ddos
+		2. 奖励交易发起之后，顺序问题，若先奖励了最后一条ddos，就不会去奖励上一条ddos；因为奖励每次遍历所有不现实
 	- 解决：
-		①奖励每次遍历所有～
-		②暂且这样。
+		1. 奖励每次遍历所有～
+		2. 暂且这样。
+
+- 任务八：
+    - 问题：bug：
+        1. 一次提交多笔DDoS交易是同一个用户提交，而且时间戳相同，因为是同一时间提交
+        2. 一次提交多笔奖励交易是不同用户提交，但是无法完全实现coins的转移
+    - 解决：
+        1. DDoS交易默认应该是自动由节点来完成的，脚本提交只是暂时展示效果；后期应该实现存在一笔DDoS就选取某节点自动化DDoS提交
+        2. transactions.js智能合约内没有写多用户奖励，还未实现！
+        3. transactions.js智能合约目前采用的是遍历所有异常连接资产Energy，实现多用户，需要再上层加入DDoS资产的循环，找到多个TargetCompany目标用户；
+
+# 存在问题
+1. 节点和用户
+    - 两者是什么关系?
 
 
 参考项目：Decentralized Energy with Hyperledger Composer
+PS：以下为参考项目分布式能源介绍，包括环境搭建。
 # Architecture Flow
 
 <p align="center">

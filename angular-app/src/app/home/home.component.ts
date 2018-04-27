@@ -80,6 +80,9 @@ export class HomeComponent implements OnInit, OnChanges {
 	private canvasRef_height;
 	// private ctx: CanvasRenderingContext2D;
 
+	// 定义节点的坐标
+	private nodes_locations : number[][] = [];
+
 	// 定义提交异常的数量
 	private abnormalNumbers = 0;
 	private newAbnormalNumber = 0;
@@ -89,6 +92,9 @@ export class HomeComponent implements OnInit, OnChanges {
 	private count = 0;
 	private reloadPaint = false;
 
+
+
+	// 定义home界面控件
 	// energyID = new FormControl("", Validators.required);
 	// targetIP = new FormControl("", Validators.required);
 	// value = new FormControl("", Validators.required);
@@ -108,7 +114,6 @@ export class HomeComponent implements OnInit, OnChanges {
 										// value:this.value,
 										// ownerID:this.ownerID,
 										// ownerEntity:this.ownerEntity
-
 							});
 
 							this.timer = setInterval(() => {
@@ -118,34 +123,20 @@ export class HomeComponent implements OnInit, OnChanges {
 								this.loadAllLog();
 								this.loadAllResident();
 								this.loadAllTargetCompany();
-								// console.log('timer');
 
 								this.count += 1;
-								// console.log('nnnnn');
 								if (this.count == 2) {
 									// this.loadAllEnergy();
 								}
 
 								if (this.count == 10) { // && this.reloadPaint == true) {
-
 									// console.log('count is:' + this.count);
 									this.reloadPaint = false;
-this.paint();   // this.paint()需要再this.reloadPaint=false之前执行，
+									this.paint()  //需要再this.reloadPaint=false之前执行，
 								}
 								// this.paint();
 							}, 1000);
 
-
-							// this.timer = setInterval(() => {
-							// 	// this.ref.detectChanges(); // 检测变化
-							// 	// this.loadAllEnergy();
-							// 	// this.loadAllDDoS();
-							// 	// this.loadAllLog();
-							// 	// this.loadAllResident();
-							// 	// console.log('timer');
-              //
-							// 	this.paint();
-							// }, 5000);
 
 							// 百度地图配置
 							// this.options = {
@@ -163,7 +154,7 @@ this.paint();   // this.paint()需要再this.reloadPaint=false之前执行，
 		this.running = true;
 		// canvas test
 
-this.paint();
+		this.paint();
     this.DDoSInfoShow = false;
 		this.LogInfoShow = false;
 		// this.loadAllTransactions();
@@ -195,7 +186,7 @@ this.paint();
 	// 	console.log('noOnChanges');
 	// }
 
-	//sort the objects on key
+	// sort the objects on key
 	// sortByKey(array, key): Object[] {
 	// 	return array.sort(function(a, b) {
 	// 			var x = a[key]; var y = b[key];
@@ -203,7 +194,7 @@ this.paint();
 	// 	});
 	// }
 
-	//get all Residents
+	// 获取所有交易
 	// loadAllTransactions(): Promise<any> {
 	//
 	// 	let tempList = [];
@@ -250,21 +241,6 @@ this.paint();
 	// 	});
 	// }
 
-	// requestAnimationFrame(function() {
-	// 	ctx.fillRect(getX(), getY(), 10, 10);
-	// });
-
-	// function paintLoop() {
-  //
-	// 	// Paint current frame
-	// 	ctx.fillRect(getNextX(), getNextY(), 10, 10);
-  //
-	// 	// Schedule next frame
-	// 	requestAnimationFrame(paintLoop);
-	// }
-
-	// // Start loop
-	// paintLoop();
 
 	private paint() {
 	  // Check that we're still running.
@@ -273,38 +249,26 @@ this.paint();
 	  }
 		console.log('paint');
 	  // Paint current frame
-	  let ctx: CanvasRenderingContext2D =
-	    this.canvasRef.nativeElement.getContext('2d');
+	  let ctx: CanvasRenderingContext2D = this.canvasRef.nativeElement.getContext('2d');
 		let canvasRef = this.canvasRef.nativeElement;
 		this.canvasRef_width = canvasRef.width;
 		this.canvasRef_height = canvasRef.height;
 
-	  // // Draw background (which also effectively clears any previous drawing)
-	  // ctx.fillStyle = 'rgb(221, 0, 49)';
-	  // ctx.fillRect(0, 0, 800, 500);
-    //
-	  // // Advance flock. This updates the positions of all objects.
-	  // // this.flock.tick();
-    //
-	  // // Draw flock
-	  // ctx.beginPath();
-	  // ctx.fillStyle = `rgb(255,255,255)`;
-
+		// 定义可选颜色
 		var mousePos = [0, 0];
 		var warningColor = '#e4e819';
 		var ddosColor = '#d60a11';
 		var myblue1 = '#42b6f4';
 		var myblue2 = '#42f4ce';
 		var myblackblue1 = '#12233d';
-		var mygrey1 = '#8884c9';
+		var mygrey1 = '#9884c9';
 		var mygreen1 = '#2bd83c';
 		var mygreen2 = '#033d08';
-
 		var black = '#000';
 
-
+		// 定义对象颜色
 		var backgroundColor = mygrey1; //myblue1; // '#155';
-		var pic_discription = '#9900cc';
+		var pic_discription = '#21ffac';
 	  var nodeColor = '#fff';
 	  var nodeColor1 = '#fff';
 	  var nodeColor2 = '#1111ff';
@@ -314,14 +278,12 @@ this.paint();
 		var edgeWidth = 4.5;
 		var nodeSize = 5;
 		var vecMax = 0.5;
-		var node_speed = 0.0;  					//  b0-1.0
+		var node_speed = 0.1;  					//  b0-1.0
 		var distanceOfNodes = 300;
 		var canvasRef_limit_left = 0.2;  // 限定canvas显示的边界
 		var canvasRef_limit_right = 0.8;
 		var nodes = [];
 		var edges = [];
-		// nodes = Object.create(this.nodes);
-		// edges = Object.create(this.edges);
 		nodes = this.nodes;
 		edges = this.edges;
 		let resident_nodes_numbers = this.allResidents.length;
@@ -329,7 +291,12 @@ this.paint();
 		let nodes_numbers = resident_nodes_numbers + targetcompany_nodes_numbers;
 
 		let idRequestAnimationFrame = 0;
-		// console.log(nodes_numbers, abnormalNumbers, this.abnormalNumbers);
+
+		let nodes_locations = this.nodes_locations;
+		let x = this.canvasRef_width / 2;
+		let y = this.canvasRef_height / 2;
+		nodes_locations.push([x, y]);
+		nodes_locations.push([x+100, y+100]);
 
 		function addEdge(edge) {
 	    var ignore = false;
@@ -362,8 +329,10 @@ this.paint();
 						representobject: nodeisResident ? this.allResidents[i-this.resident_nodes_numbers] : this.allTargetCompany[i-this.targetcompany_nodes_numbers],
 						drivenByMouse: i == 0,
 						abnormalNumbers: 0,
-						x: i == 0 ? canvasRef.width * 0.5 : (i < 3 ? ((Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].x) > canvasRef.width*0.6) && (Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].x) < canvasRef.width*0.2)) ? Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1 : (Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].x : ((Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-3].x) > canvasRef.width*0.6) && (Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-3].x) < canvasRef.width*0.2)) ? Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1 : (Math.random()*1-0.5) * distanceOfNodes + nodes[Math.max(i%3-1, 0)].x),
-						y: i == 0 ? canvasRef.height * 0.5 : (i < 3 ? ((Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].y) > canvasRef.height*0.6) && (Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].y) < canvasRef.height*0.2)) ? Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1 : (Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].y : ((Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-3].y) > canvasRef.height*0.6) && (Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-3].y) < canvasRef.height*0.2)) ? Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1 : (Math.random()*1-0.5) * distanceOfNodes + nodes[Math.max(i%3-1, 0)].y), //Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1 : ,
+						x : nodes_locations[i][0],
+						y : nodes_locations[i][1],
+						// x: i == 0 ? canvasRef.width * 0.5 : (i < 3 ? ((Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].x) > canvasRef.width*0.6) && (Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].x) < canvasRef.width*0.2)) ? Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1 : (Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].x : ((Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-3].x) > canvasRef.width*0.6) && (Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-3].x) < canvasRef.width*0.2)) ? Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1 : (Math.random()*1-0.5) * distanceOfNodes + nodes[Math.max(i%3-1, 0)].x),
+						// y: i == 0 ? canvasRef.height * 0.5 : (i < 3 ? ((Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].y) > canvasRef.height*0.6) && (Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].y) < canvasRef.height*0.2)) ? Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1 : (Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].y : ((Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-3].y) > canvasRef.height*0.6) && (Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-3].y) < canvasRef.height*0.2)) ? Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1 : (Math.random()*1-0.5) * distanceOfNodes + nodes[Math.max(i%3-1, 0)].y), //Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1 : ,
 						vx: (Math.random() * 1 - 0.5) * node_speed,
 						vy: (Math.random() * 1 - 0.5) * node_speed,
 						radius: Math.random() > 0.6 ? 3 + Math.random() * nodeSize : 4 + Math.random() * nodeSize,
@@ -378,7 +347,6 @@ this.paint();
 
 			let lastNodes = [];
 			lastNodes = this.lastNodes;
-			// nodes.forEach(function (e) {
 			for (let i = 0; i < nodes.length; i++) {
 				if (nodes[i].nodeisResident) {
 					// nodes[i].nodeColor = abnormalNumbers >= newAbnormalNumber ? '#fff' : '#641';
@@ -392,8 +360,6 @@ this.paint();
 					if (this.reloadPaint == false && lastNodes.length == nodes.length && nodes[i].abnormalNumbers == lastNodes[i]) {
 						nodes[i].nodeColor = '#fff';  // 恢复白色
 					}
-
-
 
 					if (lastNodes.length > 0) {
 						console.log(lastNodes.length + ' ' + nodes.length + ' ' +
@@ -426,7 +392,7 @@ this.paint();
 					var edge = {
 						from: e,
 						to: e2
-					}
+					};
 
 					addEdge(edge);
 				});
@@ -468,7 +434,6 @@ this.paint();
 			// adjustNodeDrivenByMouse();
 			render();
 
-
 			idRequestAnimationFrame = window.requestAnimationFrame(step);
 		}
 
@@ -501,7 +466,7 @@ this.paint();
 			ctx.arc(10, 40, 5, 0, 2 * Math.PI);
 			ctx.fill();  // 带填充的实心图形
 			ctx.fillStyle = nodeColor2;
-			ctx.beginPath(); // 需要重新开始绘图path，否则颜色变为同一个
+			ctx.beginPath(); // 需要重新开始绘图path，否则颜色为同一个
 			ctx.rect(5, 90, 10, 10);
 			ctx.fill();  // 带填充的实心图形
 			// var gradient = ctx.createLinearGradient(0, 0, 200, 0);
@@ -532,7 +497,6 @@ this.paint();
 	    nodes.forEach(function (e) {
 	      if (e.drivenByMouse) {
 	        // return;
-
 	      }
 
 	      ctx.fillStyle = e.nodeColor;
@@ -560,7 +524,6 @@ this.paint();
 		// this.nodes = nodes;  // 直接赋值不是拷贝，只是让nodes获得了this.nodes的内存地址，所以不需要再重新赋值来更新了。
 		// this.edges = edges;
 		// this.lastNodes = Object.create(nodes);
-
 
 		resize();
 
@@ -638,7 +601,6 @@ this.paint();
 					console.log('after ...');
 					console.log('after loadAllEnergy' + this.nodes[0].abnormalNumbers + ' ' + this.lastNodes[0]);
 			}
-			// console.log(tempList);
 		})
 		.catch((error) => {
 				if(error == 'Server error'){
@@ -726,7 +688,6 @@ this.paint();
 			}
 			this.nodeisResident = false;
 			// this.reloadPaint = false;
-
 			// console.log(this.allResidents);
 		})
 		.catch((error) => {

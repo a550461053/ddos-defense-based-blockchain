@@ -44,7 +44,7 @@ do
 			-d '{"$class": "org.decentralized.energy.network.Energy",
 			"energyID": "'"${pre_str}${index1}"'", "targetIP": "'"${targetIP}${index2}"'", "value": "'"$(date +'%s')"'",
 			"ownerID": "'"${pre_str1}${index3}"'", "ownerEntity": "Resident","description":"'"${description}"'","flag":"0"}' \
-			'http://localhost:3000/api/Energy'
+			'http://localhost:9200/elk1/test1'
 
 ((index++))
 done
