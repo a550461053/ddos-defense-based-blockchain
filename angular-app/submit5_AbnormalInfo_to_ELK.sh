@@ -54,7 +54,7 @@ do
 			"count_abnormal": "'"${count_abnormal}"'",
 			"energyID": "'"${pre_str}${index1}"'", "targetIP": "'"${targetIP}${index2}"'", "value": "'"$(date +'%s')"'",
 			"ownerID": "'"${pre_str1}${index3}"'", "ownerEntity": "Resident","description":"'"${description}"'","flag":"0"}' \
-			'http://localhost:9200/elk4/test100'
+			'http://localhost:9200/elk5/test100'
 			#'http://10.10.28.101:9200/elk2/test2'
 
 ((index++))
