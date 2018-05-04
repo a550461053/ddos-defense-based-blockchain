@@ -6,13 +6,10 @@
 		<strong>Error:</strong> {{errorMessage}}
 	</div>
 
-  <div class="row">
-      <h2> Blockchain </h2>
-  </div>
+  <!--<div class="row">-->
+      <!--<h2> Blockchain </h2>-->
+  <!--</div>-->
 
-  <div class="row">
-    <br>
-  </div>
 
   <div *ngIf="performedTransactions.length == 0 && systemTransactions.length == 0" class="row">
       <h4>No transactions</h4>
@@ -24,10 +21,10 @@
       <thead>
         <tr>
           <th>
-            Transaction Type
+            交易类型
           </th>
           <th>
-            Transaction ID
+            交易ID
           </th>
         </tr>
       </thead>
@@ -47,22 +44,21 @@
 
   </div>
 
-  <div class="row">
-    <br>
-    <br>
-  </div>
 
   <div *ngIf="systemTransactions.length > 0" class="row">
-    <h4>System Transactions</h4>
+    <h1 align="center">交易信息</h1>
 
-    <table class="table table-striped">
+		<div class="row">
+			<br>
+		<div class="col-md-12">
+    <table class="table table-striped table-bordered table-responsive table-hover">
       <thead>
-        <tr>
-          <th>
-            Transaction Type
+        <tr class="thead-cols">
+          <th class="bc">
+						交易类型
           </th>
-          <th>
-            Transaction ID
+          <th class="bc">
+						交易ID
           </th>
         </tr>
       </thead>
@@ -81,7 +77,10 @@
     </table>
 
     <!-- p *ngFor="let transaction of allTransactions">{{transaction.transactionId}}</p-->
+		</div>
+		</div>
   </div>
+
 
   <div class="row">
     <br>

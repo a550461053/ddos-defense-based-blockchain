@@ -139,7 +139,7 @@
 	<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
 		<strong>Error:</strong> {{errorMessage}}
 	</div>
-  <h3 id='assetName'>Abnormal connections submitted by gateways</h3>
+  <h3 id='assetName'>异常列表</h3>
   <div class="row">
   </div>
   <br>
@@ -165,19 +165,19 @@
         <thead class="thead">
           <tr class="thead-cols">
 
-                <th class="bc">ID</th>
+                <th class="bc">序号</th>
 
-                <th class="bc">submitter ID</th>
+                <th class="bc">提交者ID</th>
 
-                <th class="bc">description</th>
+                <th class="bc">描述</th>
 
                 <!-- <th class="bc">Owner Entity</th> -->
 
-                <th class="bc">TargetIP</th>
+                <th class="bc">目标IP</th>
 
-                <th class="bc">Time</th>
+                <th class="bc">时间</th>
 
-                <th class="bc">flag</th>
+                <th class="bc">DDoS标志</th>
 
           </tr>
         </thead>
@@ -194,7 +194,7 @@
 
                 <td>{{asset.targetIP}}</td>
 
-                <td>{{asset.value}}</td>
+                <td>{{asset.value*1000|date:'yyyy-MM-dd HH:mm:ss'}}</td>
 
                 <td>{{asset.flag}}</td>
 

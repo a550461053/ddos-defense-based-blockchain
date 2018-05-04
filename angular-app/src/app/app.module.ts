@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { Configuration }     from './configuration';
 import { DataService }     from './data.service';
 import { AppComponent } from './app.component';
+import { SystemInfoComponent } from "./SystemInfo/SystemInfo.component";
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 
@@ -30,6 +31,7 @@ import { DistributeCoinsComponent } from './DistributeCoins/DistributeCoins.comp
 
 import { AllTransactionsComponent } from './AllTransactions/AllTransactions.component';
 
+
 // import { BaiduMapModule } from "angular2-baidu-map";
 // import { BaiduComponent } from "./baidu/baidu.component";
 
@@ -37,6 +39,7 @@ import { AllTransactionsComponent } from './AllTransactions/AllTransactions.comp
   declarations: [
     AppComponent,
     HomeComponent,
+		SystemInfoComponent,
     AboutComponent,
     // BaiduComponent,
 

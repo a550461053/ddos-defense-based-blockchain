@@ -9,29 +9,29 @@
         <div class="modal-body">
             <div class="form-group text-left">
               <label for="cashID">cashID</label>
-                <input formControlName="cashID" type="text" class="form-control">              
-            </div>          
-            
+                <input formControlName="cashID" type="text" class="form-control">
+            </div>
+
             <div class="form-group text-left">
               <label for="currency">currency</label>
-                <input formControlName="currency" type="text" class="form-control">            
+                <input formControlName="currency" type="text" class="form-control">
             </div>
-          
+
             <div class="form-group text-left">
               <label for="value">value</label>
-                <input formControlName="value" type="number" step='any' class="form-control">              
+                <input formControlName="value" type="number" step='any' class="form-control">
             </div>
-          
+
             <div class="form-group text-left">
               <label for="ownerID">ownerID</label>
-                <input formControlName="ownerID" type="text" class="form-control">              
+                <input formControlName="ownerID" type="text" class="form-control">
             </div>
-          
+
             <div class="form-group text-left">
               <label for="ownerEntity">ownerEntity</label>
                   <textarea formControlName="ownerEntity" class="form-control" rows="3"></textarea>
             </div>
-          
+
         </div>
         <div class="modal-footer">
           <button (click)="addAsset(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
@@ -55,29 +55,29 @@
         <div class="modal-body">
             <div class="form-group text-left">
               <label for="cashID">cashID</label>
-                <input [ngModel]="cashID"formControlName="cashID" type="text" class="form-control">              
+                <input [ngModel]="cashID"formControlName="cashID" type="text" class="form-control">
             </div>
-          
+
             <div class="form-group text-left">
               <label for="currency">currency</label>
-                <input [ngModel]="currency"formControlName="currency" type="text" class="form-control">              
+                <input [ngModel]="currency"formControlName="currency" type="text" class="form-control">
             </div>
-          
+
             <div class="form-group text-left">
               <label for="value">value</label>
-                <input [ngModel]="value" formControlName="value" type="number" step='any' class="form-control">              
+                <input [ngModel]="value" formControlName="value" type="number" step='any' class="form-control">
             </div>
-          
+
             <div class="form-group text-left">
               <label for="ownerID">ownerID</label>
-                <input [ngModel]="ownerID"formControlName="ownerID" type="text" class="form-control">              
+                <input [ngModel]="ownerID"formControlName="ownerID" type="text" class="form-control">
             </div>
-          
+
             <div class="form-group text-left">
               <label for="ownerEntity">ownerEntity</label>
-                  <textarea [ngModel]="ownerEntity" formControlName="ownerEntity" class="form-control" rows="3"></textarea>              
+                  <textarea [ngModel]="ownerEntity" formControlName="ownerEntity" class="form-control" rows="3"></textarea>
             </div>
-          
+
         </div>
         <div class="modal-footer">
           <button (click)="updateAsset(myForm)" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
@@ -114,8 +114,8 @@
 	<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
 		<strong>Error:</strong> {{errorMessage}}
 	</div>
-  <h1 id='assetName'>Cash Assets</h1>
-  <div class="row">    
+  <h1 id='assetName'>现金信息</h1>
+  <div class="row">
   </div>
   <br>
   <div class="row">
@@ -123,33 +123,35 @@
       <table class="table table-bordered table-responsive table-hover">
         <thead class="thead">
           <tr class="thead-cols">
-            
-                <th class="bc">Cash ID</th>
 
-                <th class="bc">Owner ID</th>
-            
-                <th class="bc">Owner Entity</th>
-            
-                <th class="bc">Currency</th>
-            
-                <th class="bc">Value</th>
-             
+                <!--<th class="bc">序号</th>-->
+
+                <th class="bc">节点ID</th>
+
+                <th class="bc">节点类型</th>
+
+                <!--<th class="bc">Currency</th>-->
+
+                <th class="bc">余额</th>
+
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let asset of allAssets">
 
-            
-                <td>{{asset.cashID}}</td>                            
-            
-                <td>{{asset.ownerID}}</td>
-            
-                <td>{{asset.ownerEntity}}</td>
 
-                <td>{{asset.currency}}</td>
-            
+                <!--<td>{{asset.cashID}}</td>-->
+
+                <td>{{asset.ownerID}}</td>
+
+								<td *ngIf="asset.ownerEntity == 'Resident'">边缘节点</td>
+								<td *ngIf="asset.ownerEntity == 'TargetCompany'">目标节点</td>
+                <!--<td>{{asset.ownerEntity}}</td>-->
+
+                <!--<td>{{asset.currency}}</td>-->
+
                 <td>{{asset.value}}</td>
-            
+
           </tr>
         </tbody>
       </table>

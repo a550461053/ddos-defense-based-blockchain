@@ -1,3 +1,6 @@
 .align {
     text-align: left;
 }
+.bc {
+	background-color: cyan;
+}

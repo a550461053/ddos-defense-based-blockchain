@@ -26,9 +26,12 @@ import { AllTransactionsComponent } from './AllTransactions/AllTransactions.comp
 
 // import { BaiduComponent } from './baidu/baidu.component';
 
-const routes: Routes = [
+import { SystemInfoComponent } from "./SystemInfo/SystemInfo.component";
 
-    {path: '', component: HomeComponent},
+const routes: Routes = [
+	{path: '', component: SystemInfoComponent},
+    {path: 'Home', component: HomeComponent},
+
     // {path: 'Baidu', component: BaiduComponent},
 
     {path: 'About', component: AboutComponent},

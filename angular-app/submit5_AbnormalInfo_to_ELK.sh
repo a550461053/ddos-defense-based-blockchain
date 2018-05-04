@@ -1,15 +1,15 @@
 #!/bin/bash
 
 N=12  # 总的用户数
-M=2   # 总的target数
-Abnormal=12 # 异常连接数
+M=6   # 总的target数
+Abnormal=100 # 异常连接数
 # 创建异常连接i
 index=1
 pre_str1="000"
 pre_str2="00"
 descriptions=("TCP中SYN握手未完成", "udp数据包异常", "HTTP数据包异常", "DNS反射攻击")
 len=${#descriptions[*]}
-while [ "$index" -lt "$Abnormal" ]
+while [ "$index" -le "$Abnormal" ]
 do
 	if [ "$index" -le "9" ]; then
 		pre_str=$pre_str1
@@ -26,7 +26,7 @@ do
   	index2=$((index))
   else
   	targetIP="210.73.64."		# 大于=4的是真正构成ddos的异常
-  	index2=$((index%M+1))
+  	index2=$((RANDOM%M+1))  # $((index%M+1))
   fi
 
 	index3=$((index%N+1))		# 提交者ID
@@ -39,12 +39,23 @@ do
 	echo $len
 	echo $((RANDOM%len))
 
+	# 产生随机提交间隔时间
+	a=$((RANDOM%10+1))
+	sleep_time=$(echo "scale=4; $a / 10" | bc)  # shell不支持浮点数，得用bc实现，也可以用awk
+	echo $sleep_time
+	sleep $sleep_time
+
+	# 产生随机异常个数
+	count_abnormal=$((RANDOM%10+1))
+
 	# 创建energy 1
 	curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json'  \
 			-d '{"$class": "org.decentralized.energy.network.Energy",
+			"count_abnormal": "'"${count_abnormal}"'",
 			"energyID": "'"${pre_str}${index1}"'", "targetIP": "'"${targetIP}${index2}"'", "value": "'"$(date +'%s')"'",
 			"ownerID": "'"${pre_str1}${index3}"'", "ownerEntity": "Resident","description":"'"${description}"'","flag":"0"}' \
-			'http://localhost:9200/elk1/test1'
+			'http://localhost:9200/elk4/test100'
+			#'http://10.10.28.101:9200/elk2/test2'
 
 ((index++))
 done

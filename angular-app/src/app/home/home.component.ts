@@ -265,20 +265,30 @@ export class HomeComponent implements OnInit, OnChanges {
 		var mygreen1 = '#2bd83c';
 		var mygreen2 = '#033d08';
 		var black = '#000';
+		var shimei = '#cceecc';
+		var shi2 = '#bdddddcc';
+		var shi3 = '#3E9090';
+		var shi4 = '#83A245';
 
 		// 定义对象颜色
-		var backgroundColor = mygrey1; //myblue1; // '#155';
-		var pic_discription = '#21ffac';
+		var backgroundColor = shimei; //myblue1; // '#155';
+		var pic_discription = shi4; //'#21ffac';
 	  var nodeColor = '#fff';
 	  var nodeColor1 = '#fff';
-	  var nodeColor2 = '#1111ff';
+	  var nodeColor2 = shi3; //'#1111ff';
 	  var edgeColor = '#000'; //'#000'; //'#fff';
+		var arcStrokeStyle = mygreen2;
+		var rectStrokeStyle = black;
+		var rectStrokeSize = 3;
+		var arcStrokeSize = 3;
 
 		var easingFactor = 5.0;
 		var edgeWidth = 4.5;
-		var nodeSize = 5;
+		var nodeSize = 8;  // 大小权值
+		var nodeMinSize = 4;
+		var nodeMaxSize = 6;
 		var vecMax = 0.5;
-		var node_speed = 0.1;  					//  b0-1.0
+		var node_speed = 0.0;  					//  b0-1.0
 		var distanceOfNodes = 300;
 		var canvasRef_limit_left = 0.2;  // 限定canvas显示的边界
 		var canvasRef_limit_right = 0.8;
@@ -287,7 +297,7 @@ export class HomeComponent implements OnInit, OnChanges {
 		nodes = this.nodes;
 		edges = this.edges;
 		let resident_nodes_numbers = this.allResidents.length;
-		let targetcompany_nodes_numbers = this.allTargetCompany.length;
+		let targetcompany_nodes_numbers = 0; // this.allTargetCompany.length; //去掉目标节点
 		let nodes_numbers = resident_nodes_numbers + targetcompany_nodes_numbers;
 
 		let idRequestAnimationFrame = 0;
@@ -297,6 +307,20 @@ export class HomeComponent implements OnInit, OnChanges {
 		let y = this.canvasRef_height / 2;
 		nodes_locations.push([x, y]);
 		nodes_locations.push([x+100, y+100]);
+		nodes_locations.push([x+50, y-110]);  //3
+		nodes_locations.push([x-80, y+56]);
+		nodes_locations.push([x-110, y-70]);
+		nodes_locations.push([x-155, y+70]);
+		nodes_locations.push([x-50, y+140]);
+		nodes_locations.push([x-250, y+160]);
+		nodes_locations.push([x+230, y+80]);
+		nodes_locations.push([x+200, y+210]);
+		nodes_locations.push([x-220, y-55]);
+		// nodes_locations.push([x+140, y-60]);
+		nodes_locations.push([x-185, y-185]);
+		nodes_locations.push([x+150, y-150]); //13
+
+
 
 		function addEdge(edge) {
 	    var ignore = false;
@@ -335,8 +359,9 @@ export class HomeComponent implements OnInit, OnChanges {
 						// y: i == 0 ? canvasRef.height * 0.5 : (i < 3 ? ((Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].y) > canvasRef.height*0.6) && (Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].y) < canvasRef.height*0.2)) ? Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1 : (Math.random()*1-0.5) * distanceOfNodes + nodes[i-1].y : ((Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-3].y) > canvasRef.height*0.6) && (Math.abs((Math.random()*1-0.5) * distanceOfNodes + nodes[i-3].y) < canvasRef.height*0.2)) ? Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1 : (Math.random()*1-0.5) * distanceOfNodes + nodes[Math.max(i%3-1, 0)].y), //Math.random() * canvasRef.height * 0.9 + canvasRef.height * 0.1 : ,
 						vx: (Math.random() * 1 - 0.5) * node_speed,
 						vy: (Math.random() * 1 - 0.5) * node_speed,
-						radius: Math.random() > 0.6 ? 3 + Math.random() * nodeSize : 4 + Math.random() * nodeSize,
-						nodeColor: nodeisResident ? '#fff' : nodeColor2
+						// radius: Math.random() > 0.6 ? nodeMinSize + Math.random() * nodeSize : nodeMaxSize + Math.random() * nodeSize,
+						radius: nodeSize,
+						nodeColor: nodeisResident ? nodeColor1 : nodeColor2
 					};
 
 					nodes.push(node);
@@ -358,7 +383,7 @@ export class HomeComponent implements OnInit, OnChanges {
 						// console.log(lastNodes.length + ' ' + nodes[i].abnormalNumbers + ' ' + lastNodes[i]);
 					}
 					if (this.reloadPaint == false && lastNodes.length == nodes.length && nodes[i].abnormalNumbers == lastNodes[i]) {
-						nodes[i].nodeColor = '#fff';  // 恢复白色
+						nodes[i].nodeColor = nodeColor1; // '#fff';  // 恢复白色
 					}
 
 					if (lastNodes.length > 0) {
@@ -459,26 +484,32 @@ export class HomeComponent implements OnInit, OnChanges {
 			// 创建图例
 			ctx.font = "bold 20px Arial"; //Georgia"; // bold在前面才有效果
 			ctx.fillStyle = pic_discription; // myblue2;
-			ctx.fillText("Gateway", 30, 50);
+			ctx.fillText("边缘节点", 30, 50);
 
 			ctx.fillStyle = nodeColor1;
 			ctx.beginPath();
 			ctx.arc(10, 40, 5, 0, 2 * Math.PI);
+			ctx.strokeStyle = arcStrokeStyle; //shi4;
+			ctx.lineWidth = arcStrokeSize;
+			ctx.stroke();
 			ctx.fill();  // 带填充的实心图形
-			ctx.fillStyle = nodeColor2;
-			ctx.beginPath(); // 需要重新开始绘图path，否则颜色为同一个
-			ctx.rect(5, 90, 10, 10);
-			ctx.fill();  // 带填充的实心图形
+			// ctx.fillStyle = nodeColor2;
+			// ctx.beginPath(); // 需要重新开始绘图path，否则颜色为同一个
+			// ctx.rect(5, 90, 10, 10);
+			// ctx.strokeStyle = rectStrokeStyle; //shi4;
+			// ctx.lineWidth = rectStrokeSize;
+			// ctx.stroke();
+			// ctx.fill();  // 带填充的实心图形
 			// var gradient = ctx.createLinearGradient(0, 0, 200, 0);
 			// gradient.addColorStop(0, "magenta");
 			// gradient.addColorStop(0.5, "blue");
 			// gradient.addColorStop(1.0, "red");
-			ctx.fillStyle = pic_discription; //gradient;
-			ctx.fillText("TargetCompany", 20, 100);
+			// ctx.fillStyle = pic_discription; //gradient;
+			// ctx.fillText("目标节点", 30, 100);
 
 	    edges.forEach(function (e) {
 	      var l = lengthOfEdge(e);
-	      var threshold = canvasRef.width / 4;
+	      var threshold = canvasRef.width / 3.5;
 
 	      if (l > threshold) {
 	        return;
@@ -503,8 +534,14 @@ export class HomeComponent implements OnInit, OnChanges {
 	      ctx.beginPath();
 	      if (e.nodeisResident) {  // 判断点的类型，绘制不同形状
 					ctx.arc(e.x, e.y, e.radius, 0, 2 * Math.PI);
+					ctx.strokeStyle = arcStrokeStyle; //shi4;
+					ctx.lineWidth = arcStrokeSize;
+					ctx.stroke();
 				} else {
 					ctx.rect(e.x-e.radius, e.y-e.radius, 2*e.radius, 2*e.radius);
+					ctx.strokeStyle = rectStrokeStyle; //shi4;
+					ctx.lineWidth = rectStrokeSize;
+					ctx.stroke();
 				}
 	      ctx.fill();  // 带填充的实心图形
 	    });
@@ -623,6 +660,7 @@ export class HomeComponent implements OnInit, OnChanges {
 			this.DDoSInfoShow = true;
 			this.errorMessage = null;
 			result.forEach(ddos => {
+				ddos.k = ((parseFloat(ddos.k)*1000)).toFixed(0).toString();
 				tempList.push(ddos);
 			});
 			this.allDDoS = tempList;
@@ -716,18 +754,18 @@ export class HomeComponent implements OnInit, OnChanges {
 					tempList.push(TargetCompany);
 				});
 				this.allTargetCompany = tempList;
-				// this.addNode(); // 添加节点
-				if (tempList.length > this.targetcompany_nodes_numbers) {
-					this.reloadPaint = true;
-					this.nodeisTargetCompany = true;
-					this.paint();
-					//console.log('after loadAllResident' + this.nodes[0].abnormalNumbers + ' ' + this.lastNodes[0]);
-					// this.count = 0;
-				}
-				this.nodeisTargetCompany = false;
-				// this.reloadPaint = false;
-
-				// console.log(this.allResidents);
+				// // this.addNode(); // 添加节点
+				// if (tempList.length > this.targetcompany_nodes_numbers) {
+				// 	this.reloadPaint = true;
+				// 	this.nodeisTargetCompany = true;
+				// 	this.paint();
+				// 	//console.log('after loadAllResident' + this.nodes[0].abnormalNumbers + ' ' + this.lastNodes[0]);
+				// 	// this.count = 0;
+				// }
+				// this.nodeisTargetCompany = false;
+				// // this.reloadPaint = false;
+                //
+				// // console.log(this.allResidents);
 			})
 			.catch((error) => {
 				if(error == 'Server error'){

@@ -54,6 +54,8 @@ import {Event} from './org.hyperledger.composer.system';
       ddosID: string;
       targetIP: string;
       time: string;
+      count: string;
+      k: string;
       ownerID: string;
       targetID: string;
       ownerEntity: OwnerEntity;

@@ -3,7 +3,10 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css',
+		// '../assets/css/bootstrap.css',
+		'../assets/css/master.css'
+	]
 })
 export class AppComponent {
   // options : MapOptions;

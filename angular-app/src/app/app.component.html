@@ -1,32 +1,31 @@
 <nav class="navbar navbar-inverse navbar2">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand navfont" href="#">IoT-DDoS Defense </a>
+			<a class="navbar-brand navfont" href="#">系统介绍</a>
+      <!--<a class="navbar-brand navfont" [routerLink]="['/home']">IoT-DDoS</a>-->
 
     </div>
     <ul class="nav navbar-nav navbar-right">
-			<li class="dropdown navfontAbout">
-            <a class="dropdown-toggle navfont" data-toggle="dropdown" href="#">Info
-              <span class="caret navfont"></span></a>
-            <ul class="dropdown-menu">
 
-              <li><a [routerLink]="['/About']">About</a></li>
-              <li><a [routerLink]="['/AllTransactions']">Blockchain</a></li>
-            </ul>
-          </li>
 
-      <li class="dropdown">
-        <a class="dropdown-toggle navfont" data-toggle="dropdown" href="#">Participants
-          <span class="caret navfont"></span></a>
-        <ul class="dropdown-menu">
+      <!--<li class="dropdown">-->
+        <!--<a class="dropdown-toggle navfont" data-toggle="dropdown" href="#">参与者-->
+          <!--<span class="caret navfont"></span></a>-->
+        <!--<ul class="dropdown-menu">-->
 
-          <li><a [routerLink]="['/Resident']">Gateways</a></li>
-          <li><a [routerLink]="['/TargetCompany']">TargetCompany</a></li>
-        <!--  <li><a [routerLink]="['/Bank']">Banks</a></li>-->
+          <!--<li><a [routerLink]="['/Resident']">边缘节点</a></li>-->
+          <!--<li><a [routerLink]="['/TargetCompany']">目标节点</a></li>-->
 
-        </ul>
-      </li>
+        <!--</ul>-->
+      <!--</li>-->
 
+			<div class="navbar-header">
+				<a class="navbar-brand navfontAbout" [routerLink]="['/Resident']">边缘节点</a>
+				<a class="navbar-brand navfontAbout" [routerLink]="['/Home']">边缘12节点</a>
+			</div>
+			<div class="navbar-header">
+				<a class="navbar-brand navfontAbout" [routerLink]="['/TargetCompany']">目标用户</a>
+			</div>
 
      <!-- <li class="dropdown">
         <a class="dropdown-toggle navfont" data-toggle="dropdown" href="#">Transactions
@@ -41,33 +40,44 @@
       </li> -->
 
 
+      <!--<li class="dropdown">-->
+        <!--<a class="dropdown-toggle navfont" data-toggle="dropdown" href="#">疑似异常-->
+          <!--<span class="caret"></span></a>-->
+        <!--<ul class="dropdown-menu">-->
+          <!--<li><a [routerLink]="['/Energy']">疑似异常信息</a></li>-->
+          <!--<li><a [routerLink]="['/DDoS']">DDoS信息</a></li>-->
+          <!--<li><a [routerLink]="['/Log']">日志信息</a></li>-->
+        <!--</ul>-->
+      <!--</li>-->
+
+			<div class="navbar-header">
+				<a class="navbar-brand navfontAbout" [routerLink]="['/Energy']">疑似异常信息</a>
+			</div>
+			<div class="navbar-header">
+				<a class="navbar-brand navfontAbout" [routerLink]="['/DDoS']">DDoS信息</a>
+			</div>
+
       <li class="dropdown">
-        <a class="dropdown-toggle navfont" data-toggle="dropdown" href="#">Abnormal Info
+        <a class="dropdown-toggle navfont" data-toggle="dropdown" href="#">资产
           <span class="caret"></span></a>
         <ul class="dropdown-menu">
 
-          <li><a [routerLink]="['/Energy']">Abnormal Connections Info</a></li>
+          <li><a [routerLink]="['/Coins']">代币</a></li>
 
-          <li><a [routerLink]="['/DDoS']">DDoS Info</a></li>
-
-          <li><a [routerLink]="['/Log']">Log Info</a></li>
-
+          <li><a [routerLink]="['/Cash']">现金</a></li>
 
         </ul>
       </li>
 
-      <li class="dropdown">
-        <a class="dropdown-toggle navfont" data-toggle="dropdown" href="#">Assets
-          <span class="caret"></span></a>
-        <ul class="dropdown-menu">
+			<li class="dropdown navfontAbout">
+				<a class="dropdown-toggle navfont" data-toggle="dropdown" href="#">区块链
+					<span class="caret navfont"></span></a>
+				<ul class="dropdown-menu">
 
-          <li><a [routerLink]="['/Coins']">Coins</a></li>
-
-          <li><a [routerLink]="['/Cash']">Cash</a></li>
-
-        </ul>
-      </li>
-
+					<li><a [routerLink]="['/About']">关于</a></li>
+					<li><a [routerLink]="['/AllTransactions']">区块链交易信息</a></li>
+				</ul>
+			</li>
 
     </ul>
   </div>

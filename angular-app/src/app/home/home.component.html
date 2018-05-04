@@ -9,27 +9,24 @@
 </head>
 
 <div class="container-fluid">
-  <div class="row">
-      <!--h1 class="heading">decentralized energy </h1-->
-     <h1 class="heading">Welcome to IoT-DDoS Defense using Hyperledger</h1>
-  </div>
+  <!--<div class="row">-->
+     <!--<h1 class="heading">Welcome to IoT-DDoS Defense using Hyperledger</h1>-->
+  <!--</div>-->
 
-  <div class="row">
-    <br>
-  </div>
+  <!--<div class="row">-->
+    <!--<br>-->
+  <!--</div>-->
 
-  <div class="row bodytext">
-      <!--h3>Welcome to Decentralized Energy using Hyperledger Composer!</h3-->
-      <div class="col-md-12">
-        <p class="">  </p>
-     <!--   <p class=""> Find more detail <a [routerLink]="['/About']" > about the application. </a> </p>-->
+  <!--<div class="row bodytext">-->
+      <!--<div class="col-md-12">-->
+        <!--<p class="">  </p>-->
+        <!--<p class=""> Find more detail <a [routerLink]="['/About']" > about the application. </a> </p>-->
+      <!--</div>-->
+    <!--</div>-->
 
-      </div>
-    </div>
-
-  <div class="row">
-    <!-- <br> -->
-  </div>
+  <!--<div class="row">-->
+     <!--<br> -->
+  <!--</div>-->
 
 <!--  <div class="row">
     <h4> Step1 - Create and Update Participants </h4>
@@ -224,27 +221,33 @@
   <!-- <h1 id='assetName'>AbnormalConn Assets</h1> -->
   <div class="row">
   </div>
-  <br>
   <div class="row">
 
 
     <div class="col-md-12 table-responsive">
 			<table class="table table-striped table-bordered table-hover">
 				<tr>
-					<td width="48%">
+					<td width="48%" height="70%">
 						<!-- <baidu-map [options]="options" style="display: block; width: 100%; height: 450px; align: center;"></baidu-map> -->
-            <canvas #myCanvas width="900" height="500">
-            </canvas>
+            <canvas #myCanvas width="750" height="500"></canvas> <!-- 800, 500 -->
 					</td>
 
 					<td class="spec2" width="4%"> </td>
 
 					<td  class="allblack" width="48%" >
 						<tr width="100%">
-							<th class="bc text-primary bigfont" width="900" height="40">Gateway提交针对目标IP的异常连结</th>
+							<th class="bc text-primary bigfont" width="900" height="40">
+								<a href="http://localhost:5601/app/kibana#/dashboard/6819d6c0-49cc-11e8-8307-f767eb82464a?_g=()&_a=(description:'',filters:!(),fullScreenMode:!f,options:(darkTheme:!f,hidePanelTitles:!f,useMargins:!t),panels:!((gridData:(h:3,i:'1',w:6,x:0,y:0),id:'670df530-4941-11e8-8307-f767eb82464a',panelIndex:'1',type:visualization,version:'6.2.4'),(gridData:(h:3,i:'2',w:6,x:6,y:0),id:'4a0619f0-49cc-11e8-8307-f767eb82464a',panelIndex:'2',type:visualization,version:'6.2.4')),query:(language:lucene,query:''),timeRestore:!f,title:'1',viewMode:view)"
+									 target="_blank">
+									边缘节点提交针对目标IP的疑似异常
+								</a>
+							</th>
+<!--<div class="col-md-12 text-right">-->
+  <!--<button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addResidentModal">Add1</button>-->
+<!--</div>-->
 						</tr>
 						<tr width="100%">
-							<td class=""  width="100%">
+							<td width="100%">
 								<div class="pre-scrollable table-responsive">
 									<table class="table table-striped table-responsive table-hover scrolltable pre-scrollable" width="100%">
 										<thead>
@@ -277,14 +280,11 @@
         <tr height="20"> </tr>
 
 				<tr>
-
 						<!-- <th class="bc text-primary allblack" width="35%">Gateway提交针对目标IP的异常连结</th>
 						<th class="spec" width="5%" >  </th> -->
-						<th class="bc text-primary allblack" width="48%">Gateway提交针对目标IP的DDoS预警</th>
+						<th class="bc text-primary allblack" width="48%">边缘节点提交针对目标IP的DDoS预警</th>
 						<th class="spec2" width="4%" >  </th>
-						<th class="bc text-primary allblack" width="48%">TargetCompany提交针对Gateway的奖励</th>
-
-
+						<th class="bc text-primary allblack" width="48%">目标用户提交针对边缘节点的奖励</th>
 				</tr>
 
 
@@ -302,7 +302,7 @@
 									<tr *ngFor="let ddos of allDDoS">
 										<td class=" text-primary" align="center">{{ddos.ownerID}}</td>
 										<td class=" text-primary" align="center">{{ddos.targetIP}}</td>
-										<td class=" text-primary" align="center">待填</td>
+										<td class=" text-primary" align="center">异常数{{ddos.count}},速率为{{ddos.k}}条/秒</td>
 										<td class=" text-primary" align="center">{{ddos.time|date:'yyyy-MM-dd HH:mm:ss'}}</td>
 									</tr>
 								</table>
@@ -316,18 +316,18 @@
 										<th align="center">奖励发起者ID</th>
 										<th align="center">奖励对象ID</th>
 										<th align="center">奖励金额</th>
+										<th align="center">时间</th>
 									</tr>
 									<tr *ngFor="let log of allLog">
 										<td align="center" class="text-warning">{{log.ownerID}}</td>
 										<td align="center" class="text-warning">{{log.value}}</td>
 										<td align="center" class="text-warning">1coin</td>
+										<td align="center" class="text-warning">{{log.time|date:'yyyy-MM-dd HH:mm:ss'}}</td>
 									</tr>
 								</table>
 								</div>
 							</td>
-
 				</tr>
-
 			</table>
 
 

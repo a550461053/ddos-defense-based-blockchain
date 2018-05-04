@@ -117,7 +117,7 @@
 	</div>
   <div class="row">
 
-      <h1 class="heading">Gateways </h1>
+      <h1 class="heading">边缘节点列表</h1>
   </div>
 
  <!--<div class="row">-->
@@ -132,13 +132,13 @@
         <thead class="thead">
           <tr class="thead-cols">
 
-                <th class="bc">ID</th>
+                <th class="bc">边缘节点ID</th>
 
-                <th class="bc">First Name</th>
+                <th class="bc">用户名</th>
 
-                <th class="bc">Last Name</th>
+                <!--<th class="bc">Last Name</th>-->
 
-                <th class="bc">Coins Balance</th>
+                <th class="bc">代币余额</th>
 
 
                 <!-- <th class="bc">Energy Value</th>
@@ -146,11 +146,11 @@
                 <th class="bc">Energy targetIP</th> -->
 
 
-                <th class="bc">Cash Balance</th>
+                <th class="bc">现金余额</th>
 
                 <!--<th class="bc">Cash Currency</th>-->
 
-                <th class="bc">Actions</th>
+                <!--<th class="bc">操作</th>-->
           </tr>
         </thead>
         <tbody>
@@ -160,7 +160,7 @@
 
                 <td>{{resident.firstName}}</td>
 
-                <td>{{resident.lastName}}</td>
+                <!--<td>{{resident.lastName}}</td>-->
 
                 <td>{{resident.coinsValue}}</td>
 
@@ -172,13 +172,13 @@
 
                 <!--<td>{{resident.cashCurrency}}</td>-->
 
-            <td>
+            <!--<td>-->
 
-              <button (click)="getForm(resident.residentID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateResidentModal">Update</button>
+              <!--<button (click)="getForm(resident.residentID);" type="button" class="btn btn-success" data-toggle="modal" data-target="#updateResidentModal">Update</button>-->
 
-              <button (click)="setId(resident.residentID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteResidentModal">Delete</button>
+              <!--<button (click)="setId(resident.residentID);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteResidentModal">Delete</button>-->
 
-            </td>
+            <!--</td>-->
           </tr>
         </tbody>
       </table>
