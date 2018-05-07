@@ -49,6 +49,7 @@ asset Energy identified by energyID {
     o OwnerEntity ownerEntity
     o String description
     o String flag
+    o Integer count
 }
 
 asset Cash identified by cashID {

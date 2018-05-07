@@ -59,6 +59,9 @@ export class HomeComponent implements OnInit, OnChanges {
 	private allLog;
 	private log;
 
+	private flag = 1;
+	private Flagtimer;
+
 	// 定义节点和边
 	private edges=[];
 	private nodes=[];
@@ -117,8 +120,10 @@ export class HomeComponent implements OnInit, OnChanges {
 							});
 
 							this.timer = setInterval(() => {
-								//this.ref.detectChanges(); // 检测变化
+								this.ref.detectChanges(); // 检测变化
+								if (this.flag == 1){
 								this.loadAllEnergy();
+								}
 								this.loadAllDDoS();
 								this.loadAllLog();
 								this.loadAllResident();
@@ -135,8 +140,11 @@ export class HomeComponent implements OnInit, OnChanges {
 									this.paint()  //需要再this.reloadPaint=false之前执行，
 								}
 								// this.paint();
-							}, 1000);
+							}, 5000);
 
+		         this.Flagtimer = setInterval(() => {
+		            	this.flag = 1;
+						 },10000);
 
 							// 百度地图配置
 							// this.options = {
@@ -597,15 +605,20 @@ export class HomeComponent implements OnInit, OnChanges {
 
 
 	loadAllEnergy(): Promise<any> {
+		this.flag = 0;
 		let tempList = [];
 		return this.serviceEnergy.getAll()
 		.toPromise()
 		.then((result) => {
+
 			this.errorMessage = null;
 			result.forEach(asset => {
 				tempList.push(asset);
 			});
 			this.allAssets = tempList;
+
+
+
 			console.log('tempList length:'+tempList.length + ' ' + this.abnormalNumbers +
 				' ' + (tempList.length > this.abnormalNumbers));
 			if (tempList.length > this.abnormalNumbers) {
@@ -635,12 +648,13 @@ export class HomeComponent implements OnInit, OnChanges {
 					console.log('before ...');
 					console.log('before loadAllEnergy' + this.nodes[0].abnormalNumbers );
 					console.log(this.lastNodes[0]);
-					this.paint();
+				//	this.paint();
 					// this.lastNodes = this.nodes;
 					this.count = 0;  // 重新开始计数
 					// this.reloadPaint = false;
 					console.log('after ...');
 					console.log('after loadAllEnergy' + this.nodes[0].abnormalNumbers + ' ' + this.lastNodes[0]);
+
 			}
 		})
 		.catch((error) => {

@@ -2,7 +2,7 @@
 
 N=12  # 总的用户数
 M=3   # 总的target数
-Abnormal=150 # 异常连接数
+Abnormal=50 # 异常连接数
 # 创建异常连接i
 index=1
 pre_str1="000"
@@ -55,10 +55,12 @@ do
 	echo ${targetIP}${index2}
 	echo ${pre_str}${index1}					 # 异常连接ID
 	echo ${pre_str_submitter}${index3} # 提交者ID
-
+	# 产生随机异常个数
+	count_abnormal=$((RANDOM%20+1))
 	# 创建energy 1
 	curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json'  \
 			-d '{"$class": "org.decentralized.energy.network.Energy",
+			"count": "'"${count_abnormal}"'",
 			"energyID": "'"${pre_str}${index1}"'", "targetIP": "'"${targetIP}${index2}"'", "value": "'"$(date +'%s')"'",
 			"ownerID": "'"${pre_str_submitter}${index3}"'", "ownerEntity": "Resident","description":"'"${description}"'","flag":"0"}' \
 			'http://localhost:3000/api/Energy'

@@ -252,18 +252,20 @@
 									<table class="table table-striped table-responsive table-hover scrolltable pre-scrollable" width="100%">
 										<thead>
 											<tr>
-												<th style="display: table-head-group;" width="20%">提交者ID</th>
-												<th style="display: table-head-group;" width="30%">目标IP</th>
-												<th style="display: table-head-group;" width="30%">异常类型</th>
+												<th style="display: table-head-group;" width="15%">提交者ID</th>
+												<th style="display: table-head-group;" width="20%">目标IP</th>
+												<th style="display: table-head-group;" width="25%">异常类型</th>
+												<th style="display: table-head-group;" width="20%">异常条数</th>
 												<th style="display: table-head-group;" width="20%">时间</th>
 											</tr>
 										</thead>
 										<tbody> <!---style="height:100px;overflow-y: scrol;" >-->
 											<tr *ngFor="let asset of allAssets">
 												<!-- <div class="pre-scrollable" > -->
-												<td align="center" width="20%">{{asset.ownerID}}</td>
-												<td align="center" width="30%">{{asset.targetIP}}</td>
-												<td align="center" width="30%">{{asset.description}}</td>
+												<td align="center" width="15%">{{asset.ownerID}}</td>
+												<td align="center" width="20%">{{asset.targetIP}}</td>
+												<td align="center" width="25%">{{asset.description}}</td>
+												<td align="center" width="20%">{{asset.count}}</td>
 												<td align="center" width="20%">{{asset.value*1000|date:'yyyy-MM-dd HH:mm:ss'}}</td>
 												<!-- Gateway {{asset.ownerID}} 提交了一条针对目标 {{asset.targetIP}} 的类型为 {{asset.description}} 的异常 -->
 												<!-- </div> -->
@@ -284,7 +286,7 @@
 						<th class="spec" width="5%" >  </th> -->
 						<th class="bc text-primary allblack" width="48%">边缘节点提交针对目标IP的DDoS预警</th>
 						<th class="spec2" width="4%" >  </th>
-						<th class="bc text-primary allblack" width="48%">目标用户提交针对边缘节点的奖励</th>
+						<th class="bc text-primary allblack" width="48%">目标节点提交针对边缘节点的奖励</th>
 				</tr>
 
 
@@ -302,7 +304,7 @@
 									<tr *ngFor="let ddos of allDDoS">
 										<td class=" text-primary" align="center">{{ddos.ownerID}}</td>
 										<td class=" text-primary" align="center">{{ddos.targetIP}}</td>
-										<td class=" text-primary" align="center">异常数{{ddos.count}},速率为{{ddos.k}}条/秒</td>
+										<td class=" text-primary" align="center">异常数{{ddos.count}},速率为{{ddos.k/1000}}条/秒</td>
 										<td class=" text-primary" align="center">{{ddos.time|date:'yyyy-MM-dd HH:mm:ss'}}</td>
 									</tr>
 								</table>

@@ -42,6 +42,7 @@ import {Event} from './org.hyperledger.composer.system';
       ownerEntity: OwnerEntity;
       flag: string;
       description: string;
+      count:number;
    }
    export class Cash extends Asset {
       cashID: string;

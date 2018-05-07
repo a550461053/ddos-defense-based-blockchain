@@ -2,9 +2,9 @@
 
 N=12  # 总的用户数
 M=3   # 总的target数
-Abnormal=100 # 异常连接数
+Abnormal=50 # 异常连接数
 # 创建异常连接i
-index=51
+index=1
 pre_str1="000"
 pre_str2="00"
 pre_str3="0"
@@ -28,11 +28,11 @@ do
   first_split=$((index%5))
   if [ "$first_split" -ne "0" ]; then # 不是5的倍数，就执行真正的ddos异常连接提交
 		targetIndex=$((RANDOM%M+1))
-		targetIP="108.45.7."		# 真正构成ddos的异常
+		targetIP="210.73.64."		# 真正构成ddos的异常
 		index2=$((targetIndex))
 	else
 		targetIndex=$((RANDOM%M+1))
-		targetIP="123.4.25."
+		targetIP="114.45.62."
 		index2=$((targetIndex))
 	fi
 
@@ -55,15 +55,24 @@ do
 	echo ${targetIP}${index2}
 	echo ${pre_str}${index1}					 # 异常连接ID
 	echo ${pre_str_submitter}${index3} # 提交者ID
-  # 产生随机异常个数
-  count_abnormal=$((RANDOM%20+1))
+
+	# 产生随机提交间隔时间
+	a=$((RANDOM%10+1))
+	sleep_time=$(echo "scale=4; $a / 10" | bc)  # shell不支持浮点数，得用bc实现，也可以用awk
+	echo $sleep_time
+	sleep $sleep_time
+
+	# 产生随机异常个数
+	count_abnormal=$((RANDOM%10+1))
+
 	# 创建energy 1
 	curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json'  \
 			-d '{"$class": "org.decentralized.energy.network.Energy",
-			"count": "'"${count_abnormal}"'",
-			"energyID": "'"${pre_str}${index1}"'", "targetIP": "'"${targetIP}${index2}"'", "value": "'"$(date +'%s')"'",
-			"ownerID": "'"${pre_str_submitter}${index3}"'", "ownerEntity": "Resident","description":"'"${description}"'","flag":"0"}' \
-			'http://localhost:3000/api/Energy'
+      			"count_abnormal": "'"${count_abnormal}"'",
+      			"energyID": "'"${pre_str}${index1}"'", "targetIP": "'"${targetIP}${index2}"'", "value": "'"$(date +'%s')"'",
+      			"ownerID": "'"${pre_str_submitter}${index3}"'", "ownerEntity": "Resident","description":"'"${description}"'","flag":"0"}'
+			'http://localhost:9200/elk5/test100'
+			#'http://10.10.28.101:9200/elk2/test2'
 
 ((index++))
 done
