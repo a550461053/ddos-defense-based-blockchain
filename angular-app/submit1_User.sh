@@ -64,7 +64,7 @@ done
 index=1
 pre_str3="010"
 pre_str4="01"
-while [ "$index" -lt "$M" ]
+while [ "$index" -le "$M" ]
 do
 	if [ "$index" -le "9" ]; then
 		pre_str=$pre_str3
@@ -97,6 +97,9 @@ done
 
 
 :<<BLOCK
+
+
+
 
 # 创建coins2
 curl -X POST --header 'Content-Type: application/json' \

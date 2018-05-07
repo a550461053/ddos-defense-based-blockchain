@@ -2,50 +2,65 @@
 
 N=12  # 总的用户数
 M=3   # 总的target数
-Abnormal=100 # 异常连接数
+Abnormal=150 # 异常连接数
 # 创建异常连接i
 index=1
 pre_str1="000"
 pre_str2="00"
-descriptions=("TCP中SYN握手未完成", "udp数据包异常", "HTTP数据包异常", "DNS反射攻击")
+pre_str3="0"
+descriptions=("TCP中SYN握手未完成" "udp数据包异常" "HTTP数据包异常" "DNS反射攻击") # 空格分割即可
 len=${#descriptions[*]}
 while [ "$index" -le "$Abnormal" ]
 do
 	if [ "$index" -le "9" ]; then
 		pre_str=$pre_str1
 		index1=$((index))
-	else
+	elif [ "$index" -le "99" ]; then
 		pre_str=$pre_str2
+		index1=$((index))
+	else
+		pre_str=$pre_str3
 		index1=$((index))
 	fi
 
-		echo "CO_${pre_str}${index}"
-  	echo "\n"
+	#echo -e "\nCO_${pre_str}${index}"
+
   first_split=$((index%5))
-  #if [ "$first_split" -ne "0" ]; then # 不是5的倍数，就执行真正的ddos异常连接提交
-		if [ "$index" -lt "4" ]; then # 小于4的取随机
-			targetIP="114.45.62."
-			index2=$((index))
-		else
-			targetIP="210.73.64."		# 大于=4的是真正构成ddos的异常
-			index2=$((index%M+1))
-		fi
+  if [ "$first_split" -ne "0" ]; then # 不是5的倍数，就执行真正的ddos异常连接提交
+		targetIndex=$((RANDOM%M+1))
+		targetIP="210.73.64."		# 真正构成ddos的异常
+		index2=$((targetIndex))
+	else
+		targetIndex=$((RANDOM%M+1))
+		targetIP="114.45.62."
+		index2=$((targetIndex))
+	fi
 
-	index3=$((index%N+1))		# 提交者ID
+	index3=$((RANDOM%N+1))		# 提交者ID
+	# 此处增加对index3的位数判断，修改prestr，否则提交显示错误。
+	if [ "$index3" -le "9" ]; then
+		pre_str_submitter=$pre_str1
+	elif [ "$index3" -le "99" ]; then
+		pre_str_submitter=$pre_str2
+	else
+		pre_str_submitter=$pre_str3
+	fi
 
-# 此处增加对index3的位数判断，修改prestr，否则提交显示错误。
-
+	echo -e "\n"
+	echo $((index))
 	#description=${descriptions[((index%len))]} # 改为随机数
 	description=${descriptions[((RANDOM%len))]}
 	echo $description
-	echo $len
-	echo $((RANDOM%len))
+	#echo $((RANDOM%len))
+	echo ${targetIP}${index2}
+	echo ${pre_str}${index1}					 # 异常连接ID
+	echo ${pre_str_submitter}${index3} # 提交者ID
 
 	# 创建energy 1
 	curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json'  \
 			-d '{"$class": "org.decentralized.energy.network.Energy",
 			"energyID": "'"${pre_str}${index1}"'", "targetIP": "'"${targetIP}${index2}"'", "value": "'"$(date +'%s')"'",
-			"ownerID": "'"${pre_str1}${index3}"'", "ownerEntity": "Resident","description":"'"${description}"'","flag":"0"}' \
+			"ownerID": "'"${pre_str_submitter}${index3}"'", "ownerEntity": "Resident","description":"'"${description}"'","flag":"0"}' \
 			'http://localhost:3000/api/Energy'
 
 ((index++))

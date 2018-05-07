@@ -117,7 +117,7 @@ export class HomeComponent implements OnInit, OnChanges {
 							});
 
 							this.timer = setInterval(() => {
-								this.ref.detectChanges(); // 检测变化
+								//this.ref.detectChanges(); // 检测变化
 								this.loadAllEnergy();
 								this.loadAllDDoS();
 								this.loadAllLog();
@@ -284,7 +284,7 @@ export class HomeComponent implements OnInit, OnChanges {
 
 		var easingFactor = 5.0;
 		var edgeWidth = 4.5;
-		var nodeSize = 8;  // 大小权值
+		var nodeSize = 10;  // 大小权值
 		var nodeMinSize = 4;
 		var nodeMaxSize = 6;
 		var vecMax = 0.5;
@@ -297,7 +297,8 @@ export class HomeComponent implements OnInit, OnChanges {
 		nodes = this.nodes;
 		edges = this.edges;
 		let resident_nodes_numbers = this.allResidents.length;
-		let targetcompany_nodes_numbers = 0; // this.allTargetCompany.length; //去掉目标节点
+		// let targetcompany_nodes_numbers = 0; // this.allTargetCompany.length; //去掉目标节点
+		let targetcompany_nodes_numbers = this.allTargetCompany.length; //去掉目标节点
 		let nodes_numbers = resident_nodes_numbers + targetcompany_nodes_numbers;
 
 		let idRequestAnimationFrame = 0;
@@ -319,6 +320,7 @@ export class HomeComponent implements OnInit, OnChanges {
 		// nodes_locations.push([x+140, y-60]);
 		nodes_locations.push([x-185, y-185]);
 		nodes_locations.push([x+150, y-150]); //13
+		nodes_locations.push([x+100, y-50]); // 14
 
 
 
@@ -350,7 +352,7 @@ export class HomeComponent implements OnInit, OnChanges {
 					var node = {
 						id: i+1,
 						nodeisResident:  nodeisResident ? true : false, //"resident" : "targetcompany",
-						representobject: nodeisResident ? this.allResidents[i-this.resident_nodes_numbers] : this.allTargetCompany[i-this.targetcompany_nodes_numbers],
+						// representobject: nodeisResident ? this.allResidents[i-this.resident_nodes_numbers] : this.allTargetCompany[i-this.targetcompany_nodes_numbers],
 						drivenByMouse: i == 0,
 						abnormalNumbers: 0,
 						x : nodes_locations[i][0],
@@ -493,19 +495,21 @@ export class HomeComponent implements OnInit, OnChanges {
 			ctx.lineWidth = arcStrokeSize;
 			ctx.stroke();
 			ctx.fill();  // 带填充的实心图形
-			// ctx.fillStyle = nodeColor2;
-			// ctx.beginPath(); // 需要重新开始绘图path，否则颜色为同一个
-			// ctx.rect(5, 90, 10, 10);
-			// ctx.strokeStyle = rectStrokeStyle; //shi4;
-			// ctx.lineWidth = rectStrokeSize;
-			// ctx.stroke();
-			// ctx.fill();  // 带填充的实心图形
+
+			ctx.fillStyle = nodeColor2;
+			ctx.beginPath(); // 需要重新开始绘图path，否则颜色为同一个
+			ctx.rect(5, 90, 10, 10);
+			ctx.strokeStyle = rectStrokeStyle; //shi4;
+			ctx.lineWidth = rectStrokeSize;
+			ctx.stroke();
+			ctx.fill();  // 带填充的实心图形
 			// var gradient = ctx.createLinearGradient(0, 0, 200, 0);
 			// gradient.addColorStop(0, "magenta");
 			// gradient.addColorStop(0.5, "blue");
 			// gradient.addColorStop(1.0, "red");
-			// ctx.fillStyle = pic_discription; //gradient;
-			// ctx.fillText("目标节点", 30, 100);
+
+			ctx.fillStyle = pic_discription; //gradient;
+			ctx.fillText("目标节点", 30, 100);
 
 	    edges.forEach(function (e) {
 	      var l = lengthOfEdge(e);
@@ -726,7 +730,7 @@ export class HomeComponent implements OnInit, OnChanges {
 			}
 			this.nodeisResident = false;
 			// this.reloadPaint = false;
-			// console.log(this.allResidents);
+			console.log(this.allResidents);
 		})
 		.catch((error) => {
 				if(error == 'Server error'){
@@ -754,18 +758,18 @@ export class HomeComponent implements OnInit, OnChanges {
 					tempList.push(TargetCompany);
 				});
 				this.allTargetCompany = tempList;
-				// // this.addNode(); // 添加节点
-				// if (tempList.length > this.targetcompany_nodes_numbers) {
-				// 	this.reloadPaint = true;
-				// 	this.nodeisTargetCompany = true;
-				// 	this.paint();
-				// 	//console.log('after loadAllResident' + this.nodes[0].abnormalNumbers + ' ' + this.lastNodes[0]);
-				// 	// this.count = 0;
-				// }
-				// this.nodeisTargetCompany = false;
-				// // this.reloadPaint = false;
-                //
-				// // console.log(this.allResidents);
+				// this.addNode(); // 添加节点
+				if (tempList.length > this.targetcompany_nodes_numbers) {
+					this.reloadPaint = true;
+					this.nodeisTargetCompany = true;
+					this.paint();
+					//console.log('after loadAllResident' + this.nodes[0].abnormalNumbers + ' ' + this.lastNodes[0]);
+					// this.count = 0;
+				}
+				this.nodeisTargetCompany = false;
+				// this.reloadPaint = false;
+
+				console.log(this.allTargetCompany);
 			})
 			.catch((error) => {
 				if(error == 'Server error'){

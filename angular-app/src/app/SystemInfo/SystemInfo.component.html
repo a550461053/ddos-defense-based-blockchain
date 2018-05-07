@@ -1,265 +1,261 @@
 
-<!--<img src="assets/img/jt1.png" />-->
-<!--<img src="assets/img/back.jpg"/>-->
-<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!--<link rel="stylesheet" href="app/SystemInfo/css/bootstrap.css" />-->
-<!--<link rel="stylesheet" href="css/master.css" />-->
-<script src="../../assets/js/jquery.min.js"></script>
-<!--<script src="../../assets/js/bootstrap.js"></script>-->
-	<!--<script src="../../../node_modules/jquery/dist/jquery.js"></script>-->
-	<script src="../../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<!--&lt;!&ndash;<img src="assets/img/jt1.png" />&ndash;&gt;-->
+<!--&lt;!&ndash;<img src="assets/img/back.jpg"/>&ndash;&gt;-->
+<!--&lt;!&ndash;<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">&ndash;&gt;-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+<!--&lt;!&ndash;<link rel="stylesheet" href="app/SystemInfo/css/bootstrap.css" />&ndash;&gt;-->
+<!--&lt;!&ndash;<link rel="stylesheet" href="css/master.css" />&ndash;&gt;-->
+<!--<script src="../../assets/js/jquery.min.js"></script>-->
+	<!--&lt;!&ndash;<script src="../js/jquery.min.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="../../assets/js/bootstrap.js"></script>&ndash;&gt;-->
+	<!--&lt;!&ndash;<script src="../../../node_modules/jquery/dist/jquery.js"></script>&ndash;&gt;-->
+	<!--<script src="../../../node_modules/bootstrap/dist/js/bootstrap.js"></script>-->
 
 
-	<script type="text/javascript">
-		//此处引用：鼠标滚轮mousewheel插件
-		//此处引用：鼠标滚轮mousewheel插件
-		!function(a){"function"==typeof define&&define.amd?define(["jquery"],a):"object"==typeof exports?module.exports=a:a(jQuery)}(function(a){function b(b){var g=b||window.event,h=i.call(arguments,1),j=0,l=0,m=0,n=0,o=0,p=0;if(b=a.event.fix(g),b.type="mousewheel","detail"in g&&(m=-1*g.detail),"wheelDelta"in g&&(m=g.wheelDelta),"wheelDeltaY"in g&&(m=g.wheelDeltaY),"wheelDeltaX"in g&&(l=-1*g.wheelDeltaX),"axis"in g&&g.axis===g.HORIZONTAL_AXIS&&(l=-1*m,m=0),j=0===m?l:m,"deltaY"in g&&(m=-1*g.deltaY,j=m),"deltaX"in g&&(l=g.deltaX,0===m&&(j=-1*l)),0!==m||0!==l){if(1===g.deltaMode){var q=a.data(this,"mousewheel-line-height");j*=q,m*=q,l*=q}else if(2===g.deltaMode){var r=a.data(this,"mousewheel-page-height");j*=r,m*=r,l*=r}if(n=Math.max(Math.abs(m),Math.abs(l)),(!f||f>n)&&(f=n,d(g,n)&&(f/=40)),d(g,n)&&(j/=40,l/=40,m/=40),j=Math[j>=1?"floor":"ceil"](j/f),l=Math[l>=1?"floor":"ceil"](l/f),m=Math[m>=1?"floor":"ceil"](m/f),k.settings.normalizeOffset&&this.getBoundingClientRect){var s=this.getBoundingClientRect();o=b.clientX-s.left,p=b.clientY-s.top}return b.deltaX=l,b.deltaY=m,b.deltaFactor=f,b.offsetX=o,b.offsetY=p,b.deltaMode=0,h.unshift(b,j,l,m),e&&clearTimeout(e),e=setTimeout(c,200),(a.event.dispatch||a.event.handle).apply(this,h)}}function c(){f=null}function d(a,b){return k.settings.adjustOldDeltas&&"mousewheel"===a.type&&b%120===0}var e,f,g=["wheel","mousewheel","DOMMouseScroll","MozMousePixelScroll"],h="onwheel"in document||document.documentMode>=9?["wheel"]:["mousewheel","DomMouseScroll","MozMousePixelScroll"],i=Array.prototype.slice;if(a.event.fixHooks)for(var j=g.length;j;)a.event.fixHooks[g[--j]]=a.event.mouseHooks;var k=a.event.special.mousewheel={version:"3.1.12",setup:function(){if(this.addEventListener)for(var c=h.length;c;)this.addEventListener(h[--c],b,!1);else this.onmousewheel=b;a.data(this,"mousewheel-line-height",k.getLineHeight(this)),a.data(this,"mousewheel-page-height",k.getPageHeight(this))},teardown:function(){if(this.removeEventListener)for(var c=h.length;c;)this.removeEventListener(h[--c],b,!1);else this.onmousewheel=null;a.removeData(this,"mousewheel-line-height"),a.removeData(this,"mousewheel-page-height")},getLineHeight:function(b){var c=a(b),d=c["offsetParent"in a.fn?"offsetParent":"parent"]();return d.length||(d=a("body")),parseInt(d.css("fontSize"),10)||parseInt(c.css("fontSize"),10)||16},getPageHeight:function(b){return a(b).height()},settings:{adjustOldDeltas:!0,normalizeOffset:!0}};a.fn.extend({mousewheel:function(a){return a?this.bind("mousewheel",a):this.trigger("mousewheel")},unmousewheel:function(a){return this.unbind("mousewheel",a)}})});
+	<!--<script type="text/javascript">-->
 
-		$(function(){
-			$(".nav-div a").click(function(){
-				$(this).parent().addClass("active").siblings().removeClass("active");
-			})
-			$('section').bind('mousewheel', function(event, delta) {
-				var topheight = $(document).scrollTop();
-				//alert(topheight);
-				if(topheight > 900){
-					$(".dh-div").addClass("dh-main");
-				}else if(topheight < 700 || topheihgt>1300){
-					$(".dh-div").removeClass("dh-main");
-				}
-				if(topheight > 1600){
-					$(".dh-div02").addClass("dh-main");
-				}else if(topheight < 1300 || topheight > 1700){
-					$(".dh-div02").removeClass("dh-main");
-				}
-			});
+		<!--//此处引用：鼠标滚轮mousewheel插件-->
+		<!--!function(a){"function"==typeof define&&define.amd?define(["jquery"],a):"object"==typeof exports?module.exports=a:a(jQuery)}(function(a){function b(b){var g=b||window.event,h=i.call(arguments,1),j=0,l=0,m=0,n=0,o=0,p=0;if(b=a.event.fix(g),b.type="mousewheel","detail"in g&&(m=-1*g.detail),"wheelDelta"in g&&(m=g.wheelDelta),"wheelDeltaY"in g&&(m=g.wheelDeltaY),"wheelDeltaX"in g&&(l=-1*g.wheelDeltaX),"axis"in g&&g.axis===g.HORIZONTAL_AXIS&&(l=-1*m,m=0),j=0===m?l:m,"deltaY"in g&&(m=-1*g.deltaY,j=m),"deltaX"in g&&(l=g.deltaX,0===m&&(j=-1*l)),0!==m||0!==l){if(1===g.deltaMode){var q=a.data(this,"mousewheel-line-height");j*=q,m*=q,l*=q}else if(2===g.deltaMode){var r=a.data(this,"mousewheel-page-height");j*=r,m*=r,l*=r}if(n=Math.max(Math.abs(m),Math.abs(l)),(!f||f>n)&&(f=n,d(g,n)&&(f/=40)),d(g,n)&&(j/=40,l/=40,m/=40),j=Math[j>=1?"floor":"ceil"](j/f),l=Math[l>=1?"floor":"ceil"](l/f),m=Math[m>=1?"floor":"ceil"](m/f),k.settings.normalizeOffset&&this.getBoundingClientRect){var s=this.getBoundingClientRect();o=b.clientX-s.left,p=b.clientY-s.top}return b.deltaX=l,b.deltaY=m,b.deltaFactor=f,b.offsetX=o,b.offsetY=p,b.deltaMode=0,h.unshift(b,j,l,m),e&&clearTimeout(e),e=setTimeout(c,200),(a.event.dispatch||a.event.handle).apply(this,h)}}function c(){f=null}function d(a,b){return k.settings.adjustOldDeltas&&"mousewheel"===a.type&&b%120===0}var e,f,g=["wheel","mousewheel","DOMMouseScroll","MozMousePixelScroll"],h="onwheel"in document||document.documentMode>=9?["wheel"]:["mousewheel","DomMouseScroll","MozMousePixelScroll"],i=Array.prototype.slice;if(a.event.fixHooks)for(var j=g.length;j;)a.event.fixHooks[g[&#45;&#45;j]]=a.event.mouseHooks;var k=a.event.special.mousewheel={version:"3.1.12",setup:function(){if(this.addEventListener)for(var c=h.length;c;)this.addEventListener(h[&#45;&#45;c],b,!1);else this.onmousewheel=b;a.data(this,"mousewheel-line-height",k.getLineHeight(this)),a.data(this,"mousewheel-page-height",k.getPageHeight(this))},teardown:function(){if(this.removeEventListener)for(var c=h.length;c;)this.removeEventListener(h[&#45;&#45;c],b,!1);else this.onmousewheel=null;a.removeData(this,"mousewheel-line-height"),a.removeData(this,"mousewheel-page-height")},getLineHeight:function(b){var c=a(b),d=c["offsetParent"in a.fn?"offsetParent":"parent"]();return d.length||(d=a("body")),parseInt(d.css("fontSize"),10)||parseInt(c.css("fontSize"),10)||16},getPageHeight:function(b){return a(b).height()},settings:{adjustOldDeltas:!0,normalizeOffset:!0}};a.fn.extend({mousewheel:function(a){return a?this.bind("mousewheel",a):this.trigger("mousewheel")},unmousewheel:function(a){return this.unbind("mousewheel",a)}})});-->
 
-			$("a[href=#div02]").bind('click', function(){
-				$(".dh-div").removeClass("dh-main");
-				$(".dh-div").addClass("dh-main");
-			});
+		<!--$(function(){-->
+			<!--$(".nav-div a").click(function(){-->
+				<!--$(this).parent().addClass("active").siblings().removeClass("active");-->
+			<!--})-->
+			<!--$('section').bind('mousewheel', function(event, delta) {-->
+				<!--var topheight = $(document).scrollTop();-->
+				<!--//alert(topheight);-->
+				<!--if(topheight > 900){-->
+					<!--$(".dh-div").addClass("dh-main");-->
+				<!--}else if(topheight < 700 || topheihgt>1300){-->
+					<!--$(".dh-div").removeClass("dh-main");-->
+				<!--}-->
+				<!--if(topheight > 1600){-->
+					<!--$(".dh-div02").addClass("dh-main");-->
+				<!--}else if(topheight < 1300 || topheight > 1700){-->
+					<!--$(".dh-div02").removeClass("dh-main");-->
+				<!--}-->
+			<!--});-->
 
-			$("a[href=#div03]").bind('click', function(){
-				$(".dh-div02").removeClass("dh-main");
-				$(".dh-div02").addClass("dh-main");
-			});
+			<!--$("a[href=#div02]").bind('click', function(){-->
+				<!--$(".dh-div").removeClass("dh-main");-->
+				<!--$(".dh-div").addClass("dh-main");-->
+			<!--});-->
+
+		<!--});-->
 
 
-		});
+		<!--$(".s06").bind('animationend',function(){-->
+
+			<!--$("#s01").removeClass('s01');-->
+			<!--$("#s02").removeClass('s02');-->
+			<!--$("#s03").removeClass('s03');-->
+			<!--$("#s04").removeClass('s04');-->
+			<!--$("#s05").removeClass('s05');-->
+			<!--$("#s06").removeClass('s06');-->
+			<!--setTimeout(function() {-->
+				<!--$("#s01").addClass('s01');-->
+				<!--$("#s02").addClass('s02');-->
+				<!--$("#s03").addClass('s03');-->
+				<!--$("#s04").addClass('s04');-->
+				<!--$("#s05").addClass('s05');-->
+				<!--$("#s06").addClass('s06');-->
+			<!--}, 1000);-->
+			<!--$(".system-before").addClass('system-beforeadd');-->
+
+		<!--});-->
 
 
-		$(".s06").bind('animationend',function(){
-
-			$("#s01").removeClass('s01');
-			$("#s02").removeClass('s02');
-			$("#s03").removeClass('s03');
-			$("#s04").removeClass('s04');
-			$("#s05").removeClass('s05');
-			$("#s06").removeClass('s06');
-			setTimeout(function() {
-				$("#s01").addClass('s01');
-				$("#s02").addClass('s02');
-				$("#s03").addClass('s03');
-				$("#s04").addClass('s04');
-				$("#s05").addClass('s05');
-				$("#s06").addClass('s06');
-			}, 1000);
-			$(".system-before").addClass('system-beforeadd');
-
-		});
+		<!--$(".jty").bind('animationend',function(){-->
+			<!--$(".stxt").addClass('stxtadd');-->
+			<!--setTimeout(function() {-->
+				<!--$(".jtx").addClass('jtxadd');-->
+				<!--$(".system-now").addClass('system-nowadd');-->
+			<!--}, 2000);-->
+		<!--});-->
 
 
-		$(".jty").bind('animationend',function(){
-			$(".stxt").addClass('stxtadd');
-			setTimeout(function() {
-				$(".jtx").addClass('jtxadd');
-				$(".system-now").addClass('system-nowadd');
-			}, 2000);
-		});
+		<!--$(".snt2").bind('animationend',function(){-->
 
+			<!--$("#sn01").removeClass('sn01');-->
+			<!--$("#sn02").removeClass('sn02');-->
+			<!--$("#sn03").removeClass('sn03');-->
+			<!--$("#sn04").removeClass('sn04');-->
+			<!--$("#sn05").removeClass('sn05');-->
+			<!--$("#sn06").removeClass('sn06');-->
+			<!--$("#sn07").removeClass('sn07');-->
+			<!--$("#sn08").removeClass('sn08');-->
+			<!--$("#sn09").removeClass('sn09');-->
+			<!--$("#sn10").removeClass('sn10');-->
+			<!--$("#sn11").removeClass('sn11');-->
+			<!--$("#sn12").removeClass('sn12');-->
+			<!--$("#sn13").removeClass('sn13');-->
+			<!--$("#sn14").removeClass('sn14');-->
+			<!--$("#sn15").removeClass('sn15');-->
+			<!--$("#sn16").removeClass('sn16');-->
+			<!--$("#sn162").removeClass('sn162');-->
+			<!--$("#sn163").removeClass('sn163');-->
+			<!--$("#sn164").removeClass('sn164');-->
+			<!--$("#snt1").removeClass('snt1');-->
+			<!--$("#snt2").removeClass('snt2');-->
+			<!--$("#sn20").removeClass('sn20');-->
+			<!--$("#sn21").removeClass('sn21');-->
+			<!--setTimeout(function() {-->
+				<!--$("#sn01").addClass('sn01');-->
+				<!--$("#sn02").addClass('sn02');-->
+				<!--$("#sn03").addClass('sn03');-->
+				<!--$("#sn04").addClass('sn04');-->
+				<!--$("#sn05").addClass('sn05');-->
+				<!--$("#sn06").addClass('sn06');-->
+				<!--$("#sn07").addClass('sn07');-->
+				<!--$("#sn08").addClass('sn08');-->
+				<!--$("#sn09").addClass('sn09');-->
+				<!--$("#sn10").addClass('sn10');-->
+				<!--$("#sn11").addClass('sn11');-->
+				<!--$("#sn12").addClass('sn12');-->
+				<!--$("#sn13").addClass('sn13');-->
+				<!--$("#sn14").addClass('sn14');-->
+				<!--$("#sn15").addClass('sn15');-->
+				<!--$("#sn16").addClass('sn16');-->
+				<!--$("#sn162").addClass('sn162');-->
+				<!--$("#sn163").addClass('sn163');-->
+				<!--$("#sn164").addClass('sn164');-->
+				<!--$("#sn20").addClass('sn20');-->
+				<!--$("#sn21").addClass('sn21');-->
+				<!--$("#snt1").addClass('snt1');-->
+				<!--$("#snt2").addClass('snt2');-->
+			<!--}, 1000);-->
 
-		$(".snt2").bind('animationend',function(){
-
-			$("#sn01").removeClass('sn01');
-			$("#sn02").removeClass('sn02');
-			$("#sn03").removeClass('sn03');
-			$("#sn04").removeClass('sn04');
-			$("#sn05").removeClass('sn05');
-			$("#sn06").removeClass('sn06');
-			$("#sn07").removeClass('sn07');
-			$("#sn08").removeClass('sn08');
-			$("#sn09").removeClass('sn09');
-			$("#sn10").removeClass('sn10');
-			$("#sn11").removeClass('sn11');
-			$("#sn12").removeClass('sn12');
-			$("#sn13").removeClass('sn13');
-			$("#sn14").removeClass('sn14');
-			$("#sn15").removeClass('sn15');
-			$("#sn16").removeClass('sn16');
-			$("#sn162").removeClass('sn162');
-			$("#sn163").removeClass('sn163');
-			$("#sn164").removeClass('sn164');
-			$("#snt1").removeClass('snt1');
-			$("#snt2").removeClass('snt2');
-			$("#sn20").removeClass('sn20');
-			$("#sn21").removeClass('sn21');
-			setTimeout(function() {
-				$("#sn01").addClass('sn01');
-				$("#sn02").addClass('sn02');
-				$("#sn03").addClass('sn03');
-				$("#sn04").addClass('sn04');
-				$("#sn05").addClass('sn05');
-				$("#sn06").addClass('sn06');
-				$("#sn07").addClass('sn07');
-				$("#sn08").addClass('sn08');
-				$("#sn09").addClass('sn09');
-				$("#sn10").addClass('sn10');
-				$("#sn11").addClass('sn11');
-				$("#sn12").addClass('sn12');
-				$("#sn13").addClass('sn13');
-				$("#sn14").addClass('sn14');
-				$("#sn15").addClass('sn15');
-				$("#sn16").addClass('sn16');
-				$("#sn162").addClass('sn162');
-				$("#sn163").addClass('sn163');
-				$("#sn164").addClass('sn164');
-				$("#sn20").addClass('sn20');
-				$("#sn21").addClass('sn21');
-				$("#snt1").addClass('snt1');
-				$("#snt2").addClass('snt2');
-			}, 1000);
-
-		});
+		<!--});-->
 
 
 
 
-	</script>
+	<!--</script>-->
 
-<title>IOT-XDDos</title>
-<style>
-	.put-section-0{ transform:translateY(0);-webkit-transform:translateY(0);}
-	.put-section-1{ transform:translateY(-25%);-webkit-transform:translateY(-25%);}
-	.put-section-2{ transform:translateY(-50%);-webkit-transform:translateY(-50%);}
-	.put-section-3{ transform:translateY(-75%);-webkit-transform:translateY(-75%);}
-	.put-section-4{ transform:translateY(-400%);-webkit-transform:translateY(-400%);}
-</style>
-</head>
-<!--style="background-image: url(img/back.jpg);-->
-<body>
-
-
-<section>
-	<div class="nav-div">
-    	<img src="assets/img/logo.jpg" />
-      <ul>
-        	<li class="active"><a href="#div01">产品介绍</a></li>
-            <li class="xiaoshuxian" >|</li>
-            <li>	<a href="#div02">系统架构</a></li>
-        </ul>
-	</div>
-    <div class="site-wrapper section-wrap put-section-0">
-        <div class="inner cover top-cover section cover1">
-             <img src="assets/img/img01.png" />
-             <div class="topbtn-div"><a class="top-btn" href="http://localhost:4200/Home">点击试用</a></div>
-        </div>
-        <div id="div01" class="inner cover section cover2">
-             <div class="synopsis">
-             	<h2>&nbsp;</h2>
-                <h3>基于区块链的IOT设备DDoS攻击防护系统</h3>
-
-                <h4>IOT-XDDos提供了一种基于边缘计算和区块链的DDoS源端检测方法，<br />  在边缘节点处对IOT设备进行初步异常检测，<br />基于区块链智能合约实现初步异常检测结果的共享分析，<br /> 最终得出针对目标的DDoS预警。</h4>
-             </div>
-             <div class="topbtn-div"><a class="top-btn" href="http://localhost:4200/Home">点击试用</a></div>
-        </div>
-        <div id="div02" class="inner cover section cover3">
-               <div class="synopsis">
-            <div class="system-before">
-
-                <img src="assets/img/jt1.png" id="s01" class="s01" />
-                <img src="assets/img/jt2.png" id="s02" class="s02" />
-                <img src="assets/img/jt3.png" id="s03" class="s03" />
-                <img src="assets/img/jt4.png" id="s04"  class="s04" />
-                <img src="assets/img/jt5.png"  id="s05" class="s05" />
-                <img src="assets/img/jt6.png"  id="s06" class="s06" />
-                <img src="assets/img/iot1.png"  id="s07" class="s07" />
-                <img src="assets/img/iot2.png"  id="s08" class="s08" />
-                <img src="assets/img/iot1.png"  id="s09" class="s09" />
-                <img src="assets/img/iot2.png" id="s10"  class="s10" />
-                <img src="assets/img/xyy.png"  id="s11" class="s11" />
-                <img src="assets/img/imgzj.png"  id="s12" class="s12" />
-
-            </div>
-            <div class="jty">
-                <img src="assets/img/jty.png" id="jty" />
-                <img src="assets/img/jty.png" id="jty1" style="padding-top: 5px;" />
-
-            </div>
-            <div class="stxt">
-                    <p>
-                        1. 高的数据包到达速率以及上下文的缺失，导致检测的时效性较低；
-                    </p>
-                    <p>
-                        2. 引流的过程，容易造成网络链路堵塞。
-                    </p>
-						</div>
-            <div>
-                <img src="assets/img/jtx.png" class="jtx" />
-                <img src="assets/img/jtx.png" class="jtx" />
-            </div>
-               <div class="synopsis">
-            <div class="system-now">
-              <!--   <span class="sn23">共识机制</span> -->
+<!--<title>IOT-XDDos</title>-->
+<!--<style>-->
+	<!--.put-section-0{ transform:translateY(0);-webkit-transform:translateY(0);}-->
+	<!--.put-section-1{ transform:translateY(-25%);-webkit-transform:translateY(-25%);}-->
+	<!--.put-section-2{ transform:translateY(-50%);-webkit-transform:translateY(-50%);}-->
+	<!--.put-section-3{ transform:translateY(-75%);-webkit-transform:translateY(-75%);}-->
+	<!--.put-section-4{ transform:translateY(-400%);-webkit-transform:translateY(-400%);}-->
+<!--</style>-->
+<!--</head>-->
+<!--&lt;!&ndash;style="background-image: url(img/back.jpg);&ndash;&gt;-->
+<!--<body>-->
 
 
-                <img src="assets/img/img1jt1.png" class="sn01" id="sn01" />
-                <img src="assets/img/img1jt2.png" class="sn02" id="sn02"/>
-                <img src="assets/img/img1jt3.png" class="sn03" id="sn03"/>
-                <img src="assets/img/img1jt4.png" class="sn04" id="sn04"/>
-                <img src="assets/img/img2jt1.png" class="sn05" id="sn05" />
-                <img src="assets/img/img2jt2.png" class="sn06" id="sn06"/>
-                <img src="assets/img/img2jt3.png" class="sn07" id="sn07"/>
-                <img src="assets/img/img2jt4.png" class="sn08" id="sn08"/>
-                <img src="assets/img/img3jt.png" class="sn09" id="sn09"/>
-                <img src="assets/img/img4jt1.png" class="sn10" id="sn10"/>
-                <img src="assets/img/img4jt2.png" class="sn11" id="sn11"/>
-                <img src="assets/img/imgk1.png" class="sn12" id="sn12"/>
-                <img src="assets/img/imgk2.png" class="sn13" id="sn13"/>
-                <img src="assets/img/imgk3.png" class="sn14" id="sn14"/>
-                <img src="assets/img/imgk4.png" class="sn15" id="sn15"/>
-                <img src="assets/img/img4k.png" class="sn16" id="sn16"/>
-                <img src="assets/img/img4k.png" class="sn162" id="sn162"/>
-                <img src="assets/img/img4k.png" class="sn163" id="sn163"/>
-                <img src="assets/img/img4k.png" class="sn164" id="sn164"/>
-                <img src="assets/img/imgzj.png" class="sn18" />
-                <img src="assets/img/imgjd.png" class="sn19" />
-                <img src="assets/img/imgjd.png" class="sn192" />
-                <img src="assets/img/imgjd.png" class="sn193" />
-                <img src="assets/img/imgjd.png" class="sn194" />
-                <img src="assets/img/imghy.png" class="sn20" id="sn20"/>
-                <img src="assets/img/imgkjt.png" class="sn21" id="sn21"/>
-                <img src="assets/img/imggs.png" class="sn23" />
-                <span class="snt1" id="snt1">过滤</span>
-                <span class="snt2" id="snt2">过滤</span>
-                <img src="assets/img/xxk.png" class="xxk">
+<!--<section>-->
+	<!--<div class="nav-div">-->
+    	<!--<img src="assets/img/logo.jpg" class="logo"/>-->
+      <!--<ul>-->
+        	<!--<li class="active"><a href="#div01">产品介绍</a></li>-->
+            <!--<li class="xiaoshuxian" >|</li>-->
+            <!--<li>	<a href="#div02">系统架构</a></li>-->
+        <!--</ul>-->
+	<!--</div>-->
+    <!--<div class="site-wrapper section-wrap put-section-0">-->
+        <!--<div class="inner cover top-cover section cover1">-->
+             <!--<img src="assets/img/img01.png" />-->
+             <!--<div class="topbtn-div"><a class="top-btn" href="http://localhost:4200/Home">点击试用</a></div>-->
+        <!--</div>-->
+        <!--<div id="div01" class="inner cover section cover2">-->
+             <!--<div class="synopsis">-->
+             	<!--<h2>&nbsp;</h2>-->
+                <!--<h3>基于区块链的IOT设备DDoS攻击防护系统</h3>-->
 
-            </div>
-        </div>
-							 </div>
-    </div>
+                <!--<h4>IOT-XDDos提供了一种基于边缘计算和区块链的DDoS源端检测方法，<br />  在边缘节点处对IOT设备进行初步异常检测，<br />基于区块链智能合约实现初步异常检测结果的共享分析，<br /> 最终得出针对目标的DDoS预警。</h4>-->
+             <!--</div>-->
+             <!--<div class="topbtn-div"><a class="top-btn" href="http://localhost:4200/Home">点击试用</a></div>-->
+        <!--</div>-->
+        <!--<div id="div02" class="inner cover section cover3">-->
+               <!--<div class="synopsis">-->
+            <!--<div class="system-before">-->
 
-		</div>
-<div class="container site-wrapper index-container2 main-content">
+                <!--<img src="assets/img/jt1.png" id="s01" class="s01" />-->
+                <!--<img src="assets/img/jt2.png" id="s02" class="s02" />-->
+                <!--<img src="assets/img/jt3.png" id="s03" class="s03" />-->
+                <!--<img src="assets/img/jt4.png" id="s04"  class="s04" />-->
+                <!--<img src="assets/img/jt5.png"  id="s05" class="s05" />-->
+                <!--<img src="assets/img/jt6.png"  id="s06" class="s06" />-->
+                <!--<img src="assets/img/iot1.png"  id="s07" class="s07" />-->
+                <!--<img src="assets/img/iot2.png"  id="s08" class="s08" />-->
+                <!--<img src="assets/img/iot1.png"  id="s09" class="s09" />-->
+                <!--<img src="assets/img/iot2.png" id="s10"  class="s10" />-->
+                <!--<img src="assets/img/xyy.png"  id="s11" class="s11" />-->
+                <!--<img src="assets/img/imgzj.png"  id="s12" class="s12" />-->
 
-</div>
-<div class="footer-div">
-	<img src="assets/img/botm-logo.png" />
-    <h6>版权所有：中国科学院信息工程研究所-第五研究室</h6>
-</div>
-</section>
-</body>
+            <!--</div>-->
+            <!--<div class="jty">-->
+                <!--<img src="assets/img/jty.png" id="jty" />-->
+                <!--<img src="assets/img/jty.png" id="jty1" style="padding-top: 5px;" />-->
 
-</html>
+            <!--</div>-->
+            <!--<div class="stxt">-->
+                    <!--<p>-->
+                        <!--1. 高的数据包到达速率以及上下文的缺失，导致检测的时效性较低；-->
+                    <!--</p>-->
+                    <!--<p>-->
+                        <!--2. 引流的过程，容易造成网络链路堵塞。-->
+                    <!--</p>-->
+						<!--</div>-->
+            <!--<div>-->
+                <!--<img src="assets/img/jtx.png" class="jtx" />-->
+                <!--<img src="assets/img/jtx.png" class="jtx" />-->
+            <!--</div>-->
+               <!--<div class="synopsis">-->
+            <!--<div class="system-now">-->
+              <!--&lt;!&ndash;   <span class="sn23">共识机制</span> &ndash;&gt;-->
+
+
+                <!--<img src="assets/img/img1jt1.png" class="sn01" id="sn01" />-->
+                <!--<img src="assets/img/img1jt2.png" class="sn02" id="sn02"/>-->
+                <!--<img src="assets/img/img1jt3.png" class="sn03" id="sn03"/>-->
+                <!--<img src="assets/img/img1jt4.png" class="sn04" id="sn04"/>-->
+                <!--<img src="assets/img/img2jt1.png" class="sn05" id="sn05" />-->
+                <!--<img src="assets/img/img2jt2.png" class="sn06" id="sn06"/>-->
+                <!--<img src="assets/img/img2jt3.png" class="sn07" id="sn07"/>-->
+                <!--<img src="assets/img/img2jt4.png" class="sn08" id="sn08"/>-->
+                <!--<img src="assets/img/img3jt.png" class="sn09" id="sn09"/>-->
+                <!--<img src="assets/img/img4jt1.png" class="sn10" id="sn10"/>-->
+                <!--<img src="assets/img/img4jt2.png" class="sn11" id="sn11"/>-->
+                <!--<img src="assets/img/imgk1.png" class="sn12" id="sn12"/>-->
+                <!--<img src="assets/img/imgk2.png" class="sn13" id="sn13"/>-->
+                <!--<img src="assets/img/imgk3.png" class="sn14" id="sn14"/>-->
+                <!--<img src="assets/img/imgk4.png" class="sn15" id="sn15"/>-->
+                <!--<img src="assets/img/img4k.png" class="sn16" id="sn16"/>-->
+                <!--<img src="assets/img/img4k.png" class="sn162" id="sn162"/>-->
+                <!--<img src="assets/img/img4k.png" class="sn163" id="sn163"/>-->
+                <!--<img src="assets/img/img4k.png" class="sn164" id="sn164"/>-->
+                <!--<img src="assets/img/imgzj.png" class="sn18" />-->
+                <!--<img src="assets/img/imgjd.png" class="sn19" />-->
+                <!--<img src="assets/img/imgjd.png" class="sn192" />-->
+                <!--<img src="assets/img/imgjd.png" class="sn193" />-->
+                <!--<img src="assets/img/imgjd.png" class="sn194" />-->
+                <!--<img src="assets/img/imghy.png" class="sn20" id="sn20"/>-->
+                <!--<img src="assets/img/imgkjt.png" class="sn21" id="sn21"/>-->
+                <!--<img src="assets/img/imggs.png" class="sn23" />-->
+                <!--<span class="snt1" id="snt1">过滤</span>-->
+                <!--<span class="snt2" id="snt2">过滤</span>-->
+                <!--<img src="assets/img/xxk.png" class="xxk">-->
+
+            <!--</div>-->
+								 <!--<div class="topbtn-div"><a class="top-btn" href="http://localhost:4200/Home">点击试用</a></div>-->
+        <!--</div>-->
+							 <!--</div>-->
+    <!--</div>-->
+
+		<!--</div>-->
+<!--<div class="container site-wrapper index-container2 main-content">-->
+
+<!--</div>-->
+<!--<div class="footer-div">-->
+	<!--<img src="assets/img/botm-logo.png" />-->
+    <!--<h6>版权所有：中国科学院信息工程研究所-第五研究室</h6>-->
+<!--</div>-->
+<!--</section>-->
+<!--</body>-->
+
+<!--</html>-->

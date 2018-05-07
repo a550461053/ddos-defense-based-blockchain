@@ -3,22 +3,26 @@
 
 N=12  # 总的用户数
 M=3   # 总的target数
-Abnormal=12 # 异常连接数
+Abnormal=100 # 异常连接数
 
 index=1
 pre_str1="000"
 pre_str2="00"
+pre_str3="0"
 descriptions=("TCP中SYN握手未完成", "udp数据包异常", "HTTP数据包异常", "DNS反射攻击")
 len=${#descriptions[*]}
 
 # 删除异常连接energy
-while [ "$index" -lt "$Abnormal" ]
+while [ "$index" -le "$Abnormal" ]
 do
 	if [ "$index" -le "9" ]; then
 		pre_str=$pre_str1
 		index1=$((index))
-	else
+	elif [ "$index" -le "99" ]; then
 		pre_str=$pre_str2
+		index1=$((index))
+	else
+		pre_str=$pre_str3
 		index1=$((index))
 	fi
 

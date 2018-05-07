@@ -8,6 +8,9 @@ body,*{
 body{
 	min-width:1010px;
 	}
+.logo{
+	margin-left: -1000px;
+}
 .container{
 	padding:0;
 	}
@@ -20,7 +23,7 @@ body{
 	z-index:1000;
 	background:#000;
 	 box-shadow: #222 10px 10px 30px 3px ;
-	 opacity:0.9;
+	 /*opacity:0.9;*/
 	}
 .nav-div ul{
 	float:right;
