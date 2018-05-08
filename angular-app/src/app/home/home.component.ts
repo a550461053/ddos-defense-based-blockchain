@@ -330,6 +330,10 @@ export class HomeComponent implements OnInit, OnChanges {
 		nodes_locations.push([x+150, y-150]); //13
 		nodes_locations.push([x+100, y-50]); // 14
 
+		nodes_locations.push([x+150, y+30]); //15
+		nodes_locations.push([x+190, y-80]); //16
+		nodes_locations.push([x-50, y-280]); // 17
+
 
 
 		function addEdge(edge) {

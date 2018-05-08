@@ -65,7 +65,10 @@ td.spec2 {
 /*    border-style: inset;
     border-width: 2px;  */
 }
-
+.pre-scrollable {
+  max-height:450px;
+  overflow-y:scroll
+}
 .participant {
     border-style: inset;
     background-color: white;

@@ -63,15 +63,15 @@ do
 	sleep $sleep_time
 
 	# 产生随机异常个数
-	count_abnormal=$((RANDOM%10+1))
+	count_abnormal=$((RANDOM%20+1))
 
 	# 创建energy 1
 	curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json'  \
 			-d '{"$class": "org.decentralized.energy.network.Energy",
       			"count_abnormal": "'"${count_abnormal}"'",
       			"energyID": "'"${pre_str}${index1}"'", "targetIP": "'"${targetIP}${index2}"'", "value": "'"$(date +'%s')"'",
-      			"ownerID": "'"${pre_str_submitter}${index3}"'", "ownerEntity": "Resident","description":"'"${description}"'","flag":"0"}'
-			'http://localhost:9200/elk5/test100'
+      			"ownerID": "'"${pre_str_submitter}${index3}"'", "ownerEntity": "Resident","description":"'"${description}"'","flag":"0"}'\
+			'http://localhost:9200/elk7/test100'
 			#'http://10.10.28.101:9200/elk2/test2'
 
 ((index++))

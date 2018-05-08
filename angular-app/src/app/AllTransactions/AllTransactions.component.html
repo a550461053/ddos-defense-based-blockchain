@@ -46,7 +46,7 @@
 
 
   <div *ngIf="systemTransactions.length > 0" class="row">
-    <h1 align="center">交易信息</h1>
+    <h1 align="center">智能合约调用信息</h1>
 
 		<div class="row">
 			<br>
@@ -55,11 +55,12 @@
       <thead>
         <tr class="thead-cols">
           <th class="bc">
-						交易类型
+						调用的合约函数
           </th>
           <th class="bc">
-						交易ID
+						调用ID
           </th>
+
         </tr>
       </thead>
       <tbody>
@@ -70,7 +71,7 @@
           <td>
             {{transaction.transactionId}}
           </td>
-
+					
 
         </tr>
       </tbody>

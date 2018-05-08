@@ -28,11 +28,11 @@ do
   first_split=$((index%5))
   if [ "$first_split" -ne "0" ]; then # 不是5的倍数，就执行真正的ddos异常连接提交
 		targetIndex=$((RANDOM%M+1))
-		targetIP="210.73.64."		# 真正构成ddos的异常
+	  targetIP="108.45.7."		# 真正构成ddos的异常
 		index2=$((targetIndex))
 	else
 		targetIndex=$((RANDOM%M+1))
-		targetIP="114.45.62."
+		targetIP="123.4.25."
 		index2=$((targetIndex))
 	fi
 
@@ -63,15 +63,15 @@ do
 	sleep $sleep_time
 
 	# 产生随机异常个数
-	count_abnormal=$((RANDOM%10+1))
+	count_abnormal=$((RANDOM%20+1))
 
 	# 创建energy 1
 	curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json'  \
 			-d '{"$class": "org.decentralized.energy.network.Energy",
       			"count_abnormal": "'"${count_abnormal}"'",
       			"energyID": "'"${pre_str}${index1}"'", "targetIP": "'"${targetIP}${index2}"'", "value": "'"$(date +'%s')"'",
-      			"ownerID": "'"${pre_str_submitter}${index3}"'", "ownerEntity": "Resident","description":"'"${description}"'","flag":"0"}'
-			'http://localhost:9200/elk5/test100'
+      			"ownerID": "'"${pre_str_submitter}${index3}"'", "ownerEntity": "Resident","description":"'"${description}"'","flag":"0"}'\
+			'http://127.0.0.1:9200/elk7/test100'
 			#'http://10.10.28.101:9200/elk2/test2'
 
 ((index++))
