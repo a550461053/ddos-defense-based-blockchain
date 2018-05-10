@@ -100,7 +100,7 @@ transaction CashToCoins {
     --> Cash cashDec
 }
 
-transaction EnergyToDDoS {
+transaction AbnorConToDDoS {
     --> Resident energyInc
 }
 

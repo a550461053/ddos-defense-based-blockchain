@@ -86,7 +86,7 @@ import {Event} from './org.hyperledger.composer.system';
       cashInc: Cash;
       cashDec: Cash;
    }
-   export class EnergyToDDoS extends Transaction {
+   export class AbnorConToDDoS extends Transaction {
       energyInc: Resident;
    }
    export class DistributeCoins extends Transaction {

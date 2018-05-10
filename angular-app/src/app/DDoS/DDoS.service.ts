@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { DDoS } from '../org.decentralized.energy.network';
 import { Energy } from '../org.decentralized.energy.network';
-import { EnergyToDDoS } from '../org.decentralized.energy.network';
+import { AbnorConToDDoS } from '../org.decentralized.energy.network';
 
 import 'rxjs/Rx';
 
@@ -15,10 +15,10 @@ export class DDoSService {
 
 		private NAMESPACE: string = 'DDoS';
 
-    private ENERGY_TO_DDOS: string = 'EnergyToDDoS';
+    private ENERGY_TO_DDOS: string = 'AbnorConToDDoS';
 
 
-    constructor(private dataService: DataService<DDoS>, private energyToDDoSService: DataService<EnergyToDDoS>) {
+    constructor(private dataService: DataService<DDoS>, private AbnorConToDDoSService: DataService<AbnorConToDDoS>) {
     };
 
     public getAll(): Observable<DDoS[]> {
@@ -42,7 +42,7 @@ export class DDoSService {
     }
 
 		//create Energy to DDoS transaction
-    public energyToDDoS(itemToAdd: any): Observable<EnergyToDDoS> {
-      return this.energyToDDoSService.add(this.ENERGY_TO_DDOS, itemToAdd);
+    public AbnorConToDDoS(itemToAdd: any): Observable<AbnorConToDDoS> {
+      return this.AbnorConToDDoSService.add(this.ENERGY_TO_DDOS, itemToAdd);
     }
 }

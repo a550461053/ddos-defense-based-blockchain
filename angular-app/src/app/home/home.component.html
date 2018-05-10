@@ -237,7 +237,7 @@
 					<td  class="allblack" width="48%" >
 						<tr width="100%">
 							<th class="bc text-primary bigfont" width="900" height="40">
-								<a href="http://10.10.28.102:5601/app/kibana#/dashboard/6819d6c0-49cc-11e8-8307-f767eb82464a?_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:'2018-05-01T20:12:12.297Z',mode:absolute,to:'2018-05-01T20:12:50.297Z'))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(darkTheme:!f,hidePanelTitles:!f,useMargins:!t),panels:!((embeddableConfig:(vis:(colors:('114.45.62.3':%2365C5DB))),gridData:(h:3,i:'1',w:6,x:0,y:0),id:'40280fc0-4f52-11e8-8307-f767eb82464a',panelIndex:'1',type:visualization,version:'6.2.4'),(gridData:(h:3,i:'2',w:6,x:6,y:0),id:'1fd446a0-4f55-11e8-8307-f767eb82464a',panelIndex:'2',type:visualization,version:'6.2.4'),(gridData:(h:3,i:'3',w:6,x:0,y:3),id:e54b1e40-4f55-11e8-8307-f767eb82464a,panelIndex:'3',type:visualization,version:'6.2.4'),(gridData:(h:3,i:'4',w:6,x:6,y:3),id:'231376a0-4f56-11e8-8307-f767eb82464a',panelIndex:'4',type:visualization,version:'6.2.4')),query:(language:lucene,query:''),timeRestore:!f,title:Done,viewMode:edit)"
+								<a href="http://10.10.28.102:5601/app/kibana#/dashboard/6819d6c0-49cc-11e8-8307-f767eb82464a?_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:'2018-05-01T20:12:12.255Z',mode:absolute,to:'2018-05-01T20:12:50.255Z'))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(darkTheme:!f,hidePanelTitles:!f,useMargins:!t),panels:!((embeddableConfig:(vis:(colors:('114.45.62.3':%2365C5DB))),gridData:(h:3,i:'1',w:6,x:0,y:0),id:'40280fc0-4f52-11e8-8307-f767eb82464a',panelIndex:'1',type:visualization,version:'6.2.4'),(gridData:(h:3,i:'5',w:6,x:0,y:3),id:f2771bd0-529f-11e8-81c9-d166a5ba4cff,panelIndex:'5',type:visualization,version:'6.2.4'),(gridData:(h:3,i:'6',w:6,x:6,y:0),id:af3fe890-52a6-11e8-81c9-d166a5ba4cff,panelIndex:'6',type:visualization,version:'6.2.4'),(gridData:(h:3,i:'7',w:6,x:6,y:3),id:ba459480-529f-11e8-81c9-d166a5ba4cff,panelIndex:'7',type:visualization,version:'6.2.4')),query:(language:lucene,query:''),timeRestore:!f,title:Done,viewMode:view)"
 									 target="_blank">
 									边缘节点提交针对目标IP的疑似异常
 								</a>
@@ -317,13 +317,13 @@
 									<tr>
 										<th align="center">奖励发起者ID</th>
 										<th align="center">奖励对象ID</th>
-										<th align="center">奖励金额</th>
+										<!--<th align="center">奖励金额</th>-->
 										<th align="center">时间</th>
 									</tr>
 									<tr *ngFor="let log of allLog">
 										<td align="center" class="text-warning">{{log.ownerID}}</td>
 										<td align="center" class="text-warning">{{log.value}}</td>
-										<td align="center" class="text-warning">1coin</td>
+									<!--	<td align="center" class="text-warning">1coin</td>-->
 										<td align="center" class="text-warning">{{log.time|date:'yyyy-MM-dd HH:mm:ss'}}</td>
 									</tr>
 								</table>

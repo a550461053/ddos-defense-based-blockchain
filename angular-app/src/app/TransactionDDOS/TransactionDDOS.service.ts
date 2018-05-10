@@ -10,7 +10,7 @@ import { Energy } from '../org.decentralized.energy.network';
 import { Cash } from '../org.decentralized.energy.network';
 import { Coins } from '../org.decentralized.energy.network';
 
-import { EnergyToDDoS } from '../org.decentralized.energy.network';
+import { AbnorConToDDoS } from '../org.decentralized.energy.network';
 
 import 'rxjs/Rx';
 
@@ -22,13 +22,13 @@ export class TransactionDDOSService {
     private TARGETCOMPANY: string = 'TargetCompany';
     private ENERGY: string = 'Energy';
     private DDOS: string = 'DDoS';
-    private ENERGY_TO_DDOS: string = 'EnergyToDDoS';
+    private ENERGY_TO_DDOS: string = 'AbnorConToDDoS';
 
     constructor(private residentService: DataService<Resident>,
 			private TargetCompanyService: DataService<TargetCompany>,
 			private ddosService: DataService<DDoS>,
 			private energyService: DataService<Energy>,
-			private energyToDDoSService: DataService<EnergyToDDoS>) {
+			private AbnorConToDDoSService: DataService<AbnorConToDDoS>) {
     };
 
     //get all Residents
@@ -58,8 +58,8 @@ export class TransactionDDOSService {
       return this.ddosService.getAll(this.DDOS);
     }
     //create Energy to DDoS transaction
-    public energyToDDoS(itemToAdd: any): Observable<EnergyToDDoS> {
-      return this.energyToDDoSService.add(this.ENERGY_TO_DDOS, itemToAdd);
+    public AbnorConToDDoS(itemToAdd: any): Observable<AbnorConToDDoS> {
+      return this.AbnorConToDDoSService.add(this.ENERGY_TO_DDOS, itemToAdd);
     }
 
 

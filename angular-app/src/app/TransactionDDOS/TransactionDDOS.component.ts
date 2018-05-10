@@ -36,7 +36,7 @@ export class TransactionDDOSComponent {
 	private allDDoS;
 	private ddos;
 
-  private energyToDDoSObj;
+  private AbnorConToDDoSObj;
 
   private transactionID;
 
@@ -291,8 +291,8 @@ async execute(form: any): Promise<any> {
 
 	for (let item of energyInc_list){ // energy_list){
 		//transaction objects
-		this.energyToDDoSObj = {
-			$class: "org.decentralized.energy.network.EnergyToDDoS",
+		this.AbnorConToDDoSObj = {
+			$class: "org.decentralized.energy.network.AbnorConToDDoS",
 			// "energyRate": this.utilityDDoSPerEnergy,
 			// "energyValue": this.energyValue,
 			// "ddosInc": 'resource:org.decentralized.energy.network.DDoS#21', //this.ddosCreditAsset,
@@ -303,17 +303,17 @@ async execute(form: any): Promise<any> {
 
 		let item_process = "resource:" + item['$class'] + '#' + item['energyID'];
 		if (energyInc_list.indexOf(item) != -1){
-				this.energyToDDoSObj["energyInc"] = item_process;
+				this.AbnorConToDDoSObj["energyInc"] = item_process;
 		}
 		// if (energyDec_list.indexOf(item) != -1){
-		// 		this.energyToDDoSObj["energyDec"] = item_process;
+		// 		this.AbnorConToDDoSObj["energyDec"] = item_process;
 		// }
 
 		// !!! 输入的energyInc为resident，也就是提交者
 		let resident_precess = "resource:" + this.resident['$class'] + '#' + this.resident['residentID'];
-		this.energyToDDoSObj["energyInc"] = resident_precess;
+		this.AbnorConToDDoSObj["energyInc"] = resident_precess;
 		// 7. 具体的执行每次交易
-		await this.serviceTransaction.energyToDDoS(this.energyToDDoSObj) //this.energyToDDoSObj
+		await this.serviceTransaction.AbnorConToDDoS(this.AbnorConToDDoSObj) //this.AbnorConToDDoSObj
 	 .toPromise()
 	 .then((result) => {
 		 this.errorMessage = null;
@@ -360,8 +360,8 @@ async execute(form: any): Promise<any> {
 //
 //
 // 			//transaction objects
-// 			this.energyToDDoSObj = {
-// 				$class: "org.decentralized.energy.network.EnergyToDDoS",
+// 			this.AbnorConToDDoSObj = {
+// 				$class: "org.decentralized.energy.network.AbnorConToDDoS",
 // 				// "energyRate": this.utilityDDoSPerEnergy,
 // 				// "energyValue": this.energyValue,
 // 				// "ddosInc": 'resource:org.decentralized.energy.network.DDoS#21', //this.ddosCreditAsset,
@@ -373,7 +373,7 @@ async execute(form: any): Promise<any> {
 //
 //
 // 			// 7. 具体的执行每次交易
-// 			return this.serviceTransaction.energyToDDoS(this.energyToDDoSObj)
+// 			return this.serviceTransaction.AbnorConToDDoS(this.AbnorConToDDoSObj)
 // 		 .toPromise()
 // 		 .then((result) => {
 // 			 this.errorMessage = null;

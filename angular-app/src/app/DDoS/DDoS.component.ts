@@ -16,7 +16,7 @@ export class DDoSComponent implements OnInit {
   private asset;
   private currentId;
 	private errorMessage;
-  private energyToDDoSObj;
+  private AbnorConToDDoSObj;
 
       ddosID = new FormControl("", Validators.required);
       targetIP = new FormControl("", Validators.required);
@@ -35,8 +35,8 @@ export class DDoSComponent implements OnInit {
 
     });
 		//transaction object
-		this.energyToDDoSObj = {
-				$class: "org.decentralized.energy.network.EnergyToDDoS",
+		this.AbnorConToDDoSObj = {
+				$class: "org.decentralized.energy.network.AbnorConToDDoS",
 				"cashRate": 1,
 				"cashValue": 1,
 				"coinsInc": 1,
@@ -264,7 +264,7 @@ location.reload();
 	    //         "ownerEntity":null
 	    //   };
 
-			this.serviceDDoS.energyToDDoS(this.energyToDDoSObj);
+			this.serviceDDoS.AbnorConToDDoS(this.AbnorConToDDoSObj);
   }
 
 }
