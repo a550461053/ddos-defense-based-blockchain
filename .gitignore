@@ -1,2 +1,4 @@
 dist
 composer-logs
+node_modules
+
