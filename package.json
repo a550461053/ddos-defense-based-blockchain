@@ -34,7 +34,7 @@
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
     "composer-admin": "^0.16.0-0",
-    "composer-cli": "^0.16.0-0",
+    "composer-cli": "^0.20.9",
     "composer-client": "^0.16.0-0",
     "composer-connector-embedded": "^0.16.0-0",
     "composer-cucumber-steps": "^0.16.0-0",
